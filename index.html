@@ -1,250 +1,90 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VM Jewels | Bead Accessories</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background: linear-gradient(135deg, #0c1445 0%, #1a237e 50%, #283593 100%);
-            color: #fff;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-            position: relative;
-            overflow-x: hidden;
-        }
-        
-        .stars {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-        
-        .star {
-            position: absolute;
-            background-color: white;
-            border-radius: 50%;
-            animation: twinkle 5s infinite;
-        }
-        
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.2; }
-            50% { opacity: 1; }
-        }
-        
-        .container {
-            max-width: 500px;
-            width: 100%;
-            text-align: center;
-            margin-top: 30px;
-        }
-        
-        .profile {
-            margin-bottom: 30px;
-        }
-        
-        .profile-pic {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 4px solid rgba(255, 255, 255, 0.3);
-            margin: 0 auto 20px;
-            background: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 50px;
-        }
-        
-        h1 {
-            font-size: 28px;
-            margin-bottom: 10px;
-            letter-spacing: 2px;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-        }
-        
-        .tagline {
-            font-size: 18px;
-            margin-bottom: 5px;
-            font-style: italic;
-            color: #e0e0ff;
-        }
-        
-        .description {
-            font-size: 16px;
-            margin-bottom: 30px;
-            color: #c5cae9;
-        }
-        
-        .links {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin-bottom: 40px;
-        }
-        
-        .link {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 12px;
-            padding: 15px 20px;
-            text-decoration: none;
-            color: white;
-            font-weight: 500;
-            font-size: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-        }
-        
-        .link:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-        
-        .link i {
-            font-size: 24px;
-        }
-        
-        .instagram { color: #e4405f; }
-        .youtube { color: #cd201f; }
-        .tiktok { color: #69c9d0; }
-        .whatsapp { color: #25d366; }
-        
-        .footer {
-            margin-top: auto;
-            padding: 20px;
-            text-align: center;
-            font-size: 14px;
-            color: #c5cae9;
-        }
-        
-        .moon {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 80px;
-            height: 80px;
-            background: radial-gradient(circle at 30px 30px, #f5f5f5, #e0e0e0);
-            border-radius: 50%;
-            box-shadow: 0 0 30px rgba(255, 255, 255, 0.7);
-            z-index: -1;
-        }
-        
-        @media (max-width: 600px) {
-            .container {
-                padding: 0 15px;
-            }
-            
-            .profile-pic {
-                width: 120px;
-                height: 120px;
-                font-size: 40px;
-            }
-            
-            h1 {
-                font-size: 24px;
-            }
-            
-            .tagline {
-                font-size: 16px;
-            }
-            
-            .description {
-                font-size: 14px;
-            }
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>VM Jewels — Links</title>
+  <style>
+    :root{--accent:#d4af37;--glass:rgba(255,255,255,0.92)}
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial}
+    body{
+      background: url('background.jpg') center/cover no-repeat fixed;
+      display:flex;align-items:center;justify-content:center;padding:32px;
+    }/* dark transparent overlay to increase contrast */
+.overlay{position:fixed;inset:0;background:linear-gradient(rgba(0,0,0,0.28),rgba(0,0,0,0.28));pointer-events:none}
+
+.card{
+  width:100%;max-width:420px;background:var(--glass);border-radius:16px;padding:28px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.3);backdrop-filter: blur(6px);position:relative;z-index:2
+}
+
+.brand{
+  display:flex;gap:12px;align-items:center;justify-content:center;margin-bottom:14px
+}
+.brand .logo{
+  width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#b8860b);display:grid;place-items:center;color:#fff;font-weight:700;font-size:20px
+}
+.brand h1{margin:0;font-size:20px;letter-spacing:1px}
+.tag{margin-top:6px;font-size:13px;color:#333}
+
+.btns{display:grid;gap:12px;margin-top:12px}
+.btn{display:flex;gap:12px;align-items:center;justify-content:center;padding:12px 16px;border-radius:12px;text-decoration:none;font-weight:600;background:linear-gradient(90deg,#fff,#f6f6f6);color:#111;border:1px solid rgba(0,0,0,0.05)}
+.btn svg{width:20px;height:20px;flex:0 0 20px}
+.btn:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,0,0,.12)}
+
+.secondary{font-size:13px;color:#555;margin-top:12px}
+
+.footer{display:flex;gap:10px;align-items:center;justify-content:center;margin-top:16px;font-size:13px;color:#222}
+
+@media (max-width:420px){body{padding:18px}.card{padding:20px}}
+
+  </style>
 </head>
 <body>
-    <div class="stars" id="stars"></div>
-    <div class="moon"></div>
-    
-    <div class="container">
-        <div class="profile">
-            <div class="profile-pic">
-                <i class="fas fa-gem"></i>
-            </div>
-            <h1>VICTORIA MARTINS</h1>
-            <p class="tagline">Moonlit nights and sparkling dreams</p>
-            <p class="description">Dealer In All Bead Accessories</p>
-        </div>
-        
-        <div class="links">
-            <a href="https://www.instagram.com/vm_jewels" class="link" target="_blank">
-                <i class="fab fa-instagram instagram"></i>
-                Instagram @vm_jewels
-            </a>
-            
-            <a href="https://www.youtube.com/@NJ_martins" class="link" target="_blank">
-                <i class="fab fa-youtube youtube"></i>
-                YouTube @NJ_martins
-            </a>
-            
-            <a href="#" class="link" target="_blank">
-                <i class="fab fa-tiktok tiktok"></i>
-                TikTok
-            </a>
-            
-            <a href="https://wa.me/2347011249065" class="link" target="_blank">
-                <i class="fab fa-whatsapp whatsapp"></i>
-                WhatsApp Orders
-            </a>
-        </div>
-    </div>
-    
-    <div class="footer">
-        <p>+234 701 124 9065</p>
-        <p>© 2023 VM Jewels. All rights reserved.</p>
-    </div>
+  <div class="overlay" aria-hidden="true"></div>
+  <main class="card" role="main">
+    <div class="brand">
+      <div class="logo">VM</div>
+      <div>
+        <h1>Victoria Martins — VM Jewels</h1>
+        <div class="tag">Moonlit nights and sparkling dreams</div>
+      </div>
+    </div><!-- Links list -->
+<div class="btns">
+  <!-- Instagram -->
+  <a class="btn" href="https://instagram.com/vm_jewels" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="3.2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.5 6.5h.01" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Instagram
+  </a>
 
-    <script>
-        // Create twinkling stars
-        const starsContainer = document.getElementById('stars');
-        const starCount = 150;
-        
-        for (let i = 0; i < starCount; i++) {
-            const star = document.createElement('div');
-            star.classList.add('star');
-            
-            // Random position
-            const x = Math.random() * 100;
-            const y = Math.random() * 100;
-            
-            // Random size
-            const size = Math.random() * 3 + 1;
-            
-            // Random animation delay
-            const delay = Math.random() * 5;
-            
-            star.style.left = `${x}%`;
-            star.style.top = `${y}%`;
-            star.style.width = `${size}px`;
-            star.style.height = `${size}px`;
-            star.style.animationDelay = `${delay}s`;
-            
-            starsContainer.appendChild(star);
-        }
-    </script>
-</body>
+  <!-- YouTube -->
+  <a class="btn" href="https://www.youtube.com/@NJ_martins" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 7.2s-.2-1.6-.8-2.3c-.8-.9-1.7-.9-2.1-1C15.9 3.5 12 3.5 12 3.5h0s-3.9 0-6.9.4c-.4.1-1.3.1-2.1 1C2.2 5.6 2 7.2 2 7.2S1.8 9.1 1.8 11v2c0 1.9.2 3.8.2 3.8s.2 1.6.8 2.3c.8.9 1.8.9 2.3 1 1.7.2 7 .4 7 .4s3.9 0 6.9-.4c.4-.1 1.3-.1 2.1-1 .6-.7.8-2.3.8-2.3s.2-1.9.2-3.8v-2c0-1.9-.2-3.8-.2-3.8z" stroke="currentColor" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/><path d="M10 15l5-3-5-3v6z" fill="currentColor"/></svg>
+    YouTube
+  </a>
+
+  <!-- TikTok (generic link; update to your profile) -->
+  <a class="btn" href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2v8a3 3 0 0 0 3 3h3v3a5 5 0 1 1-5-5V2z" stroke="currentColor" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    TikTok
+  </a>
+
+  <!-- WhatsApp order link -->
+  <a class="btn" href="https://wa.me/2347011249065?text=Hi%20VM%20Jewels%2C%20I%20would%20like%20to%20place%20an%20order." target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 11.5a9.5 9.5 0 1 1-2.6-6.2L21 3v8.5z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.5 10.2c.4 1 1.5 1.8 2.8 2.4.9.4 1.6.6 2 .7.5.1 1.1.1 1.6 0 .5-.1.9-.3 1.1-.5.2-.2.2-.4.1-.6-.1-.2-.2-.4-.4-.6-.2-.2-.5-.4-.9-.6-.4-.2-.8-.3-1.2-.5-.4-.2-.8-.4-1.1-.8-.2-.3-.4-.6-.4-1 0-.6.3-1 .8-1.4.5-.3 1-.5 1.6-.6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    WhatsApp — +2347011249065
+  </a>
+</div>
+
+<div class="secondary">Dealer in all bead accessories • Fast WhatsApp orders</div>
+
+<div class="footer">
+  <div>© VM Jewels</div>
+</div>
+
+  </main>  <script>
+    // Small enhancement: if user opens on an unsupported device for TikTok, we could point to TikTok search.
+    // No external libraries required. Replace background.jpg with your provided image file in the same folder.
+  </script></body>
 </html>
