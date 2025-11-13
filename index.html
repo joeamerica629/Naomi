@@ -5,18 +5,14 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Good morning Naomi ♥️</title>
   <style>
-    /* Reset a základní nastavení */
     html,body{
       height:100%;
       margin:0;
       background:#000;
       color:#fff;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
     }
 
-    /* Centrované plátno */
     .center {
       min-height:100%;
       display:grid;
@@ -26,37 +22,38 @@
       box-sizing:border-box;
     }
 
-    /* Velký, responzivní nadpis */
     h1 {
-      margin:0;
-      line-height:1;
-      /* clamp(min, preferred, max) — pěkně škáluje mezi mobilem a desktopem */
+      margin:0 0 1rem 0;
       font-size: clamp(2rem, 10vw, 8rem);
       font-weight:700;
-      letter-spacing: -0.02em;
-      word-break:break-word;
-      text-wrap:balance; /* modern browsers */
-      text-shadow: 0 2px 12px rgba(255,255,255,0.05); /* jemné zvýraznění */
+      line-height:1.1;
     }
 
-    /* menší text pro podporu čteček nebo popisek */
-    .sub {
-      margin-top:0.6rem;
-      font-size: clamp(0.9rem, 2.6vw, 1.25rem);
-      opacity:0.8;
+    a {
+      display:inline-block;
+      margin-top:1rem;
+      font-size: clamp(1.2rem, 3.5vw, 2rem);
+      color:#fff;
+      text-decoration:none;
+      padding:0.5rem 1rem;
+      border:2px solid #fff;
+      border-radius:12px;
+      transition:all 0.25s ease;
     }
 
-    /* Vylepšení pro uživatele, kteří preferují snížené animace */
-    @media (prefers-reduced-motion: no-preference) {
-      h1 { transition: transform 220ms cubic-bezier(.2,.9,.2,1); }
-      .center:hover h1 { transform: scale(1.03); }
+    a:hover {
+      background:#fff;
+      color:#000;
     }
   </style>
 </head>
 <body>
-  <main class="center" role="main" aria-label="Pozdrav Naomi">
-    <h1 aria-live="polite">Good morning Naomi ♥️</h1>
-    <div class="sub" aria-hidden="true">Přeju krásné ráno — naplno a srdcem.</div>
+  <main class="center">
+    <h1>Good morning Naomi ♥️</h1>
+
+    <a href="https://eu.onetimesecret.com/secret/13glbv8r7nav11cb7y07owen8u0pr21" target="_blank">
+      Click and say my name
+    </a>
   </main>
 </body>
 </html>
