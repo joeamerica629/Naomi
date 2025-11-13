@@ -1,59 +1,98 @@
 <!doctype html>
-<html lang="cs">
+
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Good morning Naomi ♥️</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Naomi — Will you be my girlfriend?</title>
   <style>
-    html,body{
-      height:100%;
+    :root{color-scheme: light}
+    html,body{height:100%;}
+    body{
       margin:0;
+      background:#ffffff;
+      color:#000000;
+      font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+    }
+    .wrap{
+      text-align:center;
+      max-width:720px;
+      width:100%;
+    }
+    h1{
+      font-size:clamp(28px,9vw,64px);
+      margin:0;
+      line-height:1.02;
+      font-weight:700;
+    }
+    p.sub{
+      margin:12px 0 0 0;
+      font-size:clamp(16px,4.5vw,22px);
+      opacity:0.9;
+    }
+    .actions{
+      margin-top:20px;
+      display:flex;
+      gap:12px;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+    button{
+      -webkit-tap-highlight-color: transparent;
       background:#000;
       color:#fff;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-    }
-
-    .center {
-      min-height:100%;
-      display:grid;
-      place-items:center;
-      text-align:center;
-      padding:2rem;
-      box-sizing:border-box;
-    }
-
-    h1 {
-      margin:0 0 1rem 0;
-      font-size: clamp(2rem, 10vw, 8rem);
-      font-weight:700;
-      line-height:1.1;
-    }
-
-    a {
-      display:inline-block;
-      margin-top:1rem;
-      font-size: clamp(1.2rem, 3.5vw, 2rem);
-      color:#fff;
-      text-decoration:none;
-      padding:0.5rem 1rem;
-      border:2px solid #fff;
+      border:0;
+      padding:12px 18px;
       border-radius:12px;
-      transition:all 0.25s ease;
+      font-size:16px;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow:0 6px 18px rgba(0,0,0,0.08);
     }
-
-    a:hover {
-      background:#fff;
-      color:#000;
+    button.ghost{background:transparent;color:#000;border:2px solid #000;padding:10px 16px;}
+    .note{margin-top:14px;font-size:13px;color:#222;opacity:0.8}
+    @media (prefers-reduced-motion: no-preference){
+      h1{transform:translateY(8px);opacity:0;animation:floatIn .7s ease-out .15s forwards}
+      p.sub{transform:translateY(8px);opacity:0;animation:floatIn .7s ease-out .25s forwards}
     }
+    @keyframes floatIn{to{transform:none;opacity:1}}
   </style>
 </head>
 <body>
-  <main class="center">
-    <h1>Good morning Naomi ♥️</h1>
+  <div class="wrap">
+    <h1>Naomi,<br>will you be my girlfriend? 💕</h1>
+    <p class="sub">(black on white — optimized for mobile)</p><div class="actions">
+  <button id="copyBtn">Copy message</button>
+  <button class="ghost" id="openFull">Open full screen</button>
+</div>
+<div class="note" id="note">Tap "Copy message" to copy the exact text so you can paste it in a message.</div>
 
-    <a href="https://eu.onetimesecret.com/secret/13glbv8r7nav11cb7y07owen8u0pr21" target="_blank">
-      Click and say my name
-    </a>
-  </main>
-</body>
+  </div>  <script>
+    const text = 'Naomi, will you be my girlfriend? 💕';
+    const copyBtn = document.getElementById('copyBtn');
+    copyBtn.addEventListener('click', async () => {
+      try{
+        await navigator.clipboard.writeText(text);
+        copyBtn.textContent = 'Copied! ✅';
+        setTimeout(()=> copyBtn.textContent = 'Copy message', 2000);
+      }catch(e){
+        copyBtn.textContent = 'Copy failed';
+        console.error(e);
+      }
+    });
+
+    const openFull = document.getElementById('openFull');
+    openFull.addEventListener('click', ()=>{
+      if(screen && screen.orientation && screen.orientation.lock){
+        screen.orientation.lock('portrait').catch(()=>{});
+      }
+      document.documentElement.requestFullscreen?.();
+    });
+  </script></body>
 </html>
