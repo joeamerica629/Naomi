@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Good morning Naomi ♥️</title>
+  <style>
+    /* Reset a základní nastavení */
+    html,body{
+      height:100%;
+      margin:0;
+      background:#000;
+      color:#fff;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+    }
+
+    /* Centrované plátno */
+    .center {
+      min-height:100%;
+      display:grid;
+      place-items:center;
+      text-align:center;
+      padding:2rem;
+      box-sizing:border-box;
+    }
+
+    /* Velký, responzivní nadpis */
+    h1 {
+      margin:0;
+      line-height:1;
+      /* clamp(min, preferred, max) — pěkně škáluje mezi mobilem a desktopem */
+      font-size: clamp(2rem, 10vw, 8rem);
+      font-weight:700;
+      letter-spacing: -0.02em;
+      word-break:break-word;
+      text-wrap:balance; /* modern browsers */
+      text-shadow: 0 2px 12px rgba(255,255,255,0.05); /* jemné zvýraznění */
+    }
+
+    /* menší text pro podporu čteček nebo popisek */
+    .sub {
+      margin-top:0.6rem;
+      font-size: clamp(0.9rem, 2.6vw, 1.25rem);
+      opacity:0.8;
+    }
+
+    /* Vylepšení pro uživatele, kteří preferují snížené animace */
+    @media (prefers-reduced-motion: no-preference) {
+      h1 { transition: transform 220ms cubic-bezier(.2,.9,.2,1); }
+      .center:hover h1 { transform: scale(1.03); }
+    }
+  </style>
+</head>
+<body>
+  <main class="center" role="main" aria-label="Pozdrav Naomi">
+    <h1 aria-live="polite">Good morning Naomi ♥️</h1>
+    <div class="sub" aria-hidden="true">Přeju krásné ráno — naplno a srdcem.</div>
+  </main>
+</body>
+</html>
