@@ -1,72 +1,250 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Naomi — Will you be my girlfriend?</title>
-  <style>
-    :root{color-scheme: light}
-    html,body{height:100%;}
-    body{
-      margin:0;
-      background:#ffffff;
-      color:#000000;
-      font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:20px;
-      -webkit-font-smoothing:antialiased;
-      text-rendering:optimizeLegibility;
-    }
-    .wrap{
-      text-align:center;
-      max-width:720px;
-      width:100%;
-    }
-    h1{
-      font-size:clamp(28px,9vw,64px);
-      margin:0;
-      line-height:1.02;
-      font-weight:700;
-    }
-    p.sub{
-      margin:12px 0 0 0;
-      font-size:clamp(16px,4.5vw,22px);
-      opacity:0.9;
-    }
-    .actions{
-      margin-top:20px;
-      display:flex;
-      gap:12px;
-      justify-content:center;
-      flex-wrap:wrap;
-    }
-    button{
-      -webkit-tap-highlight-color: transparent;
-      background:#000;
-      color:#fff;
-      border:0;
-      padding:12px 18px;
-      border-radius:12px;
-      font-size:16px;
-      font-weight:600;
-      cursor:pointer;
-      box-shadow:0 6px 18px rgba(0,0,0,0.08);
-    }
-    button.ghost{background:transparent;color:#000;border:2px solid #000;padding:10px 16px;}
-    .note{margin-top:14px;font-size:13px;color:#222;opacity:0.8}
-    @media (prefers-reduced-motion: no-preference){
-      h1{transform:translateY(8px);opacity:0;animation:floatIn .7s ease-out .15s forwards}
-      p.sub{transform:translateY(8px);opacity:0;animation:floatIn .7s ease-out .25s forwards}
-    }
-    @keyframes floatIn{to{transform:none;opacity:1}}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VM Jewels | Bead Accessories</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0c1445 0%, #1a237e 50%, #283593 100%);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .star {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            animation: twinkle 5s infinite;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 1; }
+        }
+        
+        .container {
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .profile {
+            margin-bottom: 30px;
+        }
+        
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            margin: 0 auto 20px;
+            background: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 50px;
+        }
+        
+        h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+        
+        .tagline {
+            font-size: 18px;
+            margin-bottom: 5px;
+            font-style: italic;
+            color: #e0e0ff;
+        }
+        
+        .description {
+            font-size: 16px;
+            margin-bottom: 30px;
+            color: #c5cae9;
+        }
+        
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+        
+        .link {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 15px 20px;
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .link i {
+            font-size: 24px;
+        }
+        
+        .instagram { color: #e4405f; }
+        .youtube { color: #cd201f; }
+        .tiktok { color: #69c9d0; }
+        .whatsapp { color: #25d366; }
+        
+        .footer {
+            margin-top: auto;
+            padding: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #c5cae9;
+        }
+        
+        .moon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle at 30px 30px, #f5f5f5, #e0e0e0);
+            border-radius: 50%;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.7);
+            z-index: -1;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .profile-pic {
+                width: 120px;
+                height: 120px;
+                font-size: 40px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+            
+            .tagline {
+                font-size: 16px;
+            }
+            
+            .description {
+                font-size: 14px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="wrap">
-    <h1>Naomi,<br>will you be my girlfriend? 💕</h1>
-  </div>
+    <div class="stars" id="stars"></div>
+    <div class="moon"></div>
+    
+    <div class="container">
+        <div class="profile">
+            <div class="profile-pic">
+                <i class="fas fa-gem"></i>
+            </div>
+            <h1>VICTORIA MARTINS</h1>
+            <p class="tagline">Moonlit nights and sparkling dreams</p>
+            <p class="description">Dealer In All Bead Accessories</p>
+        </div>
+        
+        <div class="links">
+            <a href="https://www.instagram.com/vm_jewels" class="link" target="_blank">
+                <i class="fab fa-instagram instagram"></i>
+                Instagram @vm_jewels
+            </a>
+            
+            <a href="https://www.youtube.com/@NJ_martins" class="link" target="_blank">
+                <i class="fab fa-youtube youtube"></i>
+                YouTube @NJ_martins
+            </a>
+            
+            <a href="#" class="link" target="_blank">
+                <i class="fab fa-tiktok tiktok"></i>
+                TikTok
+            </a>
+            
+            <a href="https://wa.me/2347011249065" class="link" target="_blank">
+                <i class="fab fa-whatsapp whatsapp"></i>
+                WhatsApp Orders
+            </a>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>+234 701 124 9065</p>
+        <p>© 2023 VM Jewels. All rights reserved.</p>
+    </div>
+
+    <script>
+        // Create twinkling stars
+        const starsContainer = document.getElementById('stars');
+        const starCount = 150;
+        
+        for (let i = 0; i < starCount; i++) {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            
+            // Random position
+            const x = Math.random() * 100;
+            const y = Math.random() * 100;
+            
+            // Random size
+            const size = Math.random() * 3 + 1;
+            
+            // Random animation delay
+            const delay = Math.random() * 5;
+            
+            star.style.left = `${x}%`;
+            star.style.top = `${y}%`;
+            star.style.width = `${size}px`;
+            star.style.height = `${size}px`;
+            star.style.animationDelay = `${delay}s`;
+            
+            starsContainer.appendChild(star);
+        }
+    </script>
 </body>
 </html>
