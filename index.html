@@ -4,53 +4,61 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>VM Jewels — Links</title>
-  <style>
-    :root{--accent:#d4af37;--text:#111}
+  <title>VM Jewels — Links</title>  <!-- Favicon (logo in browser tab) -->  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="shortcut icon" href="favicon.png">  <style>
+    :root{--accent:#d4af37;--text:#ffffff}
     *{box-sizing:border-box}
     html,body{height:100%;margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial}
     body{
       background: url('background.jpg') center/cover no-repeat fixed;
       display:flex;align-items:center;justify-content:center;padding:32px;color:var(--text);
-    }/* semi-transparent overlay to improve text contrast without a solid box */
-.veil{position:fixed;inset:0;background:linear-gradient(rgba(0,0,0,0.08),rgba(0,0,0,0.08));pointer-events:none}
+    }
 
-.container{
-  width:100%;max-width:420px;padding:18px;text-align:center;z-index:2
-}
+    /* Soft overlay for readability */
+    .veil{position:fixed;inset:0;background:linear-gradient(rgba(0,0,0,0.12),rgba(0,0,0,0.12));pointer-events:none}
 
-.brand{margin-bottom:18px}
-.brand h1{margin:0;font-size:22px;letter-spacing:1px;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.45)}
-.tag{margin-top:6px;font-size:13px;color:#fff;opacity:.9}
+    .container{
+      width:100%;max-width:420px;padding:18px;text-align:center;z-index:2
+    }
 
-/* Buttons laid directly on the satin background (no white box) */
-.btns{display:grid;gap:12px;margin-top:8px}
-.btn{display:block;padding:14px 16px;border-radius:12px;text-decoration:none;font-weight:700;background:linear-gradient(180deg,rgba(0,0,0,0.18),rgba(0,0,0,0.12));color:#fff;border:2px solid rgba(212,175,55,0.95);text-align:center;backdrop-filter: blur(4px);}
-.btn:active{transform:translateY(1px)}
+    .brand img{
+      width:160px;max-width:70%;margin-bottom:10px;
+      filter:drop-shadow(0 4px 10px rgba(0,0,0,0.45));
+    }
+    .tag{margin-top:6px;font-size:13px;color:#fff;opacity:.9;text-shadow:0 2px 6px rgba(0,0,0,.4)}
 
-.sub{margin-top:12px;font-size:13px;color:#fff;opacity:.95}
+    /* Buttons on the satin background */
+    .btns{display:grid;gap:12px;margin-top:12px}
+    .btn{
+      display:block;padding:14px 16px;border-radius:12px;text-decoration:none;font-weight:700;
+      background:linear-gradient(180deg,rgba(0,0,0,0.18),rgba(0,0,0,0.12));
+      color:#fff;border:2px solid rgba(212,175,55,0.95);
+      backdrop-filter: blur(4px);
+      text-align:center;
+    }
+    .btn:hover{transform:translateY(-2px)}
+    .btn:active{transform:translateY(1px)}
 
-.footer{display:flex;gap:10px;align-items:center;justify-content:center;margin-top:16px;font-size:13px;color:#fff}
+    .sub{margin-top:12px;font-size:13px;color:#fff;opacity:.95;text-shadow:0 2px 5px rgba(0,0,0,.4)}
+    .footer{margin-top:16px;font-size:13px;color:#fff}
 
-@media (max-width:420px){body{padding:18px}.container{padding:8px}}
+    @media(max-width:420px){body{padding:18px}}
+  </style></head><body>
+  <div class="veil" aria-hidden="true"></div>  <main class="container" role="main"><!-- Logo + slogan -->
+<header class="brand">
+  <img src="logo.png" alt="VM Jewels Logo">
+  <div class="tag">Moonlit nights and sparkling dreams</div>
+</header>
 
-  </style>
-</head>
-<body>
-  <div class="veil" aria-hidden="true"></div>
-  <main class="container" role="main">
-    <header class="brand">
-      <h1>Victoria Martins — VM Jewels</h1>
-      <div class="tag">Moonlit nights and sparkling dreams</div>
-    </header><nav class="btns" aria-label="links">
-  <a class="btn" href="https://instagram.com/vm__jewels" target="_blank" rel="noopener noreferrer">Instagram</a>
-  <a class="btn" href="https://www.youtube.com/@NJ_martins" target="_blank" rel="noopener noreferrer">YouTube</a>
-  <a class="btn" href="https://www.tiktok.com/" target="@vm_jewels" rel="noopener noreferrer">TikTok</a>
-  <a class="btn" href="https://wa.me/2347011249065?text=Hi%20VM%20Jewels%2C%20I%20would%20like%20to%20place%20an%20order." target="_blank" rel="noopener noreferrer">WhatsApp — +2347011249065</a>
+<!-- Buttons -->
+<nav class="btns" aria-label="links">
+  <a class="btn" href="https://instagram.com/vm_jewels" target="_blank">Instagram</a>
+  <a class="btn" href="https://www.youtube.com/@NJ_martins" target="_blank">YouTube</a>
+  <a class="btn" href="https://www.tiktok.com/@vm_jewels" target="_blank">TikTok</a>
+  <a class="btn" href="https://wa.me/2347011249065?text=Hi%20VM%20Jewels%2C%20I%20would%20like%20to%20place%20an%20order." target="_blank">WhatsApp — +2347011249065</a>
 </nav>
 
 <div class="sub">Dealer in all bead accessories • Fast WhatsApp orders</div>
-
 <div class="footer">© VM Jewels</div>
 
   </main>
