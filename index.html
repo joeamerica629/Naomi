@@ -67,32 +67,6 @@
 <body>
   <div class="wrap">
     <h1>Naomi,<br>will you be my girlfriend? 💕</h1>
-    <p class="sub">(black on white — optimized for mobile)</p><div class="actions">
-  <button id="copyBtn">Copy message</button>
-  <button class="ghost" id="openFull">Open full screen</button>
-</div>
-<div class="note" id="note">Tap "Copy message" to copy the exact text so you can paste it in a message.</div>
-
-  </div>  <script>
-    const text = 'Naomi, will you be my girlfriend? 💕';
-    const copyBtn = document.getElementById('copyBtn');
-    copyBtn.addEventListener('click', async () => {
-      try{
-        await navigator.clipboard.writeText(text);
-        copyBtn.textContent = 'Copied! ✅';
-        setTimeout(()=> copyBtn.textContent = 'Copy message', 2000);
-      }catch(e){
-        copyBtn.textContent = 'Copy failed';
-        console.error(e);
-      }
-    });
-
-    const openFull = document.getElementById('openFull');
-    openFull.addEventListener('click', ()=>{
-      if(screen && screen.orientation && screen.orientation.lock){
-        screen.orientation.lock('portrait').catch(()=>{});
-      }
-      document.documentElement.requestFullscreen?.();
-    });
-  </script></body>
+  </div>
+</body>
 </html>
