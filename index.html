@@ -1,15 +1,11 @@
 <!doctype html>
-
-<html lang="en">
+<html lang="cs">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>VM Jewels — Links</title>
-
-  <!-- Favicon (logo in browser tab) -->
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="shortcut icon" href="favicon.png">
-
   <style>
     :root{--accent:#d4af37;--text:#ffffff}
     *{box-sizing:border-box}
@@ -19,17 +15,40 @@
       display:flex;align-items:center;justify-content:center;padding:32px;color:var(--text);
     }
 
+    /* Soft overlay for readability */
     .veil{position:fixed;inset:0;background:linear-gradient(rgba(0,0,0,0.12),rgba(0,0,0,0.12));pointer-events:none}
 
-    .container{width:100%;max-width:420px;padding:18px;text-align:center;z-index:2}
+    .container{
+      width:100%;max-width:520px;padding:18px;text-align:center;z-index:2
+    }
+
+    .brand{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:8px;
+      margin-bottom:6px;
+    }
 
     .brand img{
-      width:160px;max-width:70%;margin-bottom:10px;
+      width:130px;max-width:70%;
       filter:drop-shadow(0 4px 10px rgba(0,0,0,0.45));
     }
 
-    .tag{margin-top:6px;font-size:13px;color:#fff;opacity:.9;text-shadow:0 2px 6px rgba(0,0,0,.4)}
+    /* NEW: big headline */
+    .headline{
+      font-size:28px;
+      font-weight:900;
+      color:var(--accent);
+      letter-spacing:0.6px;
+      text-transform:uppercase;
+      text-shadow:0 3px 10px rgba(0,0,0,0.5);
+      margin:0;
+    }
 
+    .tag{margin-top:6px;font-size:13px;color:#fff;opacity:.95;text-shadow:0 2px 6px rgba(0,0,0,.4)}
+
+    /* Buttons on the satin background */
     .btns{display:grid;gap:12px;margin-top:12px}
     .btn{
       display:block;padding:14px 16px;border-radius:12px;text-decoration:none;font-weight:700;
@@ -44,24 +63,27 @@
     .sub{margin-top:12px;font-size:13px;color:#fff;opacity:.95;text-shadow:0 2px 5px rgba(0,0,0,.4)}
     .footer{margin-top:16px;font-size:13px;color:#fff}
 
-    @media(max-width:420px){body{padding:18px}}
+    @media(max-width:420px){
+      body{padding:18px}
+      .headline{font-size:22px}
+      .brand img{width:110px}
+    }
   </style>
 </head>
-
 <body>
   <div class="veil" aria-hidden="true"></div>
 
   <main class="container" role="main">
-
-    <!-- Logo + slogan -->
+    <!-- Logo + big headline -->
     <header class="brand">
       <img src="logo.png" alt="VM Jewels Logo">
+      <h1 class="headline">Victoria Martins</h1>
       <div class="tag">Moonlit nights and sparkling dreams</div>
     </header>
 
     <!-- Buttons -->
     <nav class="btns" aria-label="links">
-      <a class="btn" href="/products">Products</a>
+      <a class="btn" href="products.html">Products</a>
       <a class="btn" href="https://instagram.com/vm__jewels" target="_blank">Instagram</a>
       <a class="btn" href="https://www.youtube.com/@NJ_martins" target="_blank">YouTube</a>
       <a class="btn" href="https://www.tiktok.com/@nj_martins" target="_blank">TikTok</a>
@@ -70,7 +92,6 @@
 
     <div class="sub">Dealer in all bead accessories • Fast WhatsApp orders</div>
     <div class="footer">© VM Jewels</div>
-
   </main>
 </body>
 </html>
