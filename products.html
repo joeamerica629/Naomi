@@ -1,6 +1,5 @@
 <!doctype html>
-
-<html lang="cs">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -14,32 +13,33 @@
       background: url('background.jpg') center/cover no-repeat fixed;
       padding:32px;display:flex;align-items:flex-start;justify-content:center;
     }
-    .veil{position:fixed;inset:0;background:linear-gradient(var(--bg-overlay),var(--bg-overlay));pointer-events:none}.wrap{width:100%;max-width:1100px;margin:0 auto;z-index:2}
-header.brand{display:flex;align-items:center;gap:16px}
-header.brand img{width:120px;max-width:28%;filter:drop-shadow(0 4px 10px rgba(0,0,0,0.45))}
-header .title{font-size:20px;font-weight:800}
-header .desc{font-size:13px;opacity:.9}
+    .veil{position:fixed;inset:0;background:linear-gradient(var(--bg-overlay),var(--bg-overlay));pointer-events:none}
+    .wrap{width:100%;max-width:1100px;margin:0 auto;z-index:2}
 
-.controls{display:flex;gap:12px;align-items:center;margin:18px 0}
-.btn{display:inline-block;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700;background:linear-gradient(180deg,rgba(0,0,0,0.18),rgba(0,0,0,0.12));color:#fff;border:2px solid rgba(212,175,55,0.95);backdrop-filter: blur(4px)}
+    header.brand{display:flex;align-items:center;gap:16px}
+    header.brand img{width:120px;max-width:28%;filter:drop-shadow(0 4px 10px rgba(0,0,0,0.45))}
+    header .title{font-size:20px;font-weight:800}
+    header .desc{font-size:13px;opacity:.9}
 
-/* Grid */
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
-.card{background:linear-gradient(180deg,rgba(0,0,0,0.18),rgba(0,0,0,0.06));border-radius:12px;padding:12px;text-align:center;border:1px solid rgba(255,255,255,0.06)}
-.card img{width:100%;height:160px;object-fit:cover;border-radius:8px;margin-bottom:10px}
-.card h3{margin:6px 0;font-size:16px}
-.price{font-weight:800;color:var(--accent);margin-bottom:8px}
-.mini{font-size:13px;opacity:.9}
+    .controls{display:flex;gap:12px;align-items:center;margin:18px 0}
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700;background:linear-gradient(180deg,rgba(0,0,0,0.18),rgba(0,0,0,0.12));color:#fff;border:2px solid rgba(212,175,55,0.95);backdrop-filter: blur(4px)}
 
-/* Modal simple */
-.modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.6);z-index:40}
-.modal.open{display:flex}
-.modal img{max-width:95%;max-height:85%;border-radius:8px;box-shadow:0 10px 40px rgba(0,0,0,0.6)}
+    /* Grid */
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+    .card{background:linear-gradient(180deg,rgba(0,0,0,0.18),rgba(0,0,0,0.06));border-radius:12px;padding:12px;text-align:center;border:1px solid rgba(255,255,255,0.06)}
+    .card img{width:100%;height:160px;object-fit:cover;border-radius:8px;margin-bottom:10px}
+    .card h3{margin:6px 0;font-size:16px}
+    .price{font-weight:800;color:var(--accent);margin-bottom:8px}
+    .mini{font-size:13px;opacity:.9}
 
-.back-link{margin-top:18px;display:inline-block}
+    /* Modal simple */
+    .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.6);z-index:40}
+    .modal.open{display:flex}
+    .modal img{max-width:95%;max-height:85%;border-radius:8px;box-shadow:0 10px 40px rgba(0,0,0,0.6)}
 
-@media(max-width:600px){body{padding:18px}.card img{height:140px}}
+    .back-link{margin-top:18px;display:inline-block}
 
+    @media(max-width:600px){body{padding:18px}.card img{height:140px}}
   </style>
 </head>
 <body>
@@ -48,99 +48,106 @@ header .desc{font-size:13px;opacity:.9}
     <header class="brand">
       <img src="logo.png" alt="VM Jewels Logo" />
       <div>
-        <div class="title">VM Jewels — Produkty</div>
-        <div class="desc">Vyber si krásný kousky. Klikni na fotku pro detail.</div>
+        <div class="title">VM Jewels — Products</div>
+        <div class="desc">Choose beautiful pieces. Click an image for details.</div>
       </div>
-    </header><div class="controls">
-  <a class="btn" href="/">Zpět</a>
-  <!-- Tady můžeš přidat filtrování nebo řazení později -->
-</div>
+    </header>
 
-<!-- Grid produktů: duplikuj .card a uprav img src, název, cenu a odkaz -->
-<section class="grid" aria-label="produkty">
+    <div class="controls">
+      <a class="btn" href="/">Back</a>
+      <!-- You can add filtering or sorting here later -->
+    </div>
 
-  <article class="card">
-    <a href="products/p1.html">
-      <img src="products/p1t.jpg" alt="P1" loading="lazy" />
-    </a>
-    <h3>P1</h3>
-    <div class="price">₦ —</div>
-    <div class="mini">Popis produktu</div>
-  </article>
+    <!-- Product grid: duplicate .card and adjust img src, name, price and link -->
+    <section class="grid" aria-label="products">
 
-  <article class="card">
-    <a href="products/p2.html">
-      <img src="products/p2t.jpg" alt="P2" loading="lazy" />
-    </a>
-    <h3>P2</h3>
-    <div class="price">₦ —</div>
-    <div class="mini">Popis produktu</div>
-  </article>
+      <article class="card">
+        <a href="products/p1.html">
+          <img src="products/p1t.png" alt="P1" loading="lazy" />
+        </a>
+        <h3>P1</h3>
+        <div class="price">₦ —</div>
+        <div class="mini">Product description</div>
+      </article>
 
-  <article class="card">
-    <a href="products/p3.html">
-      <img src="products/p3t.jpg" alt="P3" loading="lazy" />
-    </a>
-    <h3>P3</h3>
-    <div class="price">₦ —</div>
-    <div class="mini">Popis produktu</div>
-  </article>
+      <article class="card">
+        <a href="products/p2.html">
+          <img src="products/p2t.png" alt="P2" loading="lazy" />
+        </a>
+        <h3>P2</h3>
+        <div class="price">₦ —</div>
+        <div class="mini">Product description</div>
+      </article>
 
-  <article class="card">
-    <a href="products/p4.html">
-      <img src="products/p4t.jpg" alt="P4" loading="lazy" />
-    </a>
-    <h3>P4</h3>
-    <div class="price">₦ —</div>
-    <div class="mini">Popis produktu</div>
-  </article>
+      <article class="card">
+        <a href="products/p3.html">
+          <img src="products/p3t.png" alt="P3" loading="lazy" />
+        </a>
+        <h3>P3</h3>
+        <div class="price">₦ —</div>
+        <div class="mini">Product description</div>
+      </article>
 
-  <article class="card">
-    <a href="products/p5.html">
-      <img src="products/p5t.jpg" alt="P5" loading="lazy" />
-    </a>
-    <h3>P5</h3>
-    <div class="price">₦ —</div>
-    <div class="mini">Popis produktu</div>
-  </article>
+      <article class="card">
+        <a href="products/p4.html">
+          <img src="products/p4t.png" alt="P4" loading="lazy" />
+        </a>
+        <h3>P4</h3>
+        <div class="price">₦ —</div>
+        <div class="mini">Product description</div>
+      </article>
 
-  <article class="card">
-    <a href="products/p6.html">
-      <img src="products/p6t.jpg" alt="P6" loading="lazy" />
-    </a>
-    <h3>P6</h3>
-    <div class="price">₦ —</div>
-    <div class="mini">Popis produktu</div>
-  </article>
+      <article class="card">
+        <a href="products/p5.html">
+          <img src="products/p5t.png" alt="P5" loading="lazy" />
+        </a>
+        <h3>P5</h3>
+        <div class="price">₦ —</div>
+        <div class="mini">Product description</div>
+      </article>
 
-  <article class="card">
-    <a href="products/p7.html">
-      <img src="products/p7t.jpg" alt="P7" loading="lazy" />
-    </a>
-    <h3>P7</h3>
-    <div class="price">₦ —</div>
-    <div class="mini">Popis produktu</div>
-  </article>
+      <article class="card">
+        <a href="products/p6.html">
+          <img src="products/p6t.png" alt="P6" loading="lazy" />
+        </a>
+        <h3>P6</h3>
+        <div class="price">₦ —</div>
+        <div class="mini">Product description</div>
+      </article>
 
-  <article class="card">
-    <a href="products/p8.html">
-      <img src="products/p8t.jpg" alt="P8" loading="lazy" />
-    </a>
-    <h3>P8</h3>
-    <div class="price">₦ —</div>
-    <div class="mini">Popis produktu</div>
-  </article>
+      <article class="card">
+        <a href="products/p7.html">
+          <img src="products/p7t.png" alt="P7" loading="lazy" />
+        </a>
+        <h3>P7</h3>
+        <div class="price">₦ —</div>
+        <div class="mini">Product description</div>
+      </article>
 
-</section>
+      <article class="card">
+        <a href="products/p8.html">
+          <img src="products/p8t.png" alt="P8" loading="lazy" />
+        </a>
+        <h3>P8</h3>
+        <div class="price">₦ —</div>
+        <div class="mini">Product description</div>
+      </article>
 
-<div class="back-link">
-  <a class="btn" href="/">Zpět na links</a>
-</div>
+    </section>
 
-  </div>  <!-- Jednoduché zvětšení obrázku: klikni na obrázek a otevře se modal -->  <div id="lightbox" class="modal" role="dialog" aria-hidden="true">
+    <div class="back-link">
+      <a class="btn" href="/">Back to links</a>
+    </div>
+  </div>
+
+  <!-- Lightbox: click a grid image to open modal with the full image -->
+  <div id="lightbox" class="modal" role="dialog" aria-hidden="true">
     <img id="lightbox-img" src="" alt="" />
-  </div>  <script>
-    // Lightbox behavior: click na obrázek v .grid otevře modal s velkou fotkou
+  </div>
+
+  <script>
+    // Lightbox behavior: click an image inside .card opens modal with the full photo.
+    // Works with thumbs named like "p1t.png" and full images "p1.png".
     document.addEventListener('click', function(e){
       const img = e.target.closest('.card img');
       const lightbox = document.getElementById('lightbox');
@@ -148,21 +155,27 @@ header .desc{font-size:13px;opacity:.9}
 
       if(img){
         e.preventDefault();
-        // předpoklad: pokud má thumb název "*-thumb.jpg", nahradíme "-thumb" pro větší verzi
-        const src = img.getAttribute('src').replace('-thumb','');
-        lightboxImg.src = src;
+        const src = img.getAttribute('src');
+        // Replace trailing "t" before the file extension to get the full image:
+        // e.g. "products/p1t.png" -> "products/p1.png"
+        const full = src.replace(/t(\.[^/.]+)$/, '$1');
+        lightboxImg.src = full;
         lightbox.classList.add('open');
         lightbox.setAttribute('aria-hidden','false');
         return;
       }
 
-      // zavřít klikem mimo obrázek
+      // close modal by clicking outside the image
       if(e.target === lightbox){
         lightbox.classList.remove('open');
         lightbox.setAttribute('aria-hidden','true');
         lightboxImg.src = '';
       }
     });
+  </script>
+</body>
+</html>
+
 
     // Doporučení: vytvoř ve složce /products thumb a full verze obrázků: e.g. "necklace-001-thumb.jpg" a "necklace-001.jpg"
   </script></body>
