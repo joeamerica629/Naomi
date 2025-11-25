@@ -239,3 +239,66 @@ document.addEventListener('DOMContentLoaded', function() {
         orderForm.addEventListener('submit', handleOrderForm);
     }
 });
+
+// Enhanced form label handling
+function fixFormLabels() {
+    const formGroups = document.querySelectorAll('.form-group');
+    
+    formGroups.forEach(group => {
+        const input = group.querySelector('input, textarea');
+        const label = group.querySelector('label');
+        
+        if (input && label) {
+            // Check if input has value on page load
+            if (input.value.trim() !== '') {
+                label.style.top = '-20px';
+                label.style.fontSize = '12px';
+                label.style.color = 'var(--primary-gold)';
+            }
+            
+            // Also handle readonly fields specifically
+            if (input.hasAttribute('readonly') && input.value.trim() !== '') {
+                label.style.top = '-20px';
+                label.style.fontSize = '12px';
+                label.style.color = 'var(--primary-gold)';
+            }
+        }
+    });
+}
+
+// Update the prefillOrderForm function
+function prefillOrderForm() {
+    const productName = localStorage.getItem('selectedProduct');
+    const productPrice = localStorage.getItem('selectedPrice');
+    
+    if (productName && productPrice) {
+        document.getElementById('product').value = productName;
+        document.getElementById('price').value = productPrice;
+        document.getElementById('order-product').value = productName;
+        document.getElementById('order-price').value = `$${parseFloat(productPrice).toFixed(2)}`;
+        
+        // Fix the labels after pre-filling
+        setTimeout(fixFormLabels, 100);
+        
+        // Clear localStorage
+        localStorage.removeItem('selectedProduct');
+        localStorage.removeItem('selectedPrice');
+    }
+}
+
+// Update the event listeners to include fixFormLabels
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize products on shop page
+    if (productGrid) {
+        displayProducts();
+    }
+    
+    // Prefill order form on contact page
+    if (window.location.pathname.includes('contact.html')) {
+        prefillOrderForm();
+        // Also fix labels on page load
+        setTimeout(fixFormLabels, 200);
+    }
+    
+    // ... rest of your existing code ...
+});
