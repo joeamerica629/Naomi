@@ -156,6 +156,28 @@ function prefillOrderForm() {
         localStorage.removeItem('selectedProduct');
         localStorage.removeItem('selectedPrice');
     }
+    
+    // Always fix labels on contact page load
+    setTimeout(fixFormLabels, 100);
+}
+
+// Enhanced form label handling
+function fixFormLabels() {
+    const formGroups = document.querySelectorAll('.form-group');
+    
+    formGroups.forEach(group => {
+        const input = group.querySelector('input, textarea');
+        const label = group.querySelector('label');
+        
+        if (input && label) {
+            // Check if input has value on page load
+            if (input.value.trim() !== '') {
+                label.classList.add('active');
+            } else {
+                label.classList.remove('active');
+            }
+        }
+    });
 }
 
 // Filter products
@@ -171,16 +193,20 @@ function filterProducts(e) {
 
 // Show mobile navigation
 function showMobileNav() {
-    mobileNav.classList.add('active');
-    mobileNavOverlay.classList.add('active');
-    document.body.style.overflow = 'hidden';
+    if (mobileNav) {
+        mobileNav.classList.add('active');
+        mobileNavOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
 }
 
 // Hide mobile navigation
 function hideMobileNav() {
-    mobileNav.classList.remove('active');
-    mobileNavOverlay.classList.remove('active');
-    document.body.style.overflow = 'auto';
+    if (mobileNav) {
+        mobileNav.classList.remove('active');
+        mobileNavOverlay.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
 }
 
 // Handle order form submission
@@ -188,9 +214,9 @@ function handleOrderForm(e) {
     e.preventDefault();
     
     // Get form data
-    const formData = new FormData(e.target);
-    const email = formData.get('email');
-    const phone = formData.get('phone');
+    const form = e.target;
+    const email = form.querySelector('#order-email').value;
+    const phone = form.querySelector('#order-phone').value;
     
     // Validate contact info (either email or phone)
     if (!email && !phone) {
@@ -198,8 +224,99 @@ function handleOrderForm(e) {
         return false;
     }
     
-    // Formspree will handle the submission
-    return true;
+    // Show loading state
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = 'Submitting Order...';
+    submitBtn.disabled = true;
+    
+    // Submit to Formspree using fetch API
+    const formData = new FormData(form);
+    
+    fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+            'Accept': 'application/json'
+        }
+    })
+    .then(response => {
+        if (response.ok) {
+            // Success - show confirmation
+            showOrderSuccess();
+            form.reset();
+            fixFormLabels(); // Reset labels
+        } else {
+            // Error
+            showOrderError();
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        showOrderError();
+    })
+    .finally(() => {
+        // Reset button state
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+    });
+    
+    return false;
+}
+
+// Show success message
+function showOrderSuccess() {
+    // Create success message
+    const successMessage = document.createElement('div');
+    successMessage.className = 'success-message';
+    successMessage.innerHTML = `
+        <div class="success-content">
+            <i class="fas fa-check-circle"></i>
+            <h3>Order Submitted Successfully!</h3>
+            <p>Thank you for your order. We will contact you shortly to confirm your order details and discuss delivery options.</p>
+            <button onclick="this.parentElement.parentElement.remove()" class="btn">OK</button>
+        </div>
+    `;
+    
+    document.body.appendChild(successMessage);
+}
+
+// Show error message
+function showOrderError() {
+    alert('There was an error submitting your order. Please try again or contact us directly at +234 701 124 9065.');
+}
+
+// Initialize form field interactions
+function initializeFormFields() {
+    const formGroups = document.querySelectorAll('.form-group');
+    
+    formGroups.forEach(group => {
+        const input = group.querySelector('input, textarea');
+        const label = group.querySelector('label');
+        
+        if (input && label) {
+            // Handle input events
+            input.addEventListener('input', function() {
+                if (this.value) {
+                    label.classList.add('active');
+                } else {
+                    label.classList.remove('active');
+                }
+            });
+            
+            // Handle focus events
+            input.addEventListener('focus', function() {
+                label.classList.add('active');
+            });
+            
+            // Handle blur events
+            input.addEventListener('blur', function() {
+                if (!this.value) {
+                    label.classList.remove('active');
+                }
+            });
+        }
+    });
 }
 
 // Event listeners
@@ -212,6 +329,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Prefill order form on contact page
     if (window.location.pathname.includes('contact.html')) {
         prefillOrderForm();
+        initializeFormFields();
     }
     
     // Add filter button listeners
@@ -238,67 +356,4 @@ document.addEventListener('DOMContentLoaded', function() {
     if (orderForm) {
         orderForm.addEventListener('submit', handleOrderForm);
     }
-});
-
-// Enhanced form label handling
-function fixFormLabels() {
-    const formGroups = document.querySelectorAll('.form-group');
-    
-    formGroups.forEach(group => {
-        const input = group.querySelector('input, textarea');
-        const label = group.querySelector('label');
-        
-        if (input && label) {
-            // Check if input has value on page load
-            if (input.value.trim() !== '') {
-                label.style.top = '-20px';
-                label.style.fontSize = '12px';
-                label.style.color = 'var(--primary-gold)';
-            }
-            
-            // Also handle readonly fields specifically
-            if (input.hasAttribute('readonly') && input.value.trim() !== '') {
-                label.style.top = '-20px';
-                label.style.fontSize = '12px';
-                label.style.color = 'var(--primary-gold)';
-            }
-        }
-    });
-}
-
-// Update the prefillOrderForm function
-function prefillOrderForm() {
-    const productName = localStorage.getItem('selectedProduct');
-    const productPrice = localStorage.getItem('selectedPrice');
-    
-    if (productName && productPrice) {
-        document.getElementById('product').value = productName;
-        document.getElementById('price').value = productPrice;
-        document.getElementById('order-product').value = productName;
-        document.getElementById('order-price').value = `$${parseFloat(productPrice).toFixed(2)}`;
-        
-        // Fix the labels after pre-filling
-        setTimeout(fixFormLabels, 100);
-        
-        // Clear localStorage
-        localStorage.removeItem('selectedProduct');
-        localStorage.removeItem('selectedPrice');
-    }
-}
-
-// Update the event listeners to include fixFormLabels
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize products on shop page
-    if (productGrid) {
-        displayProducts();
-    }
-    
-    // Prefill order form on contact page
-    if (window.location.pathname.includes('contact.html')) {
-        prefillOrderForm();
-        // Also fix labels on page load
-        setTimeout(fixFormLabels, 200);
-    }
-    
-    // ... rest of your existing code ...
 });

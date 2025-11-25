@@ -14,7 +14,7 @@
             <div class="header-top">
                 <div class="logo">
                     <i class="fas fa-gem"></i>
-                    Victoria Martins Jewelry
+                    Victoria Martins Jewels
                 </div>
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
@@ -60,7 +60,7 @@
             <div class="order-content">
                 <div class="contact-info">
                     <h2>Contact Information</h2>
-                    <p></p>
+                    <p>We'll use this information to contact you about your order and delivery details.</p>
                     
                     <div class="contact-details">
                         <div class="contact-item">
@@ -98,43 +98,39 @@
                     <div class="order-form">
                         <h2>Order Details</h2>
                         <form id="orderForm" action="https://formspree.io/f/xnnylyqz" method="POST">
-                            <input type="hidden" id="product" name="" value="">
-
-                            <input type="hidden" id="price" name="" value="">
+                            <input type="hidden" name="_subject" value="New Order - Victoria Martins Jewels">
+                            <input type="hidden" name="_replyto" id="reply-to-email">
+                            <input type="hidden" name="_gotcha" style="display:none">
+                            
+                            <input type="hidden" id="product" name="product" value="">
+                            <input type="hidden" id="price" name="price" value="">
                             
                             <div class="form-group">
-                                <input type="text" id="order-product" name="order-product" readonly>
-
-                                <label for="order-product">Product</label>
+                                <input type="text" id="order-product" name="order-product-display" readonly>
+                                <label for="order-product" class="active">Product</label>
                             </div>
                             <div class="form-group">
-                                <input type="text" id="order-price" name="order-price" readonly>
-
-                                <label for="order-price">Price</label>
+                                <input type="text" id="order-price" name="order-price-display" readonly>
+                                <label for="order-price" class="active">Price</label>
                             </div>
                             <div class="form-group">
                                 <input type="text" id="order-name" name="name" required>
-
                                 <label for="order-name">Your Full Name *</label>
                             </div>
                             <div class="form-group">
-                                <input type="email" id="order-email" name="email">
-
+                                <input type="email" id="order-email" name="email" onchange="document.getElementById('reply-to-email').value = this.value">
                                 <label for="order-email">Your Email</label>
                             </div>
                             <div class="form-group">
                                 <input type="tel" id="order-phone" name="phone">
-
                                 <label for="order-phone">Your Phone Number</label>
                             </div>
                             <div class="form-group">
                                 <textarea id="order-message" name="message" rows="4" placeholder="Any special requests, delivery preferences, or notes..."></textarea>
-
                                 <label for="order-message">Additional Message</label>
                             </div>
                             <div class="form-note">
                                 <p><i class="fas fa-info-circle"></i> Please provide either email or phone number so we can contact you about your order.</p>
-
                             </div>
                             <button type="submit" class="btn">Submit Order</button>
                         </form>
@@ -176,7 +172,7 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2025 Victoria Martins Jewels. All rights reserved.</p>
+                <p>&copy; 2023 Victoria Martins Jewels. All rights reserved.</p>
             </div>
         </div>
     </footer>
