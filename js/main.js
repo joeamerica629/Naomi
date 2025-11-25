@@ -511,7 +511,8 @@ window.vmjewels = {
     addToCart,
     updateCart,
     saveCartToStorage
-};// ===== MOBILE MENU FUNCTIONALITY =====
+}
+// ===== MOBILE MENU FUNCTIONALITY =====
 function setupMobileMenu() {
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const navLinks = document.querySelector('.nav-links');
