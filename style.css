@@ -790,3 +790,160 @@ footer {
         padding: 20px;
     }
 }
+
+/* Add to existing style.css */
+
+/* Order Section */
+.order-section {
+    padding: 80px 0;
+    background-color: var(--light-bg);
+}
+
+.order-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.order-form-container {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.order-form h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: var(--text-dark);
+    text-align: center;
+}
+
+/* Fix price display in product cards */
+.product-price {
+    color: var(--primary-gold);
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    display: block;
+    clear: both;
+}
+
+/* Ensure proper spacing in product info */
+.product-info {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.product-title {
+    font-size: 16px;
+    margin-bottom: 5px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.product-rating {
+    color: #ffc107;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+/* Form styles */
+.form-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 0;
+    border: none;
+    border-bottom: 2px solid #ddd;
+    background: transparent;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-gold);
+}
+
+.form-group label {
+    position: absolute;
+    top: 12px;
+    left: 0;
+    font-size: 16px;
+    color: var(--text-light);
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus + label,
+.form-group textarea:focus + label,
+.form-group input:valid + label,
+.form-group textarea:valid + label {
+    top: -20px;
+    font-size: 12px;
+    color: var(--primary-gold);
+}
+
+/* Make order form fields readonly look different */
+.form-group input[readonly] {
+    background-color: #f9f9f9;
+    border-bottom: 2px solid #eee;
+    color: var(--text-light);
+    font-weight: 600;
+}
+
+.form-note {
+    background-color: var(--light-gold);
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 25px;
+    font-size: 14px;
+    color: var(--text-dark);
+    border-left: 4px solid var(--primary-gold);
+}
+
+.form-note i {
+    color: var(--primary-gold);
+    margin-right: 8px;
+}
+
+/* Responsive design */
+@media (max-width: 992px) {
+    .order-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .order-form-container {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .order-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .order-form-container {
+        padding: 20px;
+    }
+    
+    .order-form h2 {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 576px) {
+    .order-form-container {
+        padding: 15px;
+    }
+}

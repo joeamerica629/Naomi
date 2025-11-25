@@ -82,7 +82,6 @@ const mobileMenuBtn = document.getElementById('mobile-menu-btn');
 const mobileNav = document.getElementById('mobile-nav');
 const mobileNavOverlay = document.getElementById('mobile-nav-overlay');
 const closeMobileNav = document.getElementById('close-mobile-nav');
-const contactForm = document.getElementById('contactForm');
 const orderForm = document.getElementById('orderForm');
 
 // Display products
@@ -151,7 +150,7 @@ function prefillOrderForm() {
         document.getElementById('product').value = productName;
         document.getElementById('price').value = productPrice;
         document.getElementById('order-product').value = productName;
-        document.getElementById('order-price').value = `$${productPrice}`;
+        document.getElementById('order-price').value = `$${parseFloat(productPrice).toFixed(2)}`;
         
         // Clear localStorage
         localStorage.removeItem('selectedProduct');
@@ -184,76 +183,23 @@ function hideMobileNav() {
     document.body.style.overflow = 'auto';
 }
 
-// Handle contact form submission
-function handleContactForm(e) {
-    e.preventDefault();
-    
-    // Get form data
-    const formData = new FormData(e.target);
-    const name = formData.get('name');
-    const email = formData.get('email');
-    const phone = formData.get('phone');
-    const message = formData.get('message');
-    
-    // Validate contact info (either email or phone)
-    if (!email && !phone) {
-        alert('Please provide either an email address or phone number');
-        return;
-    }
-    
-    // Submit to Formspree
-    const formspreeUrl = 'https://formspree.io/f/your-contact-form-id-here';
-    
-    fetch(formspreeUrl, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            name: name,
-            email: email,
-            phone: phone,
-            message: message,
-            _subject: 'Contact Form Submission from Victoria Martins Jewels'
-        })
-    })
-    .then(response => {
-        if (response.ok) {
-            alert('Thank you for your message! We will get back to you soon.');
-            e.target.reset();
-        } else {
-            alert('There was an error sending your message. Please try again.');
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        alert('There was an error sending your message. Please try again.');
-    });
-}
-
 // Handle order form submission
 function handleOrderForm(e) {
     e.preventDefault();
     
     // Get form data
     const formData = new FormData(e.target);
-    const product = formData.get('product');
-    const price = formData.get('price');
-    const name = formData.get('name');
     const email = formData.get('email');
     const phone = formData.get('phone');
-    const message = formData.get('message');
     
     // Validate contact info (either email or phone)
     if (!email && !phone) {
         alert('Please provide either an email address or phone number so we can contact you about your order.');
-        return;
+        return false;
     }
     
     // Formspree will handle the submission
-    // You can add additional validation or processing here if needed
-    
-    alert('Your order has been submitted! We will contact you shortly to confirm your order.');
+    return true;
 }
 
 // Event listeners
@@ -286,11 +232,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (mobileNavOverlay) {
         mobileNavOverlay.addEventListener('click', hideMobileNav);
-    }
-    
-    // Contact form
-    if (contactForm) {
-        contactForm.addEventListener('submit', handleContactForm);
     }
     
     // Order form
