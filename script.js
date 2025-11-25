@@ -4,7 +4,7 @@ const products = [
         id: 1,
         name: "Diamond Solitaire Ring",
         price: 1299.99,
-        image: "images/product-1.jpg",
+        image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23f9f9f9'/%3E%3Cpath d='M200 100 L250 150 L200 200 L150 150 Z' fill='%23d4af37' stroke='%23b8941f' stroke-width='2'/%3E%3Ccircle cx='200' cy='150' r='15' fill='%23ffffff'/%3E%3Ctext x='200' y='280' text-anchor='middle' font-family='Arial' font-size='14' fill='%23777'%3EDiamond Solitaire Ring%3C/text%3E%3C/svg%3E",
         category: "rings",
         rating: 5,
         description: "A timeless solitaire ring featuring a brilliant cut diamond set in 18k white gold. Perfect for engagements and special occasions."
@@ -13,7 +13,7 @@ const products = [
         id: 2,
         name: "Pearl Drop Earrings",
         price: 299.99,
-        image: "images/product-2.jpg",
+        image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23f9f9f9'/%3E%3Ccircle cx='200' cy='120' r='25' fill='%23f0f0f0' stroke='%23ddd' stroke-width='2'/%3E%3Ccircle cx='200' cy='180' r='15' fill='%23f0f0f0' stroke='%23ddd' stroke-width='2'/%3E%3Cline x1='200' y1='145' x2='200' y2='165' stroke='%23ddd' stroke-width='2'/%3E%3Ctext x='200' y='280' text-anchor='middle' font-family='Arial' font-size='14' fill='%23777'%3EPearl Drop Earrings%3C/text%3E%3C/svg%3E",
         category: "earrings",
         rating: 4,
         description: "Elegant pearl drop earrings with sterling silver settings. These classic earrings add sophistication to any outfit."
@@ -22,7 +22,7 @@ const products = [
         id: 3,
         name: "Gold Chain Necklace",
         price: 599.99,
-        image: "images/product-3.jpg",
+        image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23f9f9f9'/%3E%3Cpath d='M100 150 Q200 100 300 150' stroke='%23d4af37' stroke-width='3' fill='none'/%3E%3Ccircle cx='200' cy='150' r='20' fill='%23d4af37'/%3E%3Ctext x='200' y='280' text-anchor='middle' font-family='Arial' font-size='14' fill='%23777'%3EGold Chain Necklace%3C/text%3E%3C/svg%3E",
         category: "necklaces",
         rating: 5,
         description: "A delicate 14k gold chain necklace with a subtle clasp. This versatile piece can be worn alone or layered with other necklaces."
@@ -31,7 +31,7 @@ const products = [
         id: 4,
         name: "Silver Bangle Bracelet",
         price: 199.99,
-        image: "images/product-4.jpg",
+        image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23f9f9f9'/%3E%3Ccircle cx='200' cy='150' r='80' fill='none' stroke='%23c0c0c0' stroke-width='15'/%3E%3Ctext x='200' y='280' text-anchor='middle' font-family='Arial' font-size='14' fill='%23777'%3ESilver Bangle Bracelet%3C/text%3E%3C/svg%3E",
         category: "bracelets",
         rating: 4,
         description: "A sleek sterling silver bangle bracelet with a modern design. This piece makes a perfect gift for any occasion."
@@ -40,7 +40,7 @@ const products = [
         id: 5,
         name: "Emerald Cut Diamond Ring",
         price: 1899.99,
-        image: "images/product-5.jpg",
+        image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23f9f9f9'/%3E%3Crect x='175' y='100' width='50' height='70' fill='%234CAF50' stroke='%232E7D32' stroke-width='2'/%3E%3Cpath d='M175 100 L200 80 L225 100' fill='%232E7D32'/%3E%3Cpath d='M175 170 L200 190 L225 170' fill='%232E7D32'/%3E%3Ctext x='200' y='280' text-anchor='middle' font-family='Arial' font-size='14' fill='%23777'%3EEmerald Cut Diamond Ring%3C/text%3E%3C/svg%3E",
         category: "rings",
         rating: 5,
         description: "A stunning emerald cut diamond set in a vintage-inspired platinum band. This ring showcases the diamond's clarity and brilliance."
@@ -49,7 +49,7 @@ const products = [
         id: 6,
         name: "Rose Gold Hoop Earrings",
         price: 149.99,
-        image: "images/product-6.jpg",
+        image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23f9f9f9'/%3E%3Ccircle cx='200' cy='150' r='60' fill='none' stroke='%23B76E79' stroke-width='8'/%3E%3Ctext x='200' y='280' text-anchor='middle' font-family='Arial' font-size='14' fill='%23777'%3ERose Gold Hoop Earrings%3C/text%3E%3C/svg%3E",
         category: "earrings",
         rating: 4,
         description: "Modern rose gold hoop earrings with a polished finish. These lightweight hoops are comfortable for all-day wear."
@@ -58,7 +58,7 @@ const products = [
         id: 7,
         name: "Sapphire Pendant Necklace",
         price: 799.99,
-        image: "images/product-7.jpg",
+        image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23f9f9f9'/%3E%3Cpath d='M150 150 Q200 100 250 150' stroke='%23d4af37' stroke-width='2' fill='none'/%3E%3Ccircle cx='200' cy='150' r='25' fill='%231E88E5'/%3E%3Ctext x='200' y='280' text-anchor='middle' font-family='Arial' font-size='14' fill='%23777'%3ESapphire Pendant Necklace%3C/text%3E%3C/svg%3E",
         category: "necklaces",
         rating: 5,
         description: "A beautiful blue sapphire pendant suspended from a delicate gold chain. This piece makes a statement while remaining elegant."
@@ -67,7 +67,7 @@ const products = [
         id: 8,
         name: "Tennis Bracelet",
         price: 1299.99,
-        image: "images/product-8.jpg",
+        image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23f9f9f9'/%3E%3Cpath d='M100 150 L300 150' stroke='%23c0c0c0' stroke-width='10' fill='none'/%3E%3Ccircle cx='150' cy='150' r='8' fill='%23f0f0f0'/%3E%3Ccircle cx='200' cy='150' r='8' fill='%23f0f0f0'/%3E%3Ccircle cx='250' cy='150' r='8' fill='%23f0f0f0'/%3E%3Ctext x='200' y='280' text-anchor='middle' font-family='Arial' font-size='14' fill='%23777'%3ETennis Bracelet%3C/text%3E%3C/svg%3E",
         category: "bracelets",
         rating: 5,
         description: "A classic tennis bracelet featuring a continuous line of brilliant cut diamonds set in white gold. The ultimate in luxury and elegance."
