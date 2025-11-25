@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop All Jewelry - VM Jewels</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/shop.css">
+</head>
+<body>
+    <!-- Same header as index.html -->
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">VM JEWELS</div>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html" class="active">Shop</a></li>
+                        <li><a href="collections.html">Collections</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="header-icons">
+                    <!-- Same cart icon as index.html -->
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Shop Page Specific Content -->
+    <section class="shop-hero">
+        <div class="container">
+            <h1>Our Jewelry Collection</h1>
+            <p>Discover exquisite pieces crafted with precision and passion</p>
+        </div>
+    </section>
+
+    <section class="shop-controls">
+        <div class="container">
+            <div class="controls-grid">
+                <div class="filter-section">
+                    <h3>Filter By</h3>
+                    <div class="filter-options">
+                        <div class="filter-group">
+                            <h4>Category</h4>
+                            <label><input type="checkbox" name="category" value="rings" checked> Rings</label>
+                            <label><input type="checkbox" name="category" value="necklaces" checked> Necklaces</label>
+                            <label><input type="checkbox" name="category" value="earrings" checked> Earrings</label>
+                            <label><input type="checkbox" name="category" value="bracelets" checked> Bracelets</label>
+                        </div>
+                        <div class="filter-group">
+                            <h4>Price Range</h4>
+                            <label><input type="checkbox" name="price" value="0-100"> $0 - $100</label>
+                            <label><input type="checkbox" name="price" value="100-500"> $100 - $500</label>
+                            <label><input type="checkbox" name="price" value="500-1000"> $500 - $1000</label>
+                            <label><input type="checkbox" name="price" value="1000+"> $1000+</label>
+                        </div>
+                        <div class="filter-group">
+                            <h4>Material</h4>
+                            <label><input type="checkbox" name="material" value="gold"> Gold</label>
+                            <label><input type="checkbox" name="material" value="silver"> Silver</label>
+                            <label><input type="checkbox" name="material" value="platinum"> Platinum</label>
+                            <label><input type="checkbox" name="material" value="diamond"> Diamond</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="products-section">
+                    <div class="products-header">
+                        <div class="results-count">
+                            Showing <span id="results-count">24</span> products
+                        </div>
+                        <div class="sort-options">
+                            <select id="sort-by">
+                                <option value="featured">Featured</option>
+                                <option value="price-low">Price: Low to High</option>
+                                <option value="price-high">Price: High to Low</option>
+                                <option value="name">Name: A to Z</option>
+                                <option value="newest">Newest First</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="shop-product-grid" id="shop-product-grid">
+                        <!-- Products loaded dynamically -->
+                    </div>
+                    
+                    <div class="pagination">
+                        <button class="page-btn active">1</button>
+                        <button class="page-btn">2</button>
+                        <button class="page-btn">3</button>
+                        <span>...</span>
+                        <button class="page-btn">10</button>
+                        <button class="next-btn">Next</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Same footer as index.html -->
+    <footer>
+        <!-- Footer content from index.html -->
+    </footer>
+
+    <!-- Same cart sidebar as index.html -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <!-- Cart content from index.html -->
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/shop.js"></script>
+</body>
+</html>

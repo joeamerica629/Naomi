@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diamond Solitaire Ring - VM Jewels</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/product.css">
+</head>
+<body>
+    <!-- Same header as index.html -->
+
+    <!-- Product Detail Content -->
+    <section class="product-detail">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a> > 
+                <a href="shop.html">Shop</a> > 
+                <a href="shop.html?category=rings">Rings</a> > 
+                <span>Diamond Solitaire Ring</span>
+            </div>
+            
+            <div class="product-detail-grid">
+                <div class="product-images">
+                    <div class="main-image">
+                        <img src="images/products/rings/solitaire-main.jpg" alt="Diamond Solitaire Ring" id="main-product-image">
+                    </div>
+                    <div class="image-thumbnails">
+                        <img src="images/products/rings/solitaire-1.jpg" alt="Side view" class="thumbnail active">
+                        <img src="images/products/rings/solitaire-2.jpg" alt="Top view" class="thumbnail">
+                        <img src="images/products/rings/solitaire-3.jpg" alt="On hand" class="thumbnail">
+                        <img src="images/products/rings/solitaire-4.jpg" alt="Close up" class="thumbnail">
+                    </div>
+                </div>
+                
+                <div class="product-info">
+                    <h1>Diamond Solitaire Ring</h1>
+                    <div class="product-rating">
+                        ★★★★★ <span class="rating-count">(128 reviews)</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="current-price">$1,299.99</span>
+                        <span class="original-price">$1,599.99</span>
+                        <span class="discount">Save $300</span>
+                    </div>
+                    
+                    <div class="product-description">
+                        <p>A timeless solitaire ring featuring a brilliant cut diamond set in 18k white gold. Perfect for engagements and special occasions.</p>
+                    </div>
+                    
+                    <div class="product-options">
+                        <div class="option-group">
+                            <label>Metal Type:</label>
+                            <div class="option-buttons">
+                                <button class="option-btn active" data-option="metal" data-value="white-gold">White Gold</button>
+                                <button class="option-btn" data-option="metal" data-value="yellow-gold">Yellow Gold</button>
+                                <button class="option-btn" data-option="metal" data-value="rose-gold">Rose Gold</button>
+                            </div>
+                        </div>
+                        
+                        <div class="option-group">
+                            <label>Ring Size:</label>
+                            <select class="size-select">
+                                <option value="">Select Size</option>
+                                <option value="4">Size 4</option>
+                                <option value="5">Size 5</option>
+                                <option value="6">Size 6</option>
+                                <option value="7">Size 7</option>
+                                <option value="8">Size 8</option>
+                            </select>
+                        </div>
+                        
+                        <div class="option-group">
+                            <label>Quantity:</label>
+                            <div class="quantity-selector">
+                                <button class="qty-btn minus">-</button>
+                                <input type="number" class="qty-input" value="1" min="1" max="10">
+                                <button class="qty-btn plus">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-actions">
+                        <button class="btn add-to-cart-btn">Add to Cart</button>
+                        <button class="btn btn-outline wishlist-btn">Add to Wishlist</button>
+                    </div>
+                    
+                    <div class="product-features">
+                        <div class="feature">
+                            <span class="feature-icon">🚚</span>
+                            <span>Free Shipping & Returns</span>
+                        </div>
+                        <div class="feature">
+                            <span class="feature-icon">💎</span>
+                            <span>Lifetime Warranty</span>
+                        </div>
+                        <div class="feature">
+                            <span class="feature-icon">🎁</span>
+                            <span>Free Gift Packaging</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product Tabs -->
+            <div class="product-tabs">
+                <div class="tab-headers">
+                    <button class="tab-header active" data-tab="description">Description</button>
+                    <button class="tab-header" data-tab="specifications">Specifications</button>
+                    <button class="tab-header" data-tab="shipping">Shipping & Returns</button>
+                    <button class="tab-header" data-tab="reviews">Reviews</button>
+                </div>
+                
+                <div class="tab-content">
+                    <div class="tab-pane active" id="description">
+                        <h3>Product Description</h3>
+                        <p>Our Diamond Solitaire Ring is the epitome of timeless elegance. Crafted with precision and attention to detail, this ring features a brilliant cut diamond set in premium 18k gold.</p>
+                        <ul>
+                            <li>Center Stone: 1.0 carat brilliant cut diamond</li>
+                            <li>Metal: 18k White/Yellow/Rose Gold</li>
+                            <li>Setting: Four-prong solitaire setting</li>
+                            <li>Band Width: 2mm</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tab-pane" id="specifications">
+                        <h3>Product Specifications</h3>
+                        <table class="specs-table">
+                            <tr><td>Material</td><td>18k Gold</td></tr>
+                            <tr><td>Diamond Carat</td><td>1.0 ct</td></tr>
+                            <tr><td>Diamond Clarity</td><td>VS1</td></tr>
+                            <tr><td>Diamond Color</td><td>G</td></tr>
+                            <tr><td>Ring Width</td><td>2mm</td></tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Related Products -->
+            <section class="related-products">
+                <h2>You May Also Like</h2>
+                <div class="related-products-grid">
+                    <!-- Related products loaded dynamically -->
+                </div>
+            </section>
+        </div>
+    </section>
+
+    <!-- Same footer and cart sidebar as index.html -->
+
+    <script src="js/main.js"></script>
+    <script src="js/product.js"></script>
+</body>
+</html>
