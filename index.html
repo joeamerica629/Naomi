@@ -3,206 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VM Jewels - Victoria Martins Jeweleries</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
+    <title>Collections - VM Jewels</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Header with navigation and cart icon -->
+    <!-- Same header as index.html -->
     <header>
-        <div class="container">
-            <div class="logo">VM JEWELS</div>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Shop</a></li>
-                    <li><a href="#">Collections</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="header-icons">
-                <div class="icon search">🔍</div>
-                <div class="icon user">👤</div>
-                <div class="icon cart" id="cart-icon">
-                    🛒
-                    <span class="cart-count">0</span>
-                </div>
-            </div>
-        </div>
+        <!-- Header content from index.html -->
     </header>
 
-    <!-- Main hero banner with call-to-action -->
-    <section class="hero">
+    <!-- Collections Page Content -->
+    <section class="hero" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
         <div class="container">
             <div class="hero-content">
-                <h1>Exquisite Jewelry for Every Occasion</h1>
-                <p>Discover our exclusive collection of handcrafted jewelry pieces</p>
-                <a href="#" class="btn">Shop Now</a>
+                <h1>Our Collections</h1>
+                <p>Curated selections for every style and occasion</p>
             </div>
         </div>
     </section>
 
-    <!-- Category browsing section -->
-    <section class="categories">
+    <section class="categories" style="padding: 80px 0;">
         <div class="container">
-            <h2 class="section-title">Shop By Category</h2>
+            <h2 class="section-title">Featured Collections</h2>
             <div class="category-grid">
                 <div class="category-card">
-                    <img src="images/rings-category.jpg" alt="Rings" class="category-img">
-                    <div class="category-name">Rings</div>
+                    <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Engagement" class="category-img">
+                    <div class="category-name">Engagement</div>
                 </div>
                 <div class="category-card">
-                    <img src="images/necklaces-category.jpg" alt="Necklaces" class="category-img">
-                    <div class="category-name">Necklaces</div>
+                    <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Wedding" class="category-img">
+                    <div class="category-name">Wedding</div>
                 </div>
                 <div class="category-card">
-                    <img src="images/earrings-category.jpg" alt="Earrings" class="category-img">
-                    <div class="category-name">Earrings</div>
+                    <img src="https://images.unsplash.com/photo-1588444650700-6c7f0c89d36b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Anniversary" class="category-img">
+                    <div class="category-name">Anniversary</div>
                 </div>
                 <div class="category-card">
-                    <img src="images/bracelets-category.jpg" alt="Bracelets" class="category-img">
-                    <div class="category-name">Bracelets</div>
+                    <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Everyday Luxury" class="category-img">
+                    <div class="category-name">Everyday Luxury</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Main products display section -->
-    <section class="products">
-        <div class="container">
-            <h2 class="section-title">Featured Products</h2>
-            
-            <!-- Product filtering options -->
-            <div class="product-filters">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="rings">Rings</button>
-                <button class="filter-btn" data-filter="necklaces">Necklaces</button>
-                <button class="filter-btn" data-filter="earrings">Earrings</button>
-                <button class="filter-btn" data-filter="bracelets">Bracelets</button>
-            </div>
-            
-            <!-- Products grid - populated by JavaScript -->
-            <div class="product-grid" id="product-grid">
-                <!-- Product cards will be dynamically inserted here -->
-            </div>
-        </div>
-    </section>
+    <!-- Same footer and cart sidebar as index.html -->
+    <footer>
+        <!-- Footer content from index.html -->
+    </footer>
 
-    <!-- Company information section -->
-    <section class="about">
-        <div class="container">
-            <div class="about-content">
-                <h2>About Victoria Martins Jeweleries</h2>
-                <p>Since 1995, we've been crafting exquisite pieces that capture elegance and timeless beauty.</p>
-                <a href="#" class="btn btn-outline">Learn More</a>
-            </div>
-            <div class="about-image">
-                <img src="images/about.jpg" alt="About VM Jewels">
-            </div>
-        </div>
-    </section>
-
-    <!-- Customer testimonials section -->
-    <section class="testimonials">
-        <div class="container">
-            <h2 class="section-title">What Our Customers Say</h2>
-            <div class="testimonial-grid">
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"The quality of my engagement ring exceeded all expectations."</p>
-                    <div class="testimonial-author">
-                        <div class="author-info">
-                            <h4>Sarah Johnson</h4>
-                            <p>New York</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- More testimonials would go here -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Newsletter signup section -->
-    <section class="newsletter">
-        <div class="container">
-            <h2>Subscribe to Our Newsletter</h2>
-            <p>Be the first to know about new collections and exclusive offers</p>
-            <form class="newsletter-form">
-                <input type="email" class="newsletter-input" placeholder="Your email address" required>
-                <button type="submit" class="newsletter-btn">Subscribe</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- Shopping cart sidebar (hidden by default) -->
     <div class="overlay" id="overlay"></div>
     <div class="cart-sidebar" id="cart-sidebar">
-        <div class="cart-header">
-            <h2>Your Shopping Bag</h2>
-            <button class="close-cart" id="close-cart">×</button>
-        </div>
-        <div class="cart-items" id="cart-items">
-            <!-- Cart items will be dynamically inserted here -->
-        </div>
-        <div class="cart-total">
-            <span>Total:</span>
-            <span id="cart-total">$0.00</span>
-        </div>
-        <button class="checkout-btn">Proceed to Checkout</button>
+        <!-- Cart content from index.html -->
     </div>
 
-    <!-- Product quick view modal (hidden by default) -->
-    <div class="modal" id="product-modal">
-        <div class="modal-content">
-            <button class="close-modal" id="close-modal">×</button>
-            <div class="modal-image">
-                <img src="" alt="" id="modal-img">
-            </div>
-            <div class="modal-details">
-                <h2 id="modal-title"></h2>
-                <p id="modal-price" class="product-price"></p>
-                <p id="modal-description"></p>
-                <button class="add-to-cart" id="modal-add-to-cart">Add to Cart</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Main footer with links and contact info -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>VM JEWELS</h3>
-                    <p>Creating exquisite jewelry pieces since 1995.</p>
-                </div>
-                <div class="footer-column">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Shop</a></li>
-                        <li><a href="#">Collections</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Customer Service</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Shipping & Returns</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">FAQ</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Contact Us</h3>
-                    <ul class="contact-info">
-                        <li>📞 +1 (555) 123-4567</li>
-                        <li>✉️ info@vmjewels.com</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2023 Victoria Martins Jeweleries. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+    <script src="js/main.js"></script>
 </body>
 </html>
