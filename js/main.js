@@ -1,23 +1,9 @@
 // ===== GLOBAL VARIABLES =====
-let cart = [];
+let cart = JSON.parse(localStorage.getItem('vmjewels-cart')) || [];
 let currentProductId = null;
 
 // ===== DOM ELEMENTS =====
-const cartIcon = document.getElementById('cart-icon');
-const cartSidebar = document.getElementById('cart-sidebar');
-const closeCart = document.getElementById('close-cart');
-const overlay = document.getElementById('overlay');
-const cartItems = document.getElementById('cart-items');
-const cartTotal = document.getElementById('cart-total');
-const cartCount = document.querySelector('.cart-count');
-const modal = document.getElementById('product-modal');
-const closeModal = document.getElementById('close-modal');
-const modalImg = document.getElementById('modal-img');
-const modalTitle = document.getElementById('modal-title');
-const modalPrice = document.getElementById('modal-price');
-const modalRating = document.getElementById('modal-rating');
-const modalDescription = document.getElementById('modal-description');
-const modalAddToCart = document.getElementById('modal-add-to-cart');
+let cartIcon, cartSidebar, closeCart, overlay, cartItems, cartTotal, cartCount, modal, closeModal, modalImg, modalTitle, modalPrice, modalRating, modalDescription, modalAddToCart;
 
 // ===== PRODUCT DATA =====
 const products = [
@@ -101,8 +87,9 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function init() {
-    loadCartFromStorage();
+    initializeDOMElements();
     setupEventListeners();
+    updateCart();
     
     // Initialize product display if on homepage
     if (document.getElementById('product-grid')) {
@@ -110,12 +97,33 @@ function init() {
     }
 }
 
+function initializeDOMElements() {
+    cartIcon = document.getElementById('cart-icon');
+    cartSidebar = document.getElementById('cart-sidebar');
+    closeCart = document.getElementById('close-cart');
+    overlay = document.getElementById('overlay');
+    cartItems = document.getElementById('cart-items');
+    cartTotal = document.getElementById('cart-total');
+    cartCount = document.querySelector('.cart-count');
+    modal = document.getElementById('product-modal');
+    closeModal = document.getElementById('close-modal');
+    modalImg = document.getElementById('modal-img');
+    modalTitle = document.getElementById('modal-title');
+    modalPrice = document.getElementById('modal-price');
+    modalRating = document.getElementById('modal-rating');
+    modalDescription = document.getElementById('modal-description');
+    modalAddToCart = document.getElementById('modal-add-to-cart');
+}
+
 // ===== CART FUNCTIONS =====
 function addToCart(e) {
     const productId = parseInt(e.target.getAttribute('data-id'));
     const product = products.find(p => p.id === productId);
     
-    if (!product) return;
+    if (!product) {
+        console.error('Product not found:', productId);
+        return;
+    }
     
     const existingItem = cart.find(item => item.id === productId);
     
@@ -140,10 +148,12 @@ function showAddToCartFeedback(button) {
     
     button.textContent = 'Added!';
     button.style.backgroundColor = '#4CAF50';
+    button.disabled = true;
     
     setTimeout(() => {
         button.textContent = originalText;
         button.style.backgroundColor = originalBgColor;
+        button.disabled = false;
     }, 1500);
 }
 
@@ -154,9 +164,10 @@ function updateCart() {
 }
 
 function updateCartCount() {
-    const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
     if (cartCount) {
+        const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
         cartCount.textContent = totalItems;
+        cartCount.style.display = totalItems > 0 ? 'flex' : 'none';
     }
 }
 
@@ -199,31 +210,36 @@ function createCartItem(item) {
 }
 
 function showEmptyCart() {
-    cartItems.innerHTML = `
-        <div class="empty-cart">
-            <i class="fas fa-shopping-bag"></i>
-            <p>Your bag is empty</p>
-            <p style="font-size: 14px; margin-top: 10px;">Start shopping to add items</p>
-        </div>
-    `;
+    if (cartItems) {
+        cartItems.innerHTML = `
+            <div class="empty-cart">
+                <i class="fas fa-shopping-bag"></i>
+                <p>Your bag is empty</p>
+                <p style="font-size: 14px; margin-top: 10px;">Start shopping to add items</p>
+            </div>
+        `;
+    }
 }
 
 function updateCartTotal() {
-    if (!cartTotal) return;
-    
-    const totalPrice = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
-    cartTotal.textContent = `$${totalPrice.toFixed(2)}`;
+    if (cartTotal) {
+        const totalPrice = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+        cartTotal.textContent = `$${totalPrice.toFixed(2)}`;
+    }
 }
 
 function attachCartEventListeners() {
+    // Quantity minus buttons
     document.querySelectorAll('.quantity-btn.minus').forEach(button => {
         button.addEventListener('click', decreaseQuantity);
     });
     
+    // Quantity plus buttons
     document.querySelectorAll('.quantity-btn.plus').forEach(button => {
         button.addEventListener('click', increaseQuantity);
     });
     
+    // Remove item buttons
     document.querySelectorAll('.remove-item').forEach(button => {
         button.addEventListener('click', removeFromCart);
     });
@@ -231,46 +247,45 @@ function attachCartEventListeners() {
 
 function decreaseQuantity(e) {
     const productId = parseInt(e.target.getAttribute('data-id'));
-    const item = cart.find(item => item.id === productId);
+    const itemIndex = cart.findIndex(item => item.id === productId);
     
-    if (item.quantity > 1) {
-        item.quantity -= 1;
-    } else {
-        cart = cart.filter(item => item.id !== productId);
+    if (itemIndex !== -1) {
+        if (cart[itemIndex].quantity > 1) {
+            cart[itemIndex].quantity -= 1;
+        } else {
+            cart.splice(itemIndex, 1);
+        }
+        
+        updateCart();
+        saveCartToStorage();
     }
-    
-    updateCart();
-    saveCartToStorage();
 }
 
 function increaseQuantity(e) {
     const productId = parseInt(e.target.getAttribute('data-id'));
     const item = cart.find(item => item.id === productId);
-    item.quantity += 1;
     
-    updateCart();
-    saveCartToStorage();
+    if (item) {
+        item.quantity += 1;
+        updateCart();
+        saveCartToStorage();
+    }
 }
 
 function removeFromCart(e) {
     const productId = parseInt(e.target.closest('.remove-item').getAttribute('data-id'));
-    cart = cart.filter(item => item.id !== productId);
+    const itemIndex = cart.findIndex(item => item.id === productId);
     
-    updateCart();
-    saveCartToStorage();
+    if (itemIndex !== -1) {
+        cart.splice(itemIndex, 1);
+        updateCart();
+        saveCartToStorage();
+    }
 }
 
 // ===== CART STORAGE =====
 function saveCartToStorage() {
     localStorage.setItem('vmjewels-cart', JSON.stringify(cart));
-}
-
-function loadCartFromStorage() {
-    const savedCart = localStorage.getItem('vmjewels-cart');
-    if (savedCart) {
-        cart = JSON.parse(savedCart);
-        updateCart();
-    }
 }
 
 // ===== PRODUCT DISPLAY =====
@@ -330,11 +345,15 @@ function createProductBadge(productId) {
 }
 
 function attachProductEventListeners() {
+    // Add to cart buttons
     document.querySelectorAll('.add-to-cart').forEach(button => {
+        button.removeEventListener('click', addToCart);
         button.addEventListener('click', addToCart);
     });
     
+    // Quick view buttons
     document.querySelectorAll('.quick-view').forEach(button => {
+        button.removeEventListener('click', showQuickView);
         button.addEventListener('click', showQuickView);
     });
 }
@@ -352,39 +371,48 @@ function showQuickView(e) {
 }
 
 function updateModalContent(product) {
-    modalImg.src = product.image;
-    modalTitle.textContent = product.name;
-    modalPrice.textContent = `$${product.price.toFixed(2)}`;
-    modalRating.innerHTML = createRatingStars(product.rating);
-    modalDescription.textContent = product.description;
-    modalAddToCart.setAttribute('data-id', product.id);
+    if (modalImg) modalImg.src = product.image;
+    if (modalTitle) modalTitle.textContent = product.name;
+    if (modalPrice) modalPrice.textContent = `$${product.price.toFixed(2)}`;
+    if (modalRating) modalRating.innerHTML = createRatingStars(product.rating);
+    if (modalDescription) modalDescription.textContent = product.description;
+    if (modalAddToCart) {
+        modalAddToCart.setAttribute('data-id', product.id);
+        modalAddToCart.onclick = function() {
+            addToCartFromModal(product.id);
+        };
+    }
 }
 
 function showModal() {
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
+    if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
 }
 
 function hideModal() {
-    modal.classList.remove('active');
-    document.body.style.overflow = 'auto';
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
 }
 
 // ===== CART SIDEBAR =====
 function showCart() {
-    if (!cartSidebar) return;
-    
-    cartSidebar.classList.add('active');
-    overlay.classList.add('active');
-    document.body.style.overflow = 'hidden';
+    if (cartSidebar && overlay) {
+        cartSidebar.classList.add('active');
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
 }
 
 function hideCart() {
-    if (!cartSidebar) return;
-    
-    cartSidebar.classList.remove('active');
-    overlay.classList.remove('active');
-    document.body.style.overflow = 'auto';
+    if (cartSidebar && overlay) {
+        cartSidebar.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
 }
 
 // ===== EVENT LISTENERS =====
@@ -407,10 +435,6 @@ function setupEventListeners() {
         closeModal.addEventListener('click', hideModal);
     }
     
-    if (modalAddToCart) {
-        modalAddToCart.addEventListener('click', addToCartFromModal);
-    }
-    
     // Close modal when clicking outside
     if (modal) {
         modal.addEventListener('click', function(e) {
@@ -427,12 +451,12 @@ function setupEventListeners() {
     }
 }
 
-function addToCartFromModal() {
-    const product = products.find(p => p.id === currentProductId);
+function addToCartFromModal(productId) {
+    const product = products.find(p => p.id === productId);
     
     if (!product) return;
     
-    const existingItem = cart.find(item => item.id === currentProductId);
+    const existingItem = cart.find(item => item.id === productId);
     
     if (existingItem) {
         existingItem.quantity += 1;
@@ -447,6 +471,11 @@ function addToCartFromModal() {
     saveCartToStorage();
     hideModal();
     showCart();
+    
+    // Show feedback on modal button
+    if (modalAddToCart) {
+        showAddToCartFeedback(modalAddToCart);
+    }
 }
 
 function handleNewsletterSubmit(e) {
@@ -455,7 +484,6 @@ function handleNewsletterSubmit(e) {
     const email = emailInput.value;
     
     if (email && validateEmail(email)) {
-        // Here you would typically send the email to your server
         alert(`Thank you for subscribing with: ${email}`);
         emailInput.value = '';
     } else {
@@ -477,12 +505,10 @@ function formatPrice(price) {
 }
 
 // ===== EXPORT FOR OTHER FILES =====
-// These functions will be available to other JS files
 window.vmjewels = {
     products,
     cart,
     addToCart,
     updateCart,
-    saveCartToStorage,
-    loadCartFromStorage
+    saveCartToStorage
 };
