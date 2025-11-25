@@ -3,60 +3,346 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Collections - VM Jewels</title>
+    <title>Collections - Victoria Martins Jeweleries</title>
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Same header as index.html -->
+    <!-- Header Section -->
     <header>
-        <!-- Header content from index.html -->
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">
+                    <i class="fas fa-gem"></i>
+                    Victoria Martins Jewels
+                </div>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="collections.html" class="active">Collections</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="header-icons">
+                    <div class="icon search">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="icon user">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="icon cart" id="cart-icon">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span class="cart-count">0</span>
+                    </div>
+                    <div class="mobile-menu-btn">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
 
-    <!-- Collections Page Content -->
+    <!-- Collections Hero Section -->
     <section class="hero" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
         <div class="container">
             <div class="hero-content">
                 <h1>Our Collections</h1>
-                <p>Curated selections for every style and occasion</p>
+                <p>Curated selections for every style and special moment</p>
             </div>
         </div>
     </section>
 
+    <!-- Featured Collections -->
     <section class="categories" style="padding: 80px 0;">
         <div class="container">
             <h2 class="section-title">Featured Collections</h2>
             <div class="category-grid">
-                <div class="category-card">
-                    <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Engagement" class="category-img">
+                <div class="category-card" onclick="location.href='shop.html?collection=engagement'">
+                    <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Engagement Collection" class="category-img">
                     <div class="category-name">Engagement</div>
+                    <div class="collection-overlay">
+                        <p>Symbolize your eternal love with our exquisite engagement rings</p>
+                    </div>
                 </div>
-                <div class="category-card">
-                    <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Wedding" class="category-img">
+                <div class="category-card" onclick="location.href='shop.html?collection=wedding'">
+                    <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Wedding Collection" class="category-img">
                     <div class="category-name">Wedding</div>
+                    <div class="collection-overlay">
+                        <p>Celebrate your union with our timeless wedding jewelry</p>
+                    </div>
                 </div>
-                <div class="category-card">
-                    <img src="https://images.unsplash.com/photo-1588444650700-6c7f0c89d36b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Anniversary" class="category-img">
+                <div class="category-card" onclick="location.href='shop.html?collection=anniversary'">
+                    <img src="https://images.unsplash.com/photo-1588444650700-6c7f0c89d36b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Anniversary Collection" class="category-img">
                     <div class="category-name">Anniversary</div>
+                    <div class="collection-overlay">
+                        <p>Mark each milestone with our anniversary collection</p>
+                    </div>
                 </div>
-                <div class="category-card">
-                    <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Everyday Luxury" class="category-img">
+                <div class="category-card" onclick="location.href='shop.html?collection=everyday'">
+                    <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Everyday Luxury Collection" class="category-img">
                     <div class="category-name">Everyday Luxury</div>
+                    <div class="collection-overlay">
+                        <p>Elevate your daily style with our elegant everyday pieces</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Same footer and cart sidebar as index.html -->
+    <!-- Seasonal Collection -->
+    <section class="products" style="background: var(--white);">
+        <div class="container">
+            <h2 class="section-title">Holiday Collection</h2>
+            <p style="text-align: center; margin-bottom: 40px; color: var(--text-light); max-width: 600px; margin-left: auto; margin-right: auto;">
+                Sparkle and shine this holiday season with our specially curated collection featuring festive designs and gift-ready pieces.
+            </p>
+            <div class="product-grid">
+                <!-- Holiday products will be loaded here -->
+            </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="shop.html?collection=holiday" class="btn">View Holiday Collection</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Birthstone Collection -->
+    <section class="about" style="background: var(--light-bg);">
+        <div class="container">
+            <div class="about-content">
+                <h2>Birthstone Collection</h2>
+                <p>Celebrate life's special moments with our exquisite birthstone collection. Each piece is carefully crafted to highlight the unique beauty of your birthstone, creating a personalized treasure that tells your story.</p>
+                <p>From January's garnet to December's turquoise, discover the perfect piece that resonates with your personality and celebrates your journey.</p>
+                <a href="shop.html?collection=birthstone" class="btn btn-outline">Explore Birthstones</a>
+            </div>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Birthstone Collection">
+            </div>
+        </div>
+    </section>
+
+    <!-- Limited Edition -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Limited Edition</h2>
+            <p style="text-align: center; margin-bottom: 40px; color: var(--text-light); max-width: 600px; margin-left: auto; margin-right: auto;">
+                Exclusive pieces crafted in limited quantities for the discerning collector. Each design tells a unique story and becomes a cherished heirloom.
+            </p>
+            <div class="testimonial-grid">
+                <div class="testimonial-card" style="text-align: center;">
+                    <div style="font-size: 48px; color: var(--primary-gold); margin-bottom: 20px;">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h4 style="color: var(--text-dark); margin-bottom: 15px;">Heritage Collection</h4>
+                    <p style="color: var(--text-light); line-height: 1.6;">Only 50 pieces worldwide. Inspired by royal jewelry designs from the Victorian era.</p>
+                </div>
+                <div class="testimonial-card" style="text-align: center;">
+                    <div style="font-size: 48px; color: var(--primary-gold); margin-bottom: 20px;">
+                        <i class="fas fa-feather"></i>
+                    </div>
+                    <h4 style="color: var(--text-dark); margin-bottom: 15px;">Artisan Series</h4>
+                    <p style="color: var(--text-light); line-height: 1.6;">Handcrafted by master jewelers. Limited to 25 pieces per design.</p>
+                </div>
+                <div class="testimonial-card" style="text-align: center;">
+                    <div style="font-size: 48px; color: var(--primary-gold); margin-bottom: 20px;">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h4 style="color: var(--text-dark); margin-bottom: 15px;">Signature Line</h4>
+                    <p style="color: var(--text-light); line-height: 1.6;">Exclusive designs featuring rare gemstones. Limited annual release.</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="shop.html?collection=limited" class="btn">View Limited Editions</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <h2>Be the First to Know</h2>
+            <p>Subscribe to receive updates on new collections, exclusive launches, and special events.</p>
+            <form class="newsletter-form">
+                <input type="email" class="newsletter-input" placeholder="Your email address" required>
+                <button type="submit" class="newsletter-btn">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        <!-- Footer content from index.html -->
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Victoria Martins Jeweleries</h3>
+                    <p>Creating exquisite jewelry pieces since 1995. Our commitment to quality and craftsmanship ensures every piece tells a story.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="collections.html">Collections</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Customer Service</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Shipping & Returns</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                        <li><i class="fas fa-envelope"></i> info@vmjewels.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Jewelry Street, NY 10001</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Victoria Martins Jeweleries. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
 
+    <!-- Cart Sidebar -->
     <div class="overlay" id="overlay"></div>
     <div class="cart-sidebar" id="cart-sidebar">
-        <!-- Cart content from index.html -->
+        <div class="cart-header">
+            <h2>Your Shopping Bag</h2>
+            <button class="close-cart" id="close-cart">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Cart items will be dynamically loaded here -->
+        </div>
+        <div class="cart-total">
+            <span>Total:</span>
+            <span id="cart-total">$0.00</span>
+        </div>
+        <button class="checkout-btn" onclick="window.location.href='checkout.html'">Proceed to Checkout</button>
+    </div>
+
+    <!-- Quick View Modal -->
+    <div class="modal" id="product-modal">
+        <div class="modal-content">
+            <button class="close-modal" id="close-modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-image">
+                <img src="" alt="" id="modal-img">
+            </div>
+            <div class="modal-details">
+                <h2 id="modal-title"></h2>
+                <p id="modal-price" class="product-price"></p>
+                <div class="product-rating" id="modal-rating"></div>
+                <p id="modal-description"></p>
+                <button class="add-to-cart" id="modal-add-to-cart">Add to Cart</button>
+            </div>
+        </div>
     </div>
 
     <script src="js/main.js"></script>
+    <script>
+        // Load holiday collection products
+        document.addEventListener('DOMContentLoaded', function() {
+            const holidayProducts = window.vmjewels.products.filter(product => 
+                product.id % 2 === 0 // Just for demo - filter some products as holiday collection
+            ).slice(0, 4); // Show only 4 products
+            
+            const productGrid = document.querySelector('.products .product-grid');
+            if (productGrid && holidayProducts.length > 0) {
+                productGrid.innerHTML = '';
+                holidayProducts.forEach(product => {
+                    const productCard = createHolidayProductCard(product);
+                    productGrid.appendChild(productCard);
+                });
+                
+                // Re-attach event listeners
+                setTimeout(() => {
+                    document.querySelectorAll('.add-to-cart').forEach(button => {
+                        button.addEventListener('click', window.vmjewels.addToCart);
+                    });
+                    
+                    document.querySelectorAll('.quick-view').forEach(button => {
+                        button.addEventListener('click', window.vmjewels.showQuickView);
+                    });
+                }, 0);
+            }
+        });
+
+        function createHolidayProductCard(product) {
+            const productCard = document.createElement('div');
+            productCard.className = 'product-card';
+            
+            const ratingStars = createRatingStars(product.rating);
+            
+            productCard.innerHTML = `
+                <div class="product-badge" style="background: #c41e3a;">Holiday</div>
+                <img src="${product.image}" alt="${product.name}" class="product-img">
+                <div class="product-info">
+                    <h3 class="product-title">${product.name}</h3>
+                    <div class="product-rating">${ratingStars}</div>
+                    <p class="product-price">$${product.price.toFixed(2)}</p>
+                    <button class="add-to-cart" data-id="${product.id}">Add to Cart</button>
+                    <button class="btn btn-outline quick-view" data-id="${product.id}" style="width: 100%; margin-top: 10px;">Quick View</button>
+                </div>
+            `;
+            
+            return productCard;
+        }
+
+        function createRatingStars(rating) {
+            let stars = '';
+            for (let i = 1; i <= 5; i++) {
+                stars += i <= rating ? '<i class="fas fa-star"></i>' : '<i class="far fa-star"></i>';
+            }
+            return stars;
+        }
+
+        // Add collection overlay styles
+        const style = document.createElement('style');
+        style.textContent = `
+            .category-card {
+                position: relative;
+                cursor: pointer;
+            }
+            .collection-overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(212, 175, 55, 0.9);
+                color: white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+                padding: 20px;
+                text-align: center;
+            }
+            .category-card:hover .collection-overlay {
+                opacity: 1;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
 </body>
 </html>

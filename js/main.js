@@ -511,4 +511,45 @@ window.vmjewels = {
     addToCart,
     updateCart,
     saveCartToStorage
-};
+};// ===== MOBILE MENU FUNCTIONALITY =====
+function setupMobileMenu() {
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (mobileMenuBtn && navLinks) {
+        mobileMenuBtn.addEventListener('click', function(e) {
+            e.stopPropagation(); // Prevent event from bubbling up
+            navLinks.classList.toggle('active');
+            this.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.classList.remove('active');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.nav-links') && !e.target.closest('.mobile-menu-btn')) {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.classList.remove('active');
+            }
+        });
+    }
+}
+
+// Update the init function
+function init() {
+    initializeDOMElements();
+    setupEventListeners();
+    setupMobileMenu(); // Add this line
+    updateCart();
+    
+    // Initialize product display if on homepage
+    if (document.getElementById('product-grid')) {
+        displayProducts();
+    }
+}
