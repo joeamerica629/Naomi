@@ -6,13 +6,17 @@
     <title>Shop All Jewelry - VM Jewels</title>
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/shop.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <!-- Same header as index.html -->
     <header>
         <div class="container">
             <div class="header-top">
-                <div class="logo">VM JEWELS</div>
+                <div class="logo">
+                    <i class="fas fa-gem"></i>
+                    VM JEWELS
+                </div>
                 <nav>
                     <ul class="nav-links">
                         <li><a href="index.html">Home</a></li>
@@ -23,7 +27,19 @@
                     </ul>
                 </nav>
                 <div class="header-icons">
-                    <!-- Same cart icon as index.html -->
+                    <div class="icon search">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="icon user">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="icon cart" id="cart-icon">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span class="cart-count">0</span>
+                    </div>
+                    <div class="mobile-menu-btn">
+                        <i class="fas fa-bars"></i>
+                    </div>
                 </div>
             </div>
         </div>
@@ -100,14 +116,18 @@
         </div>
     </section>
 
-    <!-- Same footer as index.html -->
+    <!-- Same footer and cart sidebar as index.html -->
     <footer>
         <!-- Footer content from index.html -->
     </footer>
 
-    <!-- Same cart sidebar as index.html -->
+    <div class="overlay" id="overlay"></div>
     <div class="cart-sidebar" id="cart-sidebar">
         <!-- Cart content from index.html -->
+    </div>
+
+    <div class="modal" id="product-modal">
+        <!-- Modal content from index.html -->
     </div>
 
     <script src="js/main.js"></script>
