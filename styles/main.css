@@ -100,100 +100,117 @@ ul {
 }
 
 /* ===== HEADER STYLES ===== */
-header {
-    background-color: var(--white);
-    box-shadow: var(--shadow);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
 .header-top {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 0;
+    position: relative; /* Add this */
 }
 
-.logo {
-    font-size: 28px;
-    font-weight: 700;
-    color: var(--primary-gold);
-    letter-spacing: 1px;
+/* Update mobile menu styles */
+@media (max-width: 768px) {
+    .header-icons {
+        display: flex;
+        align-items: center;
+        gap: 15px; /* Add spacing between icons */
+    }
+
+    .icon {
+        margin-left: 0; /* Remove left margin on mobile */
+    }
+
+    .mobile-menu-btn {
+        display: block;
+        font-size: 24px;
+        cursor: pointer;
+        padding: 8px; /* Add padding for better touch target */
+        margin-left: 10px; /* Add spacing from cart icon */
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--white);
+        box-shadow: var(--shadow-heavy);
+        flex-direction: column;
+        padding: 0;
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 999;
+        border-top: 1px solid #f0f0f0;
+    }
+
+    .nav-links.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .nav-links li {
+        margin: 0;
+        width: 100%;
+        text-align: left;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 18px 25px;
+        font-size: 16px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+        background: var(--light-gold);
+        color: var(--dark-gold);
+    }
+
+    .nav-links a::after {
+        display: none;
+    }
+
+    .mobile-menu-btn.active {
+        color: var(--primary-gold);
+    }
+
+    .mobile-menu-btn.active i::before {
+        content: '\f00d'; /* Changes to X icon when active */
+    }
 }
 
-.nav-links {
-    display: flex;
-}
+@media (max-width: 480px) {
+    .header-top {
+        padding: 12px 0;
+    }
 
-.nav-links li {
-    margin-left: 25px;
-    position: relative;
-}
+    .logo {
+        font-size: 18px;
+    }
 
-.nav-links a {
-    font-size: 16px;
-    font-weight: 500;
-    padding: 5px 0;
-}
+    .header-icons {
+        gap: 12px;
+    }
 
-.nav-links a:hover,
-.nav-links a.active {
-    color: var(--primary-gold);
-}
+    .mobile-menu-btn {
+        font-size: 22px;
+        padding: 6px;
+        margin-left: 8px;
+    }
 
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: var(--primary-gold);
-    transition: width 0.3s ease;
-}
+    .icon {
+        font-size: 18px;
+    }
 
-.nav-links a:hover::after,
-.nav-links a.active::after {
-    width: 100%;
-}
-
-.header-icons {
-    display: flex;
-    align-items: center;
-}
-
-.icon {
-    margin-left: 20px;
-    font-size: 20px;
-    cursor: pointer;
-    position: relative;
-    transition: var(--transition);
-}
-
-.icon:hover {
-    color: var(--primary-gold);
-}
-
-.cart-count {
-    position: absolute;
-    top: -8px;
-    right: -8px;
-    background-color: var(--primary-gold);
-    color: var(--white);
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    font-size: 12px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.mobile-menu-btn {
-    display: none;
-    font-size: 24px;
-    cursor: pointer;
+    .nav-links a {
+        padding: 16px 20px;
+    }
 }
 
 /* ===== HERO SECTION ===== */
@@ -201,29 +218,92 @@ header {
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
     background-size: cover;
     background-position: center;
-    height: 80vh;
+    height: 100vh; /* Changed from 80vh to 100vh */
+    min-height: 600px; /* Minimum height for landscape */
+    max-height: 1200px; /* Maximum height for very tall screens */
     display: flex;
     align-items: center;
     color: var(--white);
     text-align: center;
+    position: relative;
 }
 
 .hero-content {
     max-width: 800px;
     margin: 0 auto;
+    padding: 40px 20px; /* Added padding for landscape */
+    width: 100%;
 }
 
 .hero h1 {
-    font-size: 48px;
+    font-size: clamp(32px, 5vw, 48px); /* Responsive font size */
     margin-bottom: 20px;
     font-weight: 700;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    line-height: 1.2;
 }
 
 .hero p {
-    font-size: 20px;
+    font-size: clamp(16px, 2.5vw, 20px); /* Responsive font size */
     margin-bottom: 30px;
     opacity: 0.9;
+    line-height: 1.5;
+}
+
+/* Landscape orientation specific styles */
+@media (max-width: 768px) and (orientation: landscape) {
+    .hero {
+        height: auto;
+        min-height: 100vh;
+        padding: 80px 0 40px; /* Add top padding to push content down */
+    }
+
+    .hero-content {
+        padding: 60px 20px 40px; /* More top padding in landscape */
+    }
+
+    .hero h1 {
+        font-size: 28px;
+        margin-bottom: 15px;
+    }
+
+    .hero p {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+    .header-top {
+        position: sticky;
+        top: 0;
+        background: var(--white);
+        z-index: 1000;
+    }
+}
+
+/* Very small landscape screens */
+@media (max-width: 667px) and (orientation: landscape) {
+    .hero {
+        padding: 70px 0 30px;
+    }
+
+    .hero-content {
+        padding: 40px 15px 30px;
+    }
+
+    .hero h1 {
+        font-size: 24px;
+        margin-bottom: 12px;
+    }
+
+    .hero p {
+        font-size: 14px;
+        margin-bottom: 15px;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
 }
 
 /* ===== CATEGORIES SECTION ===== */
@@ -933,4 +1013,30 @@ footer {
     .hero p {
         font-size: 16px;
     }
+}
+
+/* Update overlay for mobile menu */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 998; /* Below mobile menu but above other content */
+    display: none;
+}
+
+.overlay.active {
+    display: block;
+}
+
+/* Ensure cart sidebar has higher z-index than mobile menu overlay */
+.cart-sidebar {
+    z-index: 1000; /* Higher than mobile menu overlay */
+}
+
+/* Mobile menu should be above overlay but below cart */
+.nav-links.active {
+    z-index: 999; /* Between overlay and cart */
 }
