@@ -947,3 +947,19 @@ footer {
         padding: 15px;
     }
 }
+
+/* Simple fix - always show labels above for readonly fields with content */
+.form-group input[readonly]:not([value=""]) + label {
+    top: -20px !important;
+    font-size: 12px !important;
+    color: var(--primary-gold) !important;
+}
+
+/* Ensure the input has enough padding when label is raised */
+.form-group input[readonly] {
+    padding-top: 20px;
+    background-color: #f9f9f9;
+    border-bottom: 2px solid #eee;
+    color: var(--text-dark);
+    font-weight: 600;
+}
