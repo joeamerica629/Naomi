@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Place Order - Victoria Martins Jewels</title>
+    <title>Shop - Victoria Martins Jewels</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -18,8 +18,8 @@
                 </div>
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="shop.html">Shop</a></li>
-                    <li><a href="contact.html" class="active">Place Order</a></li>
+                    <li><a href="shop.html" class="active">Shop</a></li>
+                    <li><a href="contact.html">Place Order</a></li>
                 </ul>
                 <div class="mobile-menu-btn" id="mobile-menu-btn">
                     <i class="fas fa-bars"></i>
@@ -48,97 +48,47 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>Place Your Order</h1>
-                <p>Complete the form below to order your selected jewelry piece.</p>
+                <h1>Our Collection</h1>
+                <p>Discover our exclusive collection of handcrafted jewelry pieces that celebrate elegance and timeless beauty.</p>
             </div>
         </div>
     </section>
 
-    <!-- Order Section -->
-    <section class="order-section">
+    <!-- Products Section -->
+    <section class="products">
         <div class="container">
-            <div class="order-content">
-                <div class="contact-info">
-                    <h2>Contact Information</h2>
-                    <p>We'll use this information to contact you about your order and delivery details.</p>
-                    
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <div>
-                                <h3>Call Us</h3>
-                                <p>+234 701 124 9065</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <div>
-                                <h3>Email Us</h3>
-                                <p>info@vmjewels.com</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <h3>Visit Our Store</h3>
-                                <p>123 Jewelry Street<br>Lagos, Nigeria</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-clock"></i>
-                            <div>
-                                <h3>Store Hours</h3>
-                                <p>Monday - Saturday: 9AM - 6PM<br>Sunday: 12PM - 4PM</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="order-form-container">
-                    <div class="order-form">
-                        <h2>Order Details</h2>
-                        <form id="orderForm" action="https://formspree.io/f/xnnylyqz" method="POST">
-                            <input type="hidden" name="_subject" value="New Order - Victoria Martins Jewels">
-                            <input type="hidden" name="_replyto" id="reply-to-email">
-                            <input type="hidden" name="_gotcha" style="display:none">
-                            
-                            <input type="hidden" id="product" name="product" value="">
-                            <input type="hidden" id="price" name="price" value="">
-                            
-                            <div class="form-group">
-                                <input type="text" id="order-product" name="order-product-display" readonly>
-                                <label for="order-product" class="active">Product</label>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" id="order-price" name="order-price-display" readonly>
-                                <label for="order-price" class="active">Price</label>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" id="order-name" name="name" required>
-                                <label for="order-name">Your Full Name *</label>
-                            </div>
-                            <div class="form-group">
-                                <input type="email" id="order-email" name="email" onchange="document.getElementById('reply-to-email').value = this.value">
-                                <label for="order-email">Your Email</label>
-                            </div>
-                            <div class="form-group">
-                                <input type="tel" id="order-phone" name="phone">
-                                <label for="order-phone">Your Phone Number</label>
-                            </div>
-                            <div class="form-group">
-                                <textarea id="order-message" name="message" rows="4" placeholder="Any special requests, delivery preferences, or notes..."></textarea>
-                                <label for="order-message">Additional Message</label>
-                            </div>
-                            <div class="form-note">
-                                <p><i class="fas fa-info-circle"></i> Please provide either email or phone number so we can contact you about your order.</p>
-                            </div>
-                            <button type="submit" class="btn">Submit Order</button>
-                        </form>
-                    </div>
-                </div>
+            <h2 class="section-title">Featured Products</h2>
+            <div class="product-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="rings">Rings</button>
+                <button class="filter-btn" data-filter="necklaces">Necklaces</button>
+                <button class="filter-btn" data-filter="earrings">Earrings</button>
+                <button class="filter-btn" data-filter="bracelets">Bracelets</button>
+            </div>
+            <div class="product-grid" id="product-grid">
+                <!-- Products will be dynamically added here -->
             </div>
         </div>
     </section>
+
+    <!-- Image Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" id="lightbox-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <button class="lightbox-nav lightbox-prev" id="lightbox-prev">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <div class="lightbox-image-container">
+                <img id="lightbox-image" src="" alt="">
+            </div>
+            <button class="lightbox-nav lightbox-next" id="lightbox-next">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <div class="lightbox-caption" id="lightbox-caption"></div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer>
