@@ -666,3 +666,127 @@ footer {
         font-size: 14px;
     }
 }
+/* Add to existing style.css */
+
+/* Contact & Order Section */
+.contact-order {
+    padding: 80px 0;
+    background-color: var(--light-bg);
+}
+
+.contact-order-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.forms-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.order-form,
+.contact-form {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.order-form h2,
+.contact-form h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+}
+
+.form-note {
+    background-color: var(--light-gold);
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: var(--text-dark);
+}
+
+.form-note i {
+    color: var(--primary-gold);
+    margin-right: 8px;
+}
+
+/* Update existing form styles for better spacing */
+.form-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px 0;
+    border: none;
+    border-bottom: 2px solid #ddd;
+    background: transparent;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-gold);
+}
+
+.form-group label {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    font-size: 16px;
+    color: var(--text-light);
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus + label,
+.form-group textarea:focus + label,
+.form-group input:valid + label,
+.form-group textarea:valid + label {
+    top: -20px;
+    font-size: 12px;
+    color: var(--primary-gold);
+}
+
+/* Make order form fields readonly look different */
+.form-group input[readonly] {
+    background-color: #f9f9f9;
+    border-bottom: 2px solid #eee;
+    color: var(--text-light);
+}
+
+/* Responsive design for forms */
+@media (max-width: 992px) {
+    .contact-order-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .forms-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-order-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .forms-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .order-form,
+    .contact-form {
+        padding: 20px;
+    }
+}

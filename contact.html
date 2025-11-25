@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Victoria Martins Jewels</title>
+    <title>Contact & Order - Victoria Martins Jewels</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -19,7 +19,7 @@
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="shop.html">Shop</a></li>
-                    <li><a href="contact.html" class="active">Contact</a></li>
+                    <li><a href="contact.html" class="active">Contact & Order</a></li>
                 </ul>
                 <div class="mobile-menu-btn" id="mobile-menu-btn">
                     <i class="fas fa-bars"></i>
@@ -40,7 +40,7 @@
         <ul class="mobile-nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="shop.html">Shop</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="contact.html">Contact & Order</a></li>
         </ul>
     </div>
 
@@ -48,28 +48,21 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>Contact Us</h1>
-                <p>Get in touch with Victoria Martins Jewels. We're here to help you find the perfect piece.</p>
+                <h1>Contact & Place Your Order</h1>
+                <p>Get in touch with us or place an order for your favorite jewelry piece.</p>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="contact">
+    <!-- Contact & Order Section -->
+    <section class="contact-order">
         <div class="container">
-            <div class="contact-content">
+            <div class="contact-order-content">
                 <div class="contact-info">
                     <h2>Get In Touch</h2>
                     <p>We'd love to hear from you. Whether you have a question about our products, need assistance with an order, or just want to share your experience, please don't hesitate to reach out.</p>
                     
                     <div class="contact-details">
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <h3>Visit Our Store</h3>
-                                <p>123 Jewelry Street<br>Lagos, Nigeria</p>
-                            </div>
-                        </div>
                         <div class="contact-item">
                             <i class="fas fa-phone"></i>
                             <div>
@@ -85,36 +78,87 @@
                             </div>
                         </div>
                         <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h3>Visit Our Store</h3>
+                                <p>123 Jewelry Street<br>Lagos, Nigeria</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
                             <i class="fas fa-clock"></i>
                             <div>
                                 <h3>Store Hours</h3>
-                                <p>Monday - Saturday: 10AM - 7PM<br>Sunday: 12PM - 5PM</p>
+                                <p>Monday - Saturday: 9AM - 6PM<br>Sunday: 12PM - 4PM</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="contact-form">
-                    <h2>Send Us a Message</h2>
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <input type="text" id="name" name="name" required>
-                            <label for="name">Your Name</label>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" id="email" name="email" required>
-                            <label for="email">Your Email</label>
-                        </div>
-                        <div class="form-group">
-                            <input type="tel" id="phone" name="phone">
-                            <label for="phone">Your Phone (Optional)</label>
-                        </div>
-                        <div class="form-group">
-                            <textarea id="message" name="message" rows="5" required></textarea>
-                            <label for="message">Your Message</label>
-                        </div>
-                        <button type="submit" class="btn">Send Message</button>
-                    </form>
+                <div class="forms-container">
+                    <!-- Order Form -->
+                    <div class="order-form">
+                        <h2>Place Your Order</h2>
+                        <form id="orderForm" action="https://formspree.io/f/your-formspree-id" method="POST">
+                            <input type="hidden" id="product" name="product" value="">
+                            <input type="hidden" id="price" name="price" value="">
+                            
+                            <div class="form-group">
+                                <input type="text" id="order-product" name="order-product" readonly>
+                                <label for="order-product">Product</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="order-price" name="order-price" readonly>
+                                <label for="order-price">Price</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="order-name" name="name" required>
+                                <label for="order-name">Your Full Name *</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="order-email" name="email">
+                                <label for="order-email">Your Email</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" id="order-phone" name="phone">
+                                <label for="order-phone">Your Phone Number</label>
+                            </div>
+                            <div class="form-group">
+                                <textarea id="order-message" name="message" rows="4" placeholder="Any special requests or notes..."></textarea>
+                                <label for="order-message">Additional Message</label>
+                            </div>
+                            <div class="form-note">
+                                <p><i class="fas fa-info-circle"></i> Please provide either email or phone number so we can contact you about your order.</p>
+                            </div>
+                            <button type="submit" class="btn">Submit Order</button>
+                        </form>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="contact-form">
+                        <h2>Send Us a Message</h2>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <input type="text" id="contact-name" name="name" required>
+                                <label for="contact-name">Your Name</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="contact-email" name="email">
+                                <label for="contact-email">Your Email</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" id="contact-phone" name="phone">
+                                <label for="contact-phone">Your Phone (Optional)</label>
+                            </div>
+                            <div class="form-group">
+                                <textarea id="contact-message" name="message" rows="5" required></textarea>
+                                <label for="contact-message">Your Message</label>
+                            </div>
+                            <div class="form-note">
+                                <p><i class="fas fa-info-circle"></i> Please provide either email or phone number so we can respond to your inquiry.</p>
+                            </div>
+                            <button type="submit" class="btn btn-outline">Send Message</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -139,7 +183,7 @@
                     <ul class="footer-links">
                         <li><a href="index.html">Home</a></li>
                         <li><a href="shop.html">Shop</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="contact.html">Contact & Order</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -152,7 +196,7 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2025 Victoria Martins Jewels. All rights reserved.</p>
+                <p>&copy; 2023 Victoria Martins Jewels. All rights reserved.</p>
             </div>
         </div>
     </footer>

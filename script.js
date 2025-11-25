@@ -83,6 +83,7 @@ const mobileNav = document.getElementById('mobile-nav');
 const mobileNavOverlay = document.getElementById('mobile-nav-overlay');
 const closeMobileNav = document.getElementById('close-mobile-nav');
 const contactForm = document.getElementById('contactForm');
+const orderForm = document.getElementById('orderForm');
 
 // Display products
 function displayProducts(filter = 'all') {
@@ -130,31 +131,32 @@ function displayProducts(filter = 'all') {
 
 // Handle order button click
 function handleOrder(e) {
-    const productId = parseInt(e.target.getAttribute('data-id'));
     const productName = e.target.getAttribute('data-name');
     const productPrice = e.target.getAttribute('data-price');
     
-    // Redirect to Formspree with pre-filled data
-    const formspreeUrl = 'https://formspree.io/f/your-form-id-here';
-    const formData = new URLSearchParams({
-        'product': productName,
-        'price': productPrice,
-        '_subject': `Order for ${productName}`
-    });
+    // Store product info in localStorage
+    localStorage.setItem('selectedProduct', productName);
+    localStorage.setItem('selectedPrice', productPrice);
     
-    // Open in new tab
-    window.open(`${formspreeUrl}?${formData.toString()}`, '_blank');
+    // Redirect to contact page
+    window.location.href = 'contact.html';
+}
+
+// Prefill order form on contact page
+function prefillOrderForm() {
+    const productName = localStorage.getItem('selectedProduct');
+    const productPrice = localStorage.getItem('selectedPrice');
     
-    // Show order confirmation feedback
-    const button = e.target;
-    const originalText = button.textContent;
-    button.textContent = 'Opening Order Form...';
-    button.style.backgroundColor = '#4CAF50';
-    
-    setTimeout(() => {
-        button.textContent = originalText;
-        button.style.backgroundColor = '';
-    }, 2000);
+    if (productName && productPrice) {
+        document.getElementById('product').value = productName;
+        document.getElementById('price').value = productPrice;
+        document.getElementById('order-product').value = productName;
+        document.getElementById('order-price').value = `$${productPrice}`;
+        
+        // Clear localStorage
+        localStorage.removeItem('selectedProduct');
+        localStorage.removeItem('selectedPrice');
+    }
 }
 
 // Filter products
@@ -229,11 +231,41 @@ function handleContactForm(e) {
     });
 }
 
+// Handle order form submission
+function handleOrderForm(e) {
+    e.preventDefault();
+    
+    // Get form data
+    const formData = new FormData(e.target);
+    const product = formData.get('product');
+    const price = formData.get('price');
+    const name = formData.get('name');
+    const email = formData.get('email');
+    const phone = formData.get('phone');
+    const message = formData.get('message');
+    
+    // Validate contact info (either email or phone)
+    if (!email && !phone) {
+        alert('Please provide either an email address or phone number so we can contact you about your order.');
+        return;
+    }
+    
+    // Formspree will handle the submission
+    // You can add additional validation or processing here if needed
+    
+    alert('Your order has been submitted! We will contact you shortly to confirm your order.');
+}
+
 // Event listeners
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize products on shop page
     if (productGrid) {
         displayProducts();
+    }
+    
+    // Prefill order form on contact page
+    if (window.location.pathname.includes('contact.html')) {
+        prefillOrderForm();
     }
     
     // Add filter button listeners
@@ -259,5 +291,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Contact form
     if (contactForm) {
         contactForm.addEventListener('submit', handleContactForm);
+    }
+    
+    // Order form
+    if (orderForm) {
+        orderForm.addEventListener('submit', handleOrderForm);
     }
 });
