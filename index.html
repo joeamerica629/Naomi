@@ -3,9 +3,896 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Victoria Martins Jewels - Summer Collection</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Victoria Martins | Summer Collection 2024</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset and Base Styles - Vivienne Westwood inspired */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --vm-black: #000000;
+            --vm-white: #ffffff;
+            --vm-gold: #d4af37;
+            --vm-dark-gold: #b8860b;
+            --vm-cream: #f5f0e6;
+            --vm-charcoal: #1a1a1a;
+            --vm-gray: #333333;
+            --vm-light-gray: #f8f8f8;
+            --vm-red: #8b0000;
+            --vm-font-primary: 'Playfair Display', serif;
+            --vm-font-secondary: 'Roboto Condensed', sans-serif;
+        }
+
+        body {
+            font-family: var(--vm-font-primary);
+            background-color: var(--vm-white);
+            color: var(--vm-charcoal);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Vivienne Westwood inspired typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--vm-font-primary);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            text-transform: uppercase;
+        }
+
+        p {
+            font-family: var(--vm-font-secondary);
+            font-weight: 300;
+            letter-spacing: 0.02em;
+            line-height: 1.8;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Avant-garde header */
+        header {
+            background-color: var(--vm-white);
+            border-bottom: 2px solid var(--vm-black);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 10px 0;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 0;
+        }
+
+        .logo {
+            font-family: var(--vm-font-primary);
+            font-size: 28px;
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            text-transform: uppercase;
+            color: var(--vm-black);
+            position: relative;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--vm-gold), var(--vm-black));
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-family: var(--vm-font-secondary);
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--vm-charcoal);
+            padding: 5px 0;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--vm-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-links a.active {
+            color: var(--vm-gold);
+            font-weight: 900;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--vm-black);
+        }
+
+        /* Mobile Navigation */
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 80%;
+            height: 100vh;
+            background-color: var(--vm-white);
+            z-index: 1001;
+            transition: left 0.3s ease;
+            padding: 40px 20px;
+            border-right: 2px solid var(--vm-black);
+        }
+
+        .mobile-nav.active {
+            left: 0;
+        }
+
+        .mobile-nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--vm-black);
+        }
+
+        .mobile-nav-links li {
+            margin-bottom: 25px;
+            list-style: none;
+        }
+
+        .mobile-nav-links a {
+            font-family: var(--vm-font-secondary);
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--vm-charcoal);
+        }
+
+        .mobile-nav-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            display: none;
+        }
+
+        .mobile-nav-overlay.active {
+            display: block;
+        }
+
+        /* Hero Section - Avant-garde style */
+        .hero {
+            height: 90vh;
+            background: linear-gradient(135deg, var(--vm-black) 0%, var(--vm-charcoal) 100%);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: 'VICTORIA MARTINS';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: var(--vm-font-primary);
+            font-size: 15vw;
+            font-weight: 900;
+            color: rgba(212, 175, 55, 0.03);
+            white-space: nowrap;
+            pointer-events: none;
+            letter-spacing: 0.1em;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            color: var(--vm-white);
+        }
+
+        .hero h1 {
+            font-size: 72px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            text-transform: uppercase;
+            color: var(--vm-white);
+        }
+
+        .hero h1 span {
+            color: var(--vm-gold);
+            display: block;
+            font-size: 48px;
+            font-weight: 400;
+            letter-spacing: 0.2em;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 18px 45px;
+            background-color: transparent;
+            color: var(--vm-white);
+            border: 2px solid var(--vm-gold);
+            font-family: var(--vm-font-secondary);
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background-color: var(--vm-gold);
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+
+        .btn:hover::before {
+            left: 0;
+        }
+
+        .btn:hover {
+            color: var(--vm-black);
+        }
+
+        /* Summer Collection Section */
+        .collection-section {
+            padding: 100px 0;
+            background-color: var(--vm-cream);
+            position: relative;
+        }
+
+        .collection-section::before {
+            content: 'SUMMER 2024';
+            position: absolute;
+            top: 50px;
+            right: 50px;
+            font-family: var(--vm-font-primary);
+            font-size: 120px;
+            font-weight: 900;
+            color: rgba(212, 175, 55, 0.05);
+            writing-mode: vertical-rl;
+            letter-spacing: 0.1em;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-size: 56px;
+            font-weight: 900;
+            color: var(--vm-black);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--vm-gold), var(--vm-black));
+        }
+
+        .section-subtitle {
+            font-family: var(--vm-font-secondary);
+            font-size: 18px;
+            color: var(--vm-gray);
+            max-width: 600px;
+            margin: 30px auto 0;
+        }
+
+        /* Collection Grid */
+        .collection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .collection-card {
+            background: var(--vm-white);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s ease;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .collection-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 50px rgba(212, 175, 55, 0.2);
+            border-color: var(--vm-gold);
+        }
+
+        .collection-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--vm-gold), var(--vm-black));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
+        }
+
+        .collection-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--vm-gold);
+            color: var(--vm-black);
+            padding: 8px 15px;
+            font-family: var(--vm-font-secondary);
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            z-index: 2;
+        }
+
+        .card-image {
+            height: 450px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1s ease;
+        }
+
+        .collection-card:hover .card-image img {
+            transform: scale(1.05);
+        }
+
+        .card-info {
+            padding: 30px;
+            background: var(--vm-white);
+            position: relative;
+        }
+
+        .card-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--vm-black);
+            text-transform: uppercase;
+        }
+
+        .card-description {
+            font-family: var(--vm-font-secondary);
+            font-size: 14px;
+            color: var(--vm-gray);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .card-price {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--vm-gold);
+            margin-bottom: 25px;
+        }
+
+        .card-btn {
+            width: 100%;
+            padding: 15px;
+            background: transparent;
+            border: 2px solid var(--vm-black);
+            font-family: var(--vm-font-secondary);
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--vm-black);
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+
+        .card-btn:hover::before {
+            left: 0;
+        }
+
+        .card-btn:hover {
+            color: var(--vm-white);
+        }
+
+        /* Order Form Section - Avant-garde style */
+        .order-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--vm-charcoal) 0%, var(--vm-black) 100%);
+            color: var(--vm-white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .order-section::before {
+            content: 'ORDER';
+            position: absolute;
+            bottom: -50px;
+            left: -50px;
+            font-family: var(--vm-font-primary);
+            font-size: 200px;
+            font-weight: 900;
+            color: rgba(212, 175, 55, 0.03);
+            transform: rotate(-15deg);
+            pointer-events: none;
+        }
+
+        .order-section::after {
+            content: 'NOW';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            font-family: var(--vm-font-primary);
+            font-size: 200px;
+            font-weight: 900;
+            color: rgba(212, 175, 55, 0.03);
+            transform: rotate(15deg);
+            pointer-events: none;
+        }
+
+        .order-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .order-info {
+            padding-right: 40px;
+        }
+
+        .order-info h2 {
+            font-size: 48px;
+            font-weight: 900;
+            margin-bottom: 30px;
+            color: var(--vm-white);
+        }
+
+        .order-info p {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 40px;
+        }
+
+        .contact-details {
+            margin-top: 50px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .contact-item i {
+            width: 50px;
+            height: 50px;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--vm-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            color: var(--vm-gold);
+            font-size: 18px;
+        }
+
+        .contact-item h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: var(--vm-white);
+        }
+
+        .contact-item p {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.7);
+            margin: 0;
+        }
+
+        .order-form-container {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 50px;
+            border-radius: 0;
+        }
+
+        .order-form h2 {
+            font-size: 36px;
+            font-weight: 900;
+            margin-bottom: 40px;
+            color: var(--vm-white);
+            text-align: center;
+        }
+
+        .form-group {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px 0;
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+            color: var(--vm-white);
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--vm-gold);
+        }
+
+        .form-group label {
+            position: absolute;
+            top: 15px;
+            left: 0;
+            font-family: var(--vm-font-secondary);
+            font-size: 14px;
+            letter-spacing: 0.1em;
+            color: rgba(255, 255, 255, 0.5);
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus + label,
+        .form-group textarea:focus + label,
+        .form-group input:valid + label,
+        .form-group textarea:valid + label,
+        .form-group label.active {
+            top: -20px;
+            font-size: 12px;
+            color: var(--vm-gold);
+        }
+
+        .form-group input[readonly] {
+            border-bottom-color: var(--vm-gold);
+            color: var(--vm-gold);
+            font-weight: 700;
+        }
+
+        .form-note {
+            background: rgba(212, 175, 55, 0.1);
+            padding: 15px;
+            margin: 30px 0;
+            border-left: 4px solid var(--vm-gold);
+            font-family: var(--vm-font-secondary);
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .form-note i {
+            color: var(--vm-gold);
+            margin-right: 10px;
+        }
+
+        .order-form .btn {
+            width: 100%;
+            background: var(--vm-gold);
+            color: var(--vm-black);
+            border: none;
+            font-size: 16px;
+            padding: 18px;
+        }
+
+        .order-form .btn:hover {
+            background: var(--vm-dark-gold);
+        }
+
+        /* Success Message */
+        .success-message {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+        }
+
+        .success-content {
+            background: var(--vm-white);
+            padding: 60px;
+            text-align: center;
+            max-width: 500px;
+            position: relative;
+        }
+
+        .success-content::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border: 2px solid var(--vm-gold);
+            pointer-events: none;
+        }
+
+        .success-content i {
+            font-size: 60px;
+            color: var(--vm-gold);
+            margin-bottom: 30px;
+        }
+
+        .success-content h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: var(--vm-black);
+        }
+
+        .success-content p {
+            font-size: 16px;
+            color: var(--vm-gray);
+            margin-bottom: 30px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--vm-black);
+            color: var(--vm-white);
+            padding: 60px 0 20px;
+            border-top: 2px solid var(--vm-gold);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: var(--vm-gold);
+            letter-spacing: 0.2em;
+        }
+
+        .footer-links li {
+            list-style: none;
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            font-family: var(--vm-font-secondary);
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-links a:hover {
+            color: var(--vm-gold);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background: var(--vm-gold);
+            border-color: var(--vm-gold);
+            color: var(--vm-black);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-family: var(--vm-font-secondary);
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.5);
+            letter-spacing: 0.1em;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .hero h1 {
+                font-size: 60px;
+            }
+            
+            .section-title {
+                font-size: 48px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .order-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .order-info {
+                padding-right: 0;
+                text-align: center;
+            }
+            
+            .contact-item {
+                justify-content: center;
+            }
+            
+            .collection-grid {
+                grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            }
+            
+            .card-image {
+                height: 350px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 48px;
+            }
+            
+            .hero h1 span {
+                font-size: 36px;
+            }
+            
+            .section-title {
+                font-size: 36px;
+            }
+            
+            .order-form-container {
+                padding: 30px;
+            }
+            
+            .collection-section::before {
+                font-size: 80px;
+                right: 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero h1 span {
+                font-size: 24px;
+            }
+            
+            .collection-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .card-image {
+                height: 300px;
+            }
+            
+            .order-form-container {
+                padding: 20px;
+            }
+            
+            .success-content {
+                padding: 40px 20px;
+                margin: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
@@ -13,13 +900,13 @@
         <div class="container">
             <div class="header-top">
                 <div class="logo">
-                    <i class="fas fa-gem"></i>
-                    Victoria Martins Jewels
+                    VICTORIA MARTINS
                 </div>
                 <ul class="nav-links">
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="#summer-collection">Summer Collection</a></li>
-                    <li><a href="#order-form">Order</a></li>
+                    <li><a href="index.html" class="active">HOME</a></li>
+                    <li><a href="#collection">COLLECTION</a></li>
+                    <li><a href="#order">ORDER</a></li>
+                    <li><a href="#contact">CONTACT</a></li>
                 </ul>
                 <div class="mobile-menu-btn" id="mobile-menu-btn">
                     <i class="fas fa-bars"></i>
@@ -32,15 +919,16 @@
     <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
     <div class="mobile-nav" id="mobile-nav">
         <div class="mobile-nav-header">
-            <div class="logo">Victoria Martins Jewels</div>
+            <div class="logo">VICTORIA MARTINS</div>
             <button class="close-mobile-nav" id="close-mobile-nav">
                 <i class="fas fa-times"></i>
             </button>
         </div>
         <ul class="mobile-nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="#summer-collection">Summer Collection</a></li>
-            <li><a href="#order-form">Order</a></li>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="#collection">COLLECTION</a></li>
+            <li><a href="#order">ORDER</a></li>
+            <li><a href="#contact">CONTACT</a></li>
         </ul>
     </div>
 
@@ -48,18 +936,23 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>Summer Collection 2024</h1>
-                <p>Discover our exclusive collection of handcrafted beaded tops that celebrate the vibrant colors and effortless elegance of summer.</p>
-                <a href="#summer-collection" class="btn">View Collection</a>
+                <h1>
+                    SUMMER<br>
+                    <span>COLLECTION 2024</span>
+                </h1>
+                <p>Handcrafted beaded tops that capture the spirit of rebellion and elegance. Each piece is a statement of individuality.</p>
+                <a href="#collection" class="btn">DISCOVER THE COLLECTION</a>
             </div>
         </div>
     </section>
 
-    <!-- Summer Collection Section -->
-    <section id="summer-collection" class="summer-collection">
+    <!-- Collection Section -->
+    <section id="collection" class="collection-section">
         <div class="container">
-            <h2 class="section-title">Summer Beaded Tops Collection</h2>
-            <p class="collection-description">Handcrafted with love, each piece is unique and perfect for those warm summer days.</p>
+            <div class="section-header">
+                <h2 class="section-title">THE BEADED TOPS</h2>
+                <p class="section-subtitle">Avant-garde designs for those who dare to be different. Each piece is handcrafted in limited quantities.</p>
+            </div>
             
             <div class="collection-grid" id="collection-grid">
                 <!-- Products will be dynamically added here -->
@@ -67,41 +960,34 @@
         </div>
     </section>
 
-    <!-- Order Form Section -->
-    <section id="order-form" class="order-section">
+    <!-- Order Section -->
+    <section id="order" class="order-section">
         <div class="container">
             <div class="order-content">
-                <div class="contact-info">
-                    <h2>Place Your Order</h2>
-                    <p>Fill out the form below to order your favorite piece from our Summer Collection. We'll get back to you within 24 hours to confirm your order and discuss delivery options.</p>
+                <div class="order-info">
+                    <h2>PLACE YOUR ORDER</h2>
+                    <p>Complete the form to secure your piece from the Summer Collection. Our team will contact you within 24 hours to confirm details and arrange delivery.</p>
                     
                     <div class="contact-details">
                         <div class="contact-item">
                             <i class="fas fa-phone"></i>
                             <div>
-                                <h3>Call Us</h3>
+                                <h3>CALL US</h3>
                                 <p>+234 701 124 9065</p>
                             </div>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-envelope"></i>
                             <div>
-                                <h3>Email Us</h3>
-                                <p>info@vmjewels.com</p>
+                                <h3>EMAIL US</h3>
+                                <p>orders@victoriamartins.com</p>
                             </div>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-map-marker-alt"></i>
                             <div>
-                                <h3>Visit Our Store</h3>
-                                <p>123 Jewelry Street<br>Lagos, Nigeria</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-clock"></i>
-                            <div>
-                                <h3>Store Hours</h3>
-                                <p>Monday - Saturday: 9AM - 6PM<br>Sunday: 12PM - 4PM</p>
+                                <h3>VISIT US</h3>
+                                <p>123 Fashion Avenue<br>Lagos, Nigeria</p>
                             </div>
                         </div>
                     </div>
@@ -109,43 +995,42 @@
                 
                 <div class="order-form-container">
                     <div class="order-form">
-                        <h2>Order Form</h2>
+                        <h2>ORDER FORM</h2>
                         <form id="orderForm" action="https://formspree.io/f/xnnylyqz" method="POST">
                             <input type="hidden" name="_subject" value="New Order - Summer Collection">
                             <input type="hidden" name="_replyto" id="reply-to-email">
-                            <input type="hidden" name="_gotcha" style="display:none">
                             
-                            <input type="hidden" id="selected-product" name="product" value="">
-                            <input type="hidden" id="selected-price" name="price" value="">
+                            <input type="hidden" id="selected-product" name="product">
+                            <input type="hidden" id="selected-price" name="price">
                             
                             <div class="form-group">
                                 <input type="text" id="order-product" name="order-product-display" readonly>
-                                <label for="order-product" class="active">Selected Product</label>
+                                <label for="order-product" class="active">SELECTED PRODUCT</label>
                             </div>
                             <div class="form-group">
                                 <input type="text" id="order-price" name="order-price-display" readonly>
-                                <label for="order-price" class="active">Price</label>
+                                <label for="order-price" class="active">PRICE</label>
                             </div>
                             <div class="form-group">
                                 <input type="text" id="order-name" name="name" required>
-                                <label for="order-name">Your Full Name *</label>
+                                <label for="order-name">FULL NAME *</label>
                             </div>
                             <div class="form-group">
                                 <input type="email" id="order-email" name="email" onchange="document.getElementById('reply-to-email').value = this.value">
-                                <label for="order-email">Your Email</label>
+                                <label for="order-email">EMAIL</label>
                             </div>
                             <div class="form-group">
                                 <input type="tel" id="order-phone" name="phone">
-                                <label for="order-phone">Your Phone Number</label>
+                                <label for="order-phone">PHONE NUMBER</label>
                             </div>
                             <div class="form-group">
-                                <textarea id="order-message" name="message" rows="4" placeholder="Any special requests, size preferences, or notes..."></textarea>
-                                <label for="order-message">Additional Message</label>
+                                <textarea id="order-message" name="message" rows="4"></textarea>
+                                <label for="order-message">SPECIAL REQUESTS</label>
                             </div>
                             <div class="form-note">
-                                <p><i class="fas fa-info-circle"></i> Please provide either email or phone number so we can contact you about your order.</p>
+                                <i class="fas fa-info-circle"></i> Please provide either email or phone number so we can contact you.
                             </div>
-                            <button type="submit" class="btn">Submit Order</button>
+                            <button type="submit" class="btn">SUBMIT ORDER</button>
                         </form>
                     </div>
                 </div>
@@ -154,38 +1039,39 @@
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer id="contact">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3>Victoria Martins Jewels</h3>
-                    <p>Creating exquisite jewelry pieces since 1995. Our commitment to quality and craftsmanship ensures every piece tells a story.</p>
+                    <h3>VICTORIA MARTINS</h3>
+                    <p style="font-family: 'Roboto Condensed', sans-serif; color: rgba(255,255,255,0.7);">Avant-garde fashion jewelry for the rebellious spirit. Established 1995.</p>
                     <div class="social-icons">
-                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="social-icon"><i class="fab fa-pinterest"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
                 <div class="footer-column">
-                    <h3>Quick Links</h3>
+                    <h3>NAVIGATION</h3>
                     <ul class="footer-links">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="#summer-collection">Summer Collection</a></li>
-                        <li><a href="#order-form">Order</a></li>
+                        <li><a href="index.html">HOME</a></li>
+                        <li><a href="#collection">COLLECTION</a></li>
+                        <li><a href="#order">ORDER</a></li>
+                        <li><a href="#contact">CONTACT</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h3>Contact Us</h3>
-                    <ul class="contact-info">
-                        <li><i class="fas fa-phone"></i> +234 701 124 9065</li>
-                        <li><i class="fas fa-envelope"></i> info@vmjewels.com</li>
-                        <li><i class="fas fa-map-marker-alt"></i> 123 Jewelry Street, Lagos, Nigeria</li>
+                    <h3>CONTACT</h3>
+                    <ul class="footer-links">
+                        <li><a href="tel:+2347011249065">+234 701 124 9065</a></li>
+                        <li><a href="mailto:info@victoriamartins.com">info@victoriamartins.com</a></li>
+                        <li>123 Fashion Avenue<br>Lagos, Nigeria</li>
                     </ul>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2024 Victoria Martins Jewels. Summer Collection. All rights reserved.</p>
+                <p>© 2024 VICTORIA MARTINS. ALL RIGHTS RESERVED.</p>
             </div>
         </div>
     </footer>
@@ -195,51 +1081,45 @@
         const products = [
             {
                 id: 1,
-                name: "Coral Reef Beaded Top",
-                price: 89.99,
-                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%23ffe4e1'/%3E%3Ccircle cx='200' cy='200' r='120' fill='%23ff7f50'/%3E%3Ccircle cx='150' cy='150' r='15' fill='%23ffd700'/%3E%3Ccircle cx='250' cy='180' r='12' fill='%23ffd700'/%3E%3Ccircle cx='180' cy='250' r='18' fill='%23ffd700'/%3E%3Ccircle cx='220' cy='130' r='10' fill='%23ffd700'/%3E%3Ccircle cx='280' cy='230' r='14' fill='%23ffd700'/%3E%3Ctext x='200' y='350' text-anchor='middle' font-family='Arial' font-size='16' fill='%23777'%3ECoral Reef Beaded Top%3C/text%3E%3C/svg%3E",
-                category: "beaded-tops",
-                description: "Vibrant coral-inspired beaded top with gold accents. Perfect for beach parties and summer festivals."
+                name: "REBEL CORAL",
+                price: 189.99,
+                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='800' viewBox='0 0 600 800'%3E%3Crect width='600' height='800' fill='%23000000'/%3E%3Ccircle cx='300' cy='350' r='200' fill='%23d4af37' opacity='0.1'/%3E%3Cpath d='M250 300 L350 300 L300 500 Z' fill='%23d4af37'/%3E%3Ccircle cx='250' cy='280' r='20' fill='%23ff6b6b'/%3E%3Ccircle cx='350' cy='280' r='20' fill='%23ff6b6b'/%3E%3Ccircle cx='300' cy='400' r='15' fill='%23ffd700'/%3E%3Ctext x='300' y='650' text-anchor='middle' font-family='Playfair Display' font-size='24' fill='%23ffffff' font-weight='bold'%3EREBEL CORAL%3C/text%3E%3C/svg%3E",
+                description: "Bold coral beaded top with gold accents. A statement piece for those who dare."
             },
             {
                 id: 2,
-                name: "Ocean Wave Beaded Top",
-                price: 94.99,
-                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%23e0f2fe'/%3E%3Cpath d='M100 200 Q200 150 300 200 Q200 250 100 200' fill='%234a90e2'/%3E%3Ccircle cx='180' cy='170' r='10' fill='%23ffffff'/%3E%3Ccircle cx='220' cy='230' r='10' fill='%23ffffff'/%3E%3Ccircle cx='260' cy='190' r='8' fill='%23ffffff'/%3E%3Ctext x='200' y='350' text-anchor='middle' font-family='Arial' font-size='16' fill='%23777'%3EOcean Wave Beaded Top%3C/text%3E%3C/svg%3E",
-                category: "beaded-tops",
-                description: "Ocean blue wave pattern with pearl white beads. A stunning piece that captures the essence of the sea."
+                name: "MIDNIGHT WAVE",
+                price: 199.99,
+                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='800' viewBox='0 0 600 800'%3E%3Crect width='600' height='800' fill='%23000000'/%3E%3Cpath d='M200 300 Q300 200 400 300 Q300 400 200 300' fill='%23000080' opacity='0.3'/%3E%3Ccircle cx='300' cy='350' r='150' fill='%23d4af37' opacity='0.1'/%3E%3Ccircle cx='250' cy='320' r='15' fill='%23ffffff'/%3E%3Ccircle cx='350' cy='320' r='15' fill='%23ffffff'/%3E%3Ctext x='300' y='650' text-anchor='middle' font-family='Playfair Display' font-size='24' fill='%23ffffff' font-weight='bold'%3EMIDNIGHT WAVE%3C/text%3E%3C/svg%3E",
+                description: "Deep navy wave pattern with pearl beads. Elegance meets edge."
             },
             {
                 id: 3,
-                name: "Sunset Gradient Beaded Top",
-                price: 99.99,
-                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%23ffb347'/%3E%3Ccircle cx='200' cy='200' r='100' fill='%23ff8c00'/%3E%3Ccircle cx='200' cy='200' r='60' fill='%23ff6b6b'/%3E%3Ccircle cx='150' cy='150' r='15' fill='%23ffd700'/%3E%3Ccircle cx='250' cy='250' r='15' fill='%23ffd700'/%3E%3Ccircle cx='150' cy='250' r='12' fill='%23ffd700'/%3E%3Ccircle cx='250' cy='150' r='12' fill='%23ffd700'/%3E%3Ctext x='200' y='350' text-anchor='middle' font-family='Arial' font-size='16' fill='%23777'%3ESunset Gradient Beaded Top%3C/text%3E%3C/svg%3E",
-                category: "beaded-tops",
-                description: "Gorgeous sunset gradient with gold and orange beads. A statement piece for warm summer evenings."
+                name: "GOLDEN HOUR",
+                price: 229.99,
+                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='800' viewBox='0 0 600 800'%3E%3Crect width='600' height='800' fill='%23000000'/%3E%3Ccircle cx='300' cy='400' r='200' fill='%23d4af37' opacity='0.2'/%3E%3Ccircle cx='250' cy='350' r='30' fill='%23ffd700'/%3E%3Ccircle cx='350' cy='350' r='30' fill='%23ffd700'/%3E%3Ccircle cx='300' cy='450' r='25' fill='%23ffd700'/%3E%3Ctext x='300' y='650' text-anchor='middle' font-family='Playfair Display' font-size='24' fill='%23ffffff' font-weight='bold'%3EGOLDEN HOUR%3C/text%3E%3C/svg%3E",
+                description: "Gold beaded masterpiece that captures the last light of day."
             },
             {
                 id: 4,
-                name: "Tropical Paradise Beaded Top",
-                price: 109.99,
-                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%23e6f3e6'/%3E%3Cpath d='M200 100 L250 150 L200 200 L150 150 Z' fill='%2332cd32'/%3E%3Ccircle cx='200' cy='200' r='50' fill='%23ff69b4'/%3E%3Ccircle cx='120' cy='180' r='12' fill='%23ffff00'/%3E%3Ccircle cx='280' cy='220' r='15' fill='%23ffff00'/%3E%3Ccircle cx='180' cy='280' r='10' fill='%23ffff00'/%3E%3Ccircle cx='220' cy='120' r='10' fill='%23ffff00'/%3E%3Ctext x='200' y='350' text-anchor='middle' font-family='Arial' font-size='16' fill='%23777'%3ETropical Paradise Beaded Top%3C/text%3E%3C/svg%3E",
-                category: "beaded-tops",
-                description: "Tropical-inspired design with green leaves and pink flowers. Bring the paradise vibes wherever you go."
+                name: "SCARLET FURY",
+                price: 179.99,
+                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='800' viewBox='0 0 600 800'%3E%3Crect width='600' height='800' fill='%23000000'/%3E%3Cpath d='M200 300 L400 300 L300 500 Z' fill='%238b0000' opacity='0.5'/%3E%3Ccircle cx='250' cy='320' r='20' fill='%23d4af37'/%3E%3Ccircle cx='350' cy='320' r='20' fill='%23d4af37'/%3E%3Ccircle cx='300' cy='420' r='15' fill='%23ffd700'/%3E%3Ctext x='300' y='650' text-anchor='middle' font-family='Playfair Display' font-size='24' fill='%23ffffff' font-weight='bold'%3ESCARLET FURY%3C/text%3E%3C/svg%3E",
+                description: "Fiery red beaded top with gold details. Passion meets fashion."
             },
             {
                 id: 5,
-                name: "Golden Hour Beaded Top",
-                price: 119.99,
-                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%23fff5e6'/%3E%3Ccircle cx='200' cy='200' r='130' fill='%23ffd700' opacity='0.7'/%3E%3Ccircle cx='150' cy='150' r='15' fill='%23ffffff'/%3E%3Ccircle cx='250' cy='250' r='15' fill='%23ffffff'/%3E%3Ccircle cx='150' cy='250' r='12' fill='%23ffffff'/%3E%3Ccircle cx='250' cy='150' r='12' fill='%23ffffff'/%3E%3Ctext x='200' y='350' text-anchor='middle' font-family='Arial' font-size='16' fill='%23777'%3EGolden Hour Beaded Top%3C/text%3E%3C/svg%3E",
-                category: "beaded-tops",
-                description: "Elegant gold-toned beaded top that catches the light beautifully. Perfect for sunset photos and special occasions."
+                name: "IVORY REBEL",
+                price: 249.99,
+                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='800' viewBox='0 0 600 800'%3E%3Crect width='600' height='800' fill='%23000000'/%3E%3Ccircle cx='300' cy='400' r='180' fill='%23f5f5f5' opacity='0.2'/%3E%3Ccircle cx='250' cy='350' r='25' fill='%23ffffff'/%3E%3Ccircle cx='350' cy='350' r='25' fill='%23ffffff'/%3E%3Cpath d='M280 430 L320 430 L300 470 Z' fill='%23d4af37'/%3E%3Ctext x='300' y='650' text-anchor='middle' font-family='Playfair Display' font-size='24' fill='%23ffffff' font-weight='bold'%3EIVORY REBEL%3C/text%3E%3C/svg%3E",
+                description: "Cream and gold beadwork. Classic sophistication with an edge."
             },
             {
                 id: 6,
-                name: "Berry Blast Beaded Top",
-                price: 84.99,
-                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%23fff0f5'/%3E%3Ccircle cx='200' cy='200' r='100' fill='%239c27b0'/%3E%3Ccircle cx='150' cy='150' r='18' fill='%23e91e63'/%3E%3Ccircle cx='250' cy='180' r='15' fill='%23e91e63'/%3E%3Ccircle cx='180' cy='250' r='20' fill='%23e91e63'/%3E%3Ccircle cx='260' cy='230' r='12' fill='%23e91e63'/%3E%3Ctext x='200' y='350' text-anchor='middle' font-family='Arial' font-size='16' fill='%23777'%3EBerry Blast Beaded Top%3C/text%3E%3C/svg%3E",
-                category: "beaded-tops",
-                description: "Rich berry-colored beads in a stunning pattern. A bold and beautiful choice for summer parties."
+                name: "ELECTRIC NIGHTS",
+                price: 279.99,
+                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='800' viewBox='0 0 600 800'%3E%3Crect width='600' height='800' fill='%23000000'/%3E%3Ccircle cx='300' cy='400' r='200' fill='%239c27b0' opacity='0.2'/%3E%3Ccircle cx='220' cy='320' r='18' fill='%23d4af37'/%3E%3Ccircle cx='380' cy='320' r='18' fill='%23d4af37'/%3E%3Ccircle cx='300' cy='380' r='15' fill='%23ffd700'/%3E%3Ccircle cx='300' cy='440' r='12' fill='%23ffd700'/%3E%3Ctext x='300' y='650' text-anchor='middle' font-family='Playfair Display' font-size='24' fill='%23ffffff' font-weight='bold'%3ELECTRIC NIGHTS%3C/text%3E%3C/svg%3E",
+                description: "Purple and gold beaded design for those who shine in the dark."
             }
         ];
 
@@ -251,33 +1131,35 @@
         const closeMobileNav = document.getElementById('close-mobile-nav');
         const orderForm = document.getElementById('orderForm');
 
-        // Display collection products
+        // Display collection
         function displayCollection() {
             if (!collectionGrid) return;
             
             collectionGrid.innerHTML = '';
             
             products.forEach((product, index) => {
-                const productCard = document.createElement('div');
-                productCard.className = 'collection-card';
+                const card = document.createElement('div');
+                card.className = 'collection-card';
                 
-                productCard.innerHTML = `
-                    <div class="collection-card-inner">
-                        <img src="${product.image}" alt="${product.name}" class="collection-img">
-                        <div class="collection-info">
-                            <h3 class="collection-title">${product.name}</h3>
-                            <p class="collection-description">${product.description}</p>
-                            <p class="collection-price">$${product.price.toFixed(2)}</p>
-                            <button class="order-btn" data-id="${product.id}" data-name="${product.name}" data-price="${product.price}">Order This Top</button>
-                        </div>
+                card.innerHTML = `
+                    <div class="card-badge">LIMITED</div>
+                    <div class="card-image">
+                        <img src="${product.image}" alt="${product.name}">
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">${product.name}</h3>
+                        <p class="card-description">${product.description}</p>
+                        <div class="card-price">$${product.price}</div>
+                        <button class="card-btn" data-id="${product.id}" data-name="${product.name}" data-price="${product.price}">ORDER NOW</button>
                     </div>
                 `;
-                collectionGrid.appendChild(productCard);
+                
+                collectionGrid.appendChild(card);
             });
 
-            // Add event listeners to Order buttons
-            document.querySelectorAll('.order-btn').forEach(button => {
-                button.addEventListener('click', handleOrder);
+            // Add event listeners to order buttons
+            document.querySelectorAll('.card-btn').forEach(btn => {
+                btn.addEventListener('click', handleOrder);
             });
         }
 
@@ -286,19 +1168,19 @@
             const productName = e.target.getAttribute('data-name');
             const productPrice = e.target.getAttribute('data-price');
             
-            // Store product info in sessionStorage
+            // Store in sessionStorage
             sessionStorage.setItem('selectedProduct', productName);
             sessionStorage.setItem('selectedPrice', productPrice);
             
             // Scroll to order form
-            document.getElementById('order-form').scrollIntoView({ behavior: 'smooth' });
+            document.getElementById('order').scrollIntoView({ behavior: 'smooth' });
             
-            // Prefill the form
-            setTimeout(prefillOrderForm, 500);
+            // Prefill form
+            setTimeout(prefillForm, 500);
         }
 
         // Prefill order form
-        function prefillOrderForm() {
+        function prefillForm() {
             const productName = sessionStorage.getItem('selectedProduct');
             const productPrice = sessionStorage.getItem('selectedPrice');
             
@@ -306,167 +1188,108 @@
                 document.getElementById('selected-product').value = productName;
                 document.getElementById('selected-price').value = productPrice;
                 document.getElementById('order-product').value = productName;
-                document.getElementById('order-price').value = `$${parseFloat(productPrice).toFixed(2)}`;
+                document.getElementById('order-price').value = `$${productPrice}`;
                 
                 // Clear sessionStorage
                 sessionStorage.removeItem('selectedProduct');
                 sessionStorage.removeItem('selectedPrice');
                 
                 // Fix labels
-                fixFormLabels();
+                fixLabels();
             }
         }
 
-        // Enhanced form label handling
-        function fixFormLabels() {
-            const formGroups = document.querySelectorAll('.form-group');
-            
-            formGroups.forEach(group => {
-                const input = group.querySelector('input, textarea');
-                const label = group.querySelector('label');
-                
-                if (input && label) {
-                    if (input.value.trim() !== '') {
-                        label.classList.add('active');
-                    } else {
-                        label.classList.remove('active');
-                    }
+        // Fix form labels
+        function fixLabels() {
+            document.querySelectorAll('.form-group input, .form-group textarea').forEach(input => {
+                const label = input.nextElementSibling;
+                if (input.value) {
+                    label.classList.add('active');
                 }
             });
         }
 
-        // Initialize form field interactions
-        function initializeFormFields() {
-            const formGroups = document.querySelectorAll('.form-group');
-            
-            formGroups.forEach(group => {
-                const input = group.querySelector('input, textarea');
-                const label = group.querySelector('label');
-                
-                if (input && label) {
-                    input.addEventListener('input', function() {
-                        if (this.value) {
-                            label.classList.add('active');
-                        } else {
-                            label.classList.remove('active');
-                        }
-                    });
-                    
-                    input.addEventListener('focus', function() {
-                        label.classList.add('active');
-                    });
-                    
-                    input.addEventListener('blur', function() {
-                        if (!this.value) {
-                            label.classList.remove('active');
-                        }
-                    });
-                }
-            });
-        }
-
-        // Show mobile navigation
+        // Mobile navigation
         function showMobileNav() {
-            if (mobileNav) {
-                mobileNav.classList.add('active');
-                mobileNavOverlay.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            }
+            mobileNav.classList.add('active');
+            mobileNavOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
         }
 
-        // Hide mobile navigation
         function hideMobileNav() {
-            if (mobileNav) {
-                mobileNav.classList.remove('active');
-                mobileNavOverlay.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            }
+            mobileNav.classList.remove('active');
+            mobileNavOverlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
         }
 
-        // Handle order form submission
-        function handleOrderForm(e) {
+        // Handle form submission
+        function handleFormSubmit(e) {
             e.preventDefault();
             
-            const form = e.target;
-            const email = form.querySelector('#order-email').value;
-            const phone = form.querySelector('#order-phone').value;
+            const email = document.getElementById('order-email').value;
+            const phone = document.getElementById('order-phone').value;
             
             if (!email && !phone) {
-                alert('Please provide either an email address or phone number so we can contact you about your order.');
+                alert('Please provide either email or phone number.');
                 return false;
             }
             
-            const submitBtn = form.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Submitting Order...';
-            submitBtn.disabled = true;
+            const btn = e.target.querySelector('button[type="submit"]');
+            const originalText = btn.textContent;
+            btn.textContent = 'SUBMITTING...';
+            btn.disabled = true;
             
-            const formData = new FormData(form);
+            const formData = new FormData(e.target);
             
-            fetch(form.action, {
+            fetch(e.target.action, {
                 method: 'POST',
                 body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
+                headers: { 'Accept': 'application/json' }
             })
             .then(response => {
                 if (response.ok) {
-                    showOrderSuccess();
-                    form.reset();
-                    fixFormLabels();
+                    showSuccess();
+                    e.target.reset();
                 } else {
-                    showOrderError();
+                    alert('Error submitting order. Please call us.');
                 }
             })
-            .catch(error => {
-                console.error('Error:', error);
-                showOrderError();
-            })
+            .catch(() => alert('Error submitting order. Please call us.'))
             .finally(() => {
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
+                btn.textContent = originalText;
+                btn.disabled = false;
             });
             
             return false;
         }
 
         // Show success message
-        function showOrderSuccess() {
-            const successMessage = document.createElement('div');
-            successMessage.className = 'success-message';
-            successMessage.innerHTML = `
+        function showSuccess() {
+            const msg = document.createElement('div');
+            msg.className = 'success-message';
+            msg.innerHTML = `
                 <div class="success-content">
                     <i class="fas fa-check-circle"></i>
-                    <h3>Order Submitted Successfully!</h3>
-                    <p>Thank you for your order from our Summer Collection. We will contact you within 24 hours to confirm your order details and discuss delivery options.</p>
-                    <button onclick="this.parentElement.parentElement.remove()" class="btn">OK</button>
+                    <h3>ORDER SUBMITTED</h3>
+                    <p>Thank you for your order. We will contact you within 24 hours.</p>
+                    <button onclick="this.parentElement.parentElement.remove()" class="btn">CLOSE</button>
                 </div>
             `;
-            
-            document.body.appendChild(successMessage);
+            document.body.appendChild(msg);
         }
 
-        // Show error message
-        function showOrderError() {
-            alert('There was an error submitting your order. Please try again or contact us directly at +234 701 124 9065.');
-        }
-
-        // Smooth scrolling for anchor links
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
             });
         });
 
         // Event listeners
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', () => {
             displayCollection();
-            initializeFormFields();
             
             if (mobileMenuBtn) {
                 mobileMenuBtn.addEventListener('click', showMobileNav);
@@ -481,11 +1304,10 @@
             }
             
             if (orderForm) {
-                orderForm.addEventListener('submit', handleOrderForm);
+                orderForm.addEventListener('submit', handleFormSubmit);
             }
             
-            // Check if we came from a product click
-            prefillOrderForm();
+            prefillForm();
         });
     </script>
 </body>
