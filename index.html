@@ -297,6 +297,47 @@
             color: var(--vm-black);
         }
 
+        /* Currency Switcher - Floating Bottom Left */
+        .currency-switcher {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            z-index: 9999;
+            background: var(--vm-white);
+            border: 2px solid var(--vm-gold);
+            padding: 8px;
+            display: flex;
+            gap: 5px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .currency-btn {
+            padding: 10px 15px;
+            background: transparent;
+            border: 1px solid var(--vm-charcoal);
+            font-family: var(--vm-font-secondary);
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--vm-charcoal);
+            min-width: 60px;
+        }
+
+        .currency-btn:hover {
+            background: var(--vm-gold);
+            border-color: var(--vm-gold);
+            color: var(--vm-black);
+        }
+
+        .currency-btn.active {
+            background: var(--vm-gold);
+            border-color: var(--vm-gold);
+            color: var(--vm-black);
+            font-weight: 900;
+        }
+
         /* Category Section Styles */
         .category-section {
             padding: 80px 0;
@@ -846,6 +887,11 @@
             .card-image {
                 height: 350px;
             }
+
+            .currency-switcher {
+                bottom: 20px;
+                left: 20px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -868,6 +914,18 @@
             .category-section::before {
                 font-size: 60px;
                 right: 20px;
+            }
+            
+            .currency-switcher {
+                bottom: 15px;
+                left: 15px;
+                padding: 5px;
+            }
+            
+            .currency-btn {
+                padding: 8px 12px;
+                font-size: 12px;
+                min-width: 50px;
             }
         }
 
@@ -895,6 +953,14 @@
             .success-content {
                 padding: 40px 20px;
                 margin: 20px;
+            }
+            
+            .currency-switcher {
+                bottom: 10px;
+                left: 10px;
+                right: 10px;
+                width: auto;
+                justify-content: center;
             }
         }
     </style>
@@ -937,6 +1003,13 @@
             <li><a href="#order">ORDER</a></li>
             <li><a href="#contact">CONTACT</a></li>
         </ul>
+    </div>
+
+    <!-- Currency Switcher -->
+    <div class="currency-switcher">
+        <button class="currency-btn active" data-currency="USD">USD $</button>
+        <button class="currency-btn" data-currency="EUR">EUR €</button>
+        <button class="currency-btn" data-currency="NGN">NGN ₦</button>
     </div>
 
     <!-- Hero Section -->
@@ -1149,7 +1222,22 @@
             }
         ];
 
+        // Exchange rates (as of 2024 - approximate)
+        const exchangeRates = {
+            USD: 1,
+            EUR: 0.92, // 1 USD = 0.92 EUR
+            NGN: 1500   // 1 USD = 1500 NGN
+        };
+
+        // Currency symbols
+        const currencySymbols = {
+            USD: '$',
+            EUR: '€',
+            NGN: '₦'
+        };
+
         // Global variables
+        let currentCurrency = 'USD';
         const topsGrid = document.getElementById('tops-grid');
         const beadsGrid = document.getElementById('beads-grid');
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
@@ -1157,6 +1245,58 @@
         const mobileNavOverlay = document.getElementById('mobile-nav-overlay');
         const closeMobileNav = document.getElementById('close-mobile-nav');
         const orderForm = document.getElementById('orderForm');
+        const currencyBtns = document.querySelectorAll('.currency-btn');
+
+        // Currency conversion function
+        function convertPrice(priceUSD, targetCurrency) {
+            if (targetCurrency === 'USD') return priceUSD;
+            const rate = exchangeRates[targetCurrency];
+            return (priceUSD * rate).toFixed(2);
+        }
+
+        // Update all prices based on selected currency
+        function updatePrices(currency) {
+            const priceElements = document.querySelectorAll('.card-price');
+            
+            priceElements.forEach(element => {
+                const usdPrice = parseFloat(element.getAttribute('data-usd-price'));
+                if (usdPrice) {
+                    const convertedPrice = convertPrice(usdPrice, currency);
+                    element.innerHTML = `${currencySymbols[currency]}${convertedPrice}`;
+                }
+            });
+
+            // Also update any price in the order form if it's showing
+            const orderPriceDisplay = document.getElementById('order-price');
+            if (orderPriceDisplay && orderPriceDisplay.value) {
+                const priceMatch = orderPriceDisplay.value.match(/[\d.]+/);
+                if (priceMatch) {
+                    const usdPrice = parseFloat(priceMatch[0]);
+                    const convertedPrice = convertPrice(usdPrice, currency);
+                    orderPriceDisplay.value = `${currencySymbols[currency]}${convertedPrice}`;
+                }
+            }
+        }
+
+        // Handle currency change
+        function changeCurrency(currency) {
+            currentCurrency = currency;
+            
+            // Update active button
+            currencyBtns.forEach(btn => {
+                if (btn.getAttribute('data-currency') === currency) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+            
+            // Update all prices
+            updatePrices(currency);
+            
+            // Store preference in localStorage
+            localStorage.setItem('preferredCurrency', currency);
+        }
 
         // Display tops
         function displayTops() {
@@ -1187,6 +1327,8 @@
             const card = document.createElement('div');
             card.className = 'collection-card';
             
+            const convertedPrice = convertPrice(product.price, currentCurrency);
+            
             card.innerHTML = `
                 <div class="card-badge">LIMITED</div>
                 <div class="card-image">
@@ -1195,7 +1337,7 @@
                 <div class="card-info">
                     <h3 class="card-title">${product.name}</h3>
                     <p class="card-description">${product.description}</p>
-                    <div class="card-price">$${product.price}</div>
+                    <div class="card-price" data-usd-price="${product.price}">${currencySymbols[currentCurrency]}${convertedPrice}</div>
                     <button class="card-btn" data-name="${product.name}" data-price="${product.price}">ORDER NOW</button>
                 </div>
             `;
@@ -1230,7 +1372,9 @@
                 document.getElementById('selected-product').value = productName;
                 document.getElementById('selected-price').value = productPrice;
                 document.getElementById('order-product').value = productName;
-                document.getElementById('order-price').value = `$${productPrice}`;
+                
+                const convertedPrice = convertPrice(parseFloat(productPrice), currentCurrency);
+                document.getElementById('order-price').value = `${currencySymbols[currentCurrency]}${convertedPrice}`;
                 
                 // Clear sessionStorage
                 sessionStorage.removeItem('selectedProduct');
@@ -1338,8 +1482,26 @@
 
         // Event listeners
         document.addEventListener('DOMContentLoaded', () => {
+            // Load saved currency preference
+            const savedCurrency = localStorage.getItem('preferredCurrency');
+            if (savedCurrency && ['USD', 'EUR', 'NGN'].includes(savedCurrency)) {
+                currentCurrency = savedCurrency;
+            }
+            
             displayTops();
             displayWaistBeads();
+            
+            // Set active currency button
+            currencyBtns.forEach(btn => {
+                if (btn.getAttribute('data-currency') === currentCurrency) {
+                    btn.classList.add('active');
+                }
+                
+                btn.addEventListener('click', function() {
+                    const currency = this.getAttribute('data-currency');
+                    changeCurrency(currency);
+                });
+            });
             
             if (mobileMenuBtn) {
                 mobileMenuBtn.addEventListener('click', showMobileNav);
