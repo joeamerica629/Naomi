@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Victoria Martins Jewels - About Us</title>
+    <title>Victoria Martins Jewels - Summer Collection</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -14,12 +14,12 @@
             <div class="header-top">
                 <div class="logo">
                     <i class="fas fa-gem"></i>
-                    Victoria Martins Jewelries
+                    Victoria Martins Jewels
                 </div>
                 <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="shop.html">Shop</a></li>
-                    <li><a href="contact.html">Place Order</a></li>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="#summer-collection">Summer Collection</a></li>
+                    <li><a href="#order-form">Order</a></li>
                 </ul>
                 <div class="mobile-menu-btn" id="mobile-menu-btn">
                     <i class="fas fa-bars"></i>
@@ -39,8 +39,8 @@
         </div>
         <ul class="mobile-nav-links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="shop.html">Shop</a></li>
-            <li><a href="contact.html">Place Order</a></li>
+            <li><a href="#summer-collection">Summer Collection</a></li>
+            <li><a href="#order-form">Order</a></li>
         </ul>
     </div>
 
@@ -48,33 +48,105 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>Victoria Martins Jewels</h1>
-                <p>Crafting exquisite jewelry pieces since 2020. Our commitment to quality and craftsmanship ensures every piece tells a story.</p>
-                <a href="shop.html" class="btn">Shop Collection</a>
+                <h1>Summer Collection 2024</h1>
+                <p>Discover our exclusive collection of handcrafted beaded tops that celebrate the vibrant colors and effortless elegance of summer.</p>
+                <a href="#summer-collection" class="btn">View Collection</a>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="about">
+    <!-- Summer Collection Section -->
+    <section id="summer-collection" class="summer-collection">
         <div class="container">
-            <div class="about-content">
-                <h2>Our Story</h2>
-                <p>Since 2020, Victoria Martins Jewels has been crafting exquisite pieces that capture the essence of elegance and timeless beauty. Our master jewelers combine traditional techniques with contemporary designs to create jewelry that tells your unique story.</p>
-                <p>Each piece in our collection is meticulously crafted using only the finest materials, including ethically sourced diamonds and premium precious metals. We take pride in our attention to detail and commitment to quality.</p>
-                <p>Our philosophy is simple: create beautiful, high-quality jewelry that will be cherished for generations. We believe that jewelry is more than just an accessory - it's a reflection of personal style, a marker of special moments, and a legacy to be passed down.</p>
-                <div class="about-stats">
-                    <div class="stat">
-                        <h3>5+</h3>
-                        <p>Years of Excellence</p>
+            <h2 class="section-title">Summer Beaded Tops Collection</h2>
+            <p class="collection-description">Handcrafted with love, each piece is unique and perfect for those warm summer days.</p>
+            
+            <div class="collection-grid" id="collection-grid">
+                <!-- Products will be dynamically added here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Form Section -->
+    <section id="order-form" class="order-section">
+        <div class="container">
+            <div class="order-content">
+                <div class="contact-info">
+                    <h2>Place Your Order</h2>
+                    <p>Fill out the form below to order your favorite piece from our Summer Collection. We'll get back to you within 24 hours to confirm your order and discuss delivery options.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h3>Call Us</h3>
+                                <p>+234 701 124 9065</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h3>Email Us</h3>
+                                <p>info@vmjewels.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h3>Visit Our Store</h3>
+                                <p>123 Jewelry Street<br>Lagos, Nigeria</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h3>Store Hours</h3>
+                                <p>Monday - Saturday: 9AM - 6PM<br>Sunday: 12PM - 4PM</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="stat">
-                        <h3>200+</h3>
-                        <p>Happy Customers</p>
-                    </div>
-                    <div class="stat">
-                        <h3>100%</h3>
-                        <p>Quality Guarantee</p>
+                </div>
+                
+                <div class="order-form-container">
+                    <div class="order-form">
+                        <h2>Order Form</h2>
+                        <form id="orderForm" action="https://formspree.io/f/xnnylyqz" method="POST">
+                            <input type="hidden" name="_subject" value="New Order - Summer Collection">
+                            <input type="hidden" name="_replyto" id="reply-to-email">
+                            <input type="hidden" name="_gotcha" style="display:none">
+                            
+                            <input type="hidden" id="selected-product" name="product" value="">
+                            <input type="hidden" id="selected-price" name="price" value="">
+                            
+                            <div class="form-group">
+                                <input type="text" id="order-product" name="order-product-display" readonly>
+                                <label for="order-product" class="active">Selected Product</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="order-price" name="order-price-display" readonly>
+                                <label for="order-price" class="active">Price</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="order-name" name="name" required>
+                                <label for="order-name">Your Full Name *</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="order-email" name="email" onchange="document.getElementById('reply-to-email').value = this.value">
+                                <label for="order-email">Your Email</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" id="order-phone" name="phone">
+                                <label for="order-phone">Your Phone Number</label>
+                            </div>
+                            <div class="form-group">
+                                <textarea id="order-message" name="message" rows="4" placeholder="Any special requests, size preferences, or notes..."></textarea>
+                                <label for="order-message">Additional Message</label>
+                            </div>
+                            <div class="form-note">
+                                <p><i class="fas fa-info-circle"></i> Please provide either email or phone number so we can contact you about your order.</p>
+                            </div>
+                            <button type="submit" class="btn">Submit Order</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -87,7 +159,7 @@
             <div class="footer-content">
                 <div class="footer-column">
                     <h3>Victoria Martins Jewels</h3>
-                    <p>Creating exquisite jewelry pieces since 2020. Our commitment to quality and craftsmanship ensures every piece tells a story.</p>
+                    <p>Creating exquisite jewelry pieces since 1995. Our commitment to quality and craftsmanship ensures every piece tells a story.</p>
                     <div class="social-icons">
                         <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
@@ -99,8 +171,8 @@
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="shop.html">Shop</a></li>
-                        <li><a href="contact.html">Place Order</a></li>
+                        <li><a href="#summer-collection">Summer Collection</a></li>
+                        <li><a href="#order-form">Order</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -113,11 +185,308 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2025 Victoria Martins Jewels. All rights reserved.</p>
+                <p>&copy; 2024 Victoria Martins Jewels. Summer Collection. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // Summer Collection Products - Beaded Tops
+        const products = [
+            {
+                id: 1,
+                name: "Coral Reef Beaded Top",
+                price: 89.99,
+                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%23ffe4e1'/%3E%3Ccircle cx='200' cy='200' r='120' fill='%23ff7f50'/%3E%3Ccircle cx='150' cy='150' r='15' fill='%23ffd700'/%3E%3Ccircle cx='250' cy='180' r='12' fill='%23ffd700'/%3E%3Ccircle cx='180' cy='250' r='18' fill='%23ffd700'/%3E%3Ccircle cx='220' cy='130' r='10' fill='%23ffd700'/%3E%3Ccircle cx='280' cy='230' r='14' fill='%23ffd700'/%3E%3Ctext x='200' y='350' text-anchor='middle' font-family='Arial' font-size='16' fill='%23777'%3ECoral Reef Beaded Top%3C/text%3E%3C/svg%3E",
+                category: "beaded-tops",
+                description: "Vibrant coral-inspired beaded top with gold accents. Perfect for beach parties and summer festivals."
+            },
+            {
+                id: 2,
+                name: "Ocean Wave Beaded Top",
+                price: 94.99,
+                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%23e0f2fe'/%3E%3Cpath d='M100 200 Q200 150 300 200 Q200 250 100 200' fill='%234a90e2'/%3E%3Ccircle cx='180' cy='170' r='10' fill='%23ffffff'/%3E%3Ccircle cx='220' cy='230' r='10' fill='%23ffffff'/%3E%3Ccircle cx='260' cy='190' r='8' fill='%23ffffff'/%3E%3Ctext x='200' y='350' text-anchor='middle' font-family='Arial' font-size='16' fill='%23777'%3EOcean Wave Beaded Top%3C/text%3E%3C/svg%3E",
+                category: "beaded-tops",
+                description: "Ocean blue wave pattern with pearl white beads. A stunning piece that captures the essence of the sea."
+            },
+            {
+                id: 3,
+                name: "Sunset Gradient Beaded Top",
+                price: 99.99,
+                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%23ffb347'/%3E%3Ccircle cx='200' cy='200' r='100' fill='%23ff8c00'/%3E%3Ccircle cx='200' cy='200' r='60' fill='%23ff6b6b'/%3E%3Ccircle cx='150' cy='150' r='15' fill='%23ffd700'/%3E%3Ccircle cx='250' cy='250' r='15' fill='%23ffd700'/%3E%3Ccircle cx='150' cy='250' r='12' fill='%23ffd700'/%3E%3Ccircle cx='250' cy='150' r='12' fill='%23ffd700'/%3E%3Ctext x='200' y='350' text-anchor='middle' font-family='Arial' font-size='16' fill='%23777'%3ESunset Gradient Beaded Top%3C/text%3E%3C/svg%3E",
+                category: "beaded-tops",
+                description: "Gorgeous sunset gradient with gold and orange beads. A statement piece for warm summer evenings."
+            },
+            {
+                id: 4,
+                name: "Tropical Paradise Beaded Top",
+                price: 109.99,
+                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%23e6f3e6'/%3E%3Cpath d='M200 100 L250 150 L200 200 L150 150 Z' fill='%2332cd32'/%3E%3Ccircle cx='200' cy='200' r='50' fill='%23ff69b4'/%3E%3Ccircle cx='120' cy='180' r='12' fill='%23ffff00'/%3E%3Ccircle cx='280' cy='220' r='15' fill='%23ffff00'/%3E%3Ccircle cx='180' cy='280' r='10' fill='%23ffff00'/%3E%3Ccircle cx='220' cy='120' r='10' fill='%23ffff00'/%3E%3Ctext x='200' y='350' text-anchor='middle' font-family='Arial' font-size='16' fill='%23777'%3ETropical Paradise Beaded Top%3C/text%3E%3C/svg%3E",
+                category: "beaded-tops",
+                description: "Tropical-inspired design with green leaves and pink flowers. Bring the paradise vibes wherever you go."
+            },
+            {
+                id: 5,
+                name: "Golden Hour Beaded Top",
+                price: 119.99,
+                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%23fff5e6'/%3E%3Ccircle cx='200' cy='200' r='130' fill='%23ffd700' opacity='0.7'/%3E%3Ccircle cx='150' cy='150' r='15' fill='%23ffffff'/%3E%3Ccircle cx='250' cy='250' r='15' fill='%23ffffff'/%3E%3Ccircle cx='150' cy='250' r='12' fill='%23ffffff'/%3E%3Ccircle cx='250' cy='150' r='12' fill='%23ffffff'/%3E%3Ctext x='200' y='350' text-anchor='middle' font-family='Arial' font-size='16' fill='%23777'%3EGolden Hour Beaded Top%3C/text%3E%3C/svg%3E",
+                category: "beaded-tops",
+                description: "Elegant gold-toned beaded top that catches the light beautifully. Perfect for sunset photos and special occasions."
+            },
+            {
+                id: 6,
+                name: "Berry Blast Beaded Top",
+                price: 84.99,
+                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%23fff0f5'/%3E%3Ccircle cx='200' cy='200' r='100' fill='%239c27b0'/%3E%3Ccircle cx='150' cy='150' r='18' fill='%23e91e63'/%3E%3Ccircle cx='250' cy='180' r='15' fill='%23e91e63'/%3E%3Ccircle cx='180' cy='250' r='20' fill='%23e91e63'/%3E%3Ccircle cx='260' cy='230' r='12' fill='%23e91e63'/%3E%3Ctext x='200' y='350' text-anchor='middle' font-family='Arial' font-size='16' fill='%23777'%3EBerry Blast Beaded Top%3C/text%3E%3C/svg%3E",
+                category: "beaded-tops",
+                description: "Rich berry-colored beads in a stunning pattern. A bold and beautiful choice for summer parties."
+            }
+        ];
+
+        // Global variables
+        const collectionGrid = document.getElementById('collection-grid');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileNav = document.getElementById('mobile-nav');
+        const mobileNavOverlay = document.getElementById('mobile-nav-overlay');
+        const closeMobileNav = document.getElementById('close-mobile-nav');
+        const orderForm = document.getElementById('orderForm');
+
+        // Display collection products
+        function displayCollection() {
+            if (!collectionGrid) return;
+            
+            collectionGrid.innerHTML = '';
+            
+            products.forEach((product, index) => {
+                const productCard = document.createElement('div');
+                productCard.className = 'collection-card';
+                
+                productCard.innerHTML = `
+                    <div class="collection-card-inner">
+                        <img src="${product.image}" alt="${product.name}" class="collection-img">
+                        <div class="collection-info">
+                            <h3 class="collection-title">${product.name}</h3>
+                            <p class="collection-description">${product.description}</p>
+                            <p class="collection-price">$${product.price.toFixed(2)}</p>
+                            <button class="order-btn" data-id="${product.id}" data-name="${product.name}" data-price="${product.price}">Order This Top</button>
+                        </div>
+                    </div>
+                `;
+                collectionGrid.appendChild(productCard);
+            });
+
+            // Add event listeners to Order buttons
+            document.querySelectorAll('.order-btn').forEach(button => {
+                button.addEventListener('click', handleOrder);
+            });
+        }
+
+        // Handle order button click
+        function handleOrder(e) {
+            const productName = e.target.getAttribute('data-name');
+            const productPrice = e.target.getAttribute('data-price');
+            
+            // Store product info in sessionStorage
+            sessionStorage.setItem('selectedProduct', productName);
+            sessionStorage.setItem('selectedPrice', productPrice);
+            
+            // Scroll to order form
+            document.getElementById('order-form').scrollIntoView({ behavior: 'smooth' });
+            
+            // Prefill the form
+            setTimeout(prefillOrderForm, 500);
+        }
+
+        // Prefill order form
+        function prefillOrderForm() {
+            const productName = sessionStorage.getItem('selectedProduct');
+            const productPrice = sessionStorage.getItem('selectedPrice');
+            
+            if (productName && productPrice) {
+                document.getElementById('selected-product').value = productName;
+                document.getElementById('selected-price').value = productPrice;
+                document.getElementById('order-product').value = productName;
+                document.getElementById('order-price').value = `$${parseFloat(productPrice).toFixed(2)}`;
+                
+                // Clear sessionStorage
+                sessionStorage.removeItem('selectedProduct');
+                sessionStorage.removeItem('selectedPrice');
+                
+                // Fix labels
+                fixFormLabels();
+            }
+        }
+
+        // Enhanced form label handling
+        function fixFormLabels() {
+            const formGroups = document.querySelectorAll('.form-group');
+            
+            formGroups.forEach(group => {
+                const input = group.querySelector('input, textarea');
+                const label = group.querySelector('label');
+                
+                if (input && label) {
+                    if (input.value.trim() !== '') {
+                        label.classList.add('active');
+                    } else {
+                        label.classList.remove('active');
+                    }
+                }
+            });
+        }
+
+        // Initialize form field interactions
+        function initializeFormFields() {
+            const formGroups = document.querySelectorAll('.form-group');
+            
+            formGroups.forEach(group => {
+                const input = group.querySelector('input, textarea');
+                const label = group.querySelector('label');
+                
+                if (input && label) {
+                    input.addEventListener('input', function() {
+                        if (this.value) {
+                            label.classList.add('active');
+                        } else {
+                            label.classList.remove('active');
+                        }
+                    });
+                    
+                    input.addEventListener('focus', function() {
+                        label.classList.add('active');
+                    });
+                    
+                    input.addEventListener('blur', function() {
+                        if (!this.value) {
+                            label.classList.remove('active');
+                        }
+                    });
+                }
+            });
+        }
+
+        // Show mobile navigation
+        function showMobileNav() {
+            if (mobileNav) {
+                mobileNav.classList.add('active');
+                mobileNavOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        // Hide mobile navigation
+        function hideMobileNav() {
+            if (mobileNav) {
+                mobileNav.classList.remove('active');
+                mobileNavOverlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Handle order form submission
+        function handleOrderForm(e) {
+            e.preventDefault();
+            
+            const form = e.target;
+            const email = form.querySelector('#order-email').value;
+            const phone = form.querySelector('#order-phone').value;
+            
+            if (!email && !phone) {
+                alert('Please provide either an email address or phone number so we can contact you about your order.');
+                return false;
+            }
+            
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Submitting Order...';
+            submitBtn.disabled = true;
+            
+            const formData = new FormData(form);
+            
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    showOrderSuccess();
+                    form.reset();
+                    fixFormLabels();
+                } else {
+                    showOrderError();
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showOrderError();
+            })
+            .finally(() => {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            });
+            
+            return false;
+        }
+
+        // Show success message
+        function showOrderSuccess() {
+            const successMessage = document.createElement('div');
+            successMessage.className = 'success-message';
+            successMessage.innerHTML = `
+                <div class="success-content">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Order Submitted Successfully!</h3>
+                    <p>Thank you for your order from our Summer Collection. We will contact you within 24 hours to confirm your order details and discuss delivery options.</p>
+                    <button onclick="this.parentElement.parentElement.remove()" class="btn">OK</button>
+                </div>
+            `;
+            
+            document.body.appendChild(successMessage);
+        }
+
+        // Show error message
+        function showOrderError() {
+            alert('There was an error submitting your order. Please try again or contact us directly at +234 701 124 9065.');
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            displayCollection();
+            initializeFormFields();
+            
+            if (mobileMenuBtn) {
+                mobileMenuBtn.addEventListener('click', showMobileNav);
+            }
+            
+            if (closeMobileNav) {
+                closeMobileNav.addEventListener('click', hideMobileNav);
+            }
+            
+            if (mobileNavOverlay) {
+                mobileNavOverlay.addEventListener('click', hideMobileNav);
+            }
+            
+            if (orderForm) {
+                orderForm.addEventListener('submit', handleOrderForm);
+            }
+            
+            // Check if we came from a product click
+            prefillOrderForm();
+        });
+    </script>
 </body>
 </html>
