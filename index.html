@@ -910,7 +910,7 @@
                 <ul class="nav-links">
                     <li><a href="index.html" class="active">HOME</a></li>
                     <li><a href="#beaded-tops">BEADED TOPS</a></li>
-                    <li><a href="#waist-bands">WAIST BANDS</a></li>
+                    <li><a href="#waist-beads">WAIST BEADS</a></li>
                     <li><a href="#order">ORDER</a></li>
                     <li><a href="#contact">CONTACT</a></li>
                 </ul>
@@ -933,7 +933,7 @@
         <ul class="mobile-nav-links">
             <li><a href="index.html">HOME</a></li>
             <li><a href="#beaded-tops">BEADED TOPS</a></li>
-            <li><a href="#waist-bands">WAIST BANDS</a></li>
+            <li><a href="#waist-beads">WAIST BEADS</a></li>
             <li><a href="#order">ORDER</a></li>
             <li><a href="#contact">CONTACT</a></li>
         </ul>
@@ -967,16 +967,16 @@
         </div>
     </section>
 
-    <!-- Waist Bands Section -->
-    <section id="waist-bands" class="category-section" data-category="WAIST BANDS">
+    <!-- Waist Beads Section -->
+    <section id="waist-beads" class="category-section" data-category="WAIST BEADS">
         <div class="container">
             <div class="category-header">
-                <h2 class="category-title">WAIST BANDS</h2>
-                <p class="category-subtitle">Intricately beaded waist bands that add drama and elegance to any outfit. Wear them as belts or traditional waist beads.</p>
+                <h2 class="category-title">WAIST BEADS</h2>
+                <p class="category-subtitle">Intricately beaded waist beads that add drama and elegance to any outfit. Wear them as belts or traditional waist beads.</p>
             </div>
             
-            <div class="collection-grid" id="bands-grid">
-                <!-- Waist bands will be dynamically added here -->
+            <div class="collection-grid" id="beads-grid">
+                <!-- Waist beads will be dynamically added here -->
             </div>
         </div>
     </section>
@@ -1078,7 +1078,7 @@
                     <ul class="footer-links">
                         <li><a href="index.html">HOME</a></li>
                         <li><a href="#beaded-tops">BEADED TOPS</a></li>
-                        <li><a href="#waist-bands">WAIST BANDS</a></li>
+                        <li><a href="#waist-beads">WAIST BEADS</a></li>
                         <li><a href="#order">ORDER</a></li>
                         <li><a href="#contact">CONTACT</a></li>
                     </ul>
@@ -1124,21 +1124,21 @@
             }
         ];
 
-        // Products - Waist Bands
-        const waistBands = [
+        // Products - Waist Beads
+        const waistBeads = [
             {
                 id: 4,
                 name: "SCARLET FURY",
                 price: 79.99,
                 image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='800' viewBox='0 0 600 800'%3E%3Crect width='600' height='800' fill='%23000000'/%3E%3Cpath d='M150 400 L450 400' stroke='%238b0000' stroke-width='30'/%3E%3Ccircle cx='200' cy='400' r='20' fill='%23d4af37'/%3E%3Ccircle cx='300' cy='400' r='20' fill='%23d4af37'/%3E%3Ccircle cx='400' cy='400' r='20' fill='%23d4af37'/%3E%3Ctext x='300' y='650' text-anchor='middle' font-family='Playfair Display' font-size='24' fill='%23ffffff' font-weight='bold'%3ESCARLET FURY%3C/text%3E%3C/svg%3E",
-                description: "Fiery red beaded waist band with gold accents. Passion meets fashion."
+                description: "Fiery red beaded waist beads with gold accents. Passion meets fashion."
             },
             {
                 id: 5,
                 name: "GOLDEN SERPENT",
                 price: 89.99,
                 image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='800' viewBox='0 0 600 800'%3E%3Crect width='600' height='800' fill='%23000000'/%3E%3Cpath d='M150 400 Q300 350 450 400 Q300 450 150 400' fill='%23d4af37' opacity='0.3'/%3E%3Ccircle cx='200' cy='400' r='15' fill='%23ffd700'/%3E%3Ccircle cx='300' cy='400' r='18' fill='%23ffd700'/%3E%3Ccircle cx='400' cy='400' r='15' fill='%23ffd700'/%3E%3Ctext x='300' y='650' text-anchor='middle' font-family='Playfair Display' font-size='24' fill='%23ffffff' font-weight='bold'%3EGOLDEN SERPENT%3C/text%3E%3C/svg%3E",
-                description: "Intricate gold beaded waist band that wraps like a serpent. Adds drama to any outfit."
+                description: "Intricate gold beaded waist beads that wrap like a serpent. Adds drama to any outfit."
             },
             {
                 id: 6,
@@ -1151,7 +1151,7 @@
 
         // Global variables
         const topsGrid = document.getElementById('tops-grid');
-        const bandsGrid = document.getElementById('bands-grid');
+        const beadsGrid = document.getElementById('beads-grid');
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileNav = document.getElementById('mobile-nav');
         const mobileNavOverlay = document.getElementById('mobile-nav-overlay');
@@ -1170,15 +1170,15 @@
             });
         }
 
-        // Display waist bands
-        function displayWaistBands() {
-            if (!bandsGrid) return;
+        // Display waist beads
+        function displayWaistBeads() {
+            if (!beadsGrid) return;
             
-            bandsGrid.innerHTML = '';
+            beadsGrid.innerHTML = '';
             
-            waistBands.forEach(product => {
+            waistBeads.forEach(product => {
                 const card = createProductCard(product);
-                bandsGrid.appendChild(card);
+                beadsGrid.appendChild(card);
             });
         }
 
@@ -1339,7 +1339,7 @@
         // Event listeners
         document.addEventListener('DOMContentLoaded', () => {
             displayTops();
-            displayWaistBands();
+            displayWaistBeads();
             
             if (mobileMenuBtn) {
                 mobileMenuBtn.addEventListener('click', showMobileNav);
