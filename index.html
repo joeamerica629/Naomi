@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Victoria Martins | Summer Collection 2026</title>
+    <title>Victoria Martins | Summer Collection 2024</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
@@ -26,6 +26,7 @@
             --vm-gray: #333333;
             --vm-light-gray: #f8f8f8;
             --vm-red: #8b0000;
+            --vm-pink: #ff69b4;
             --vm-font-primary: 'Playfair Display', serif;
             --vm-font-secondary: 'Roboto Condensed', sans-serif;
         }
@@ -1007,9 +1008,9 @@
 
     <!-- Currency Switcher -->
     <div class="currency-switcher">
-        <button class="currency-btn active" data-currency="USD">USD $</button>
+        <button class="currency-btn active" data-currency="NGN">NGN ₦</button>
+        <button class="currency-btn" data-currency="USD">USD $</button>
         <button class="currency-btn" data-currency="EUR">EUR €</button>
-        <button class="currency-btn" data-currency="NGN">NGN ₦</button>
     </div>
 
     <!-- Hero Section -->
@@ -1018,7 +1019,7 @@
             <div class="hero-content">
                 <h1>
                     SUMMER<br>
-                    <span>COLLECTION 2026</span>
+                    <span>COLLECTION 2024</span>
                 </h1>
                 <p></p>
                 <a href="#beaded-tops" class="btn">DISCOVER THE COLLECTION</a>
@@ -1166,7 +1167,7 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>© 2026 VICTORIA MARTINS. ALL RIGHTS RESERVED.</p>
+                <p>© 2024 VICTORIA MARTINS. ALL RIGHTS RESERVED.</p>
             </div>
         </div>
     </footer>
@@ -1176,23 +1177,23 @@
         const tops = [
             {
                 id: 1,
-                name: "REBEL CORAL",
-                price: 189.99,
-                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='800' viewBox='0 0 600 800'%3E%3Crect width='600' height='800' fill='%23000000'/%3E%3Ccircle cx='300' cy='350' r='200' fill='%23d4af37' opacity='0.1'/%3E%3Cpath d='M250 300 L350 300 L300 500 Z' fill='%23d4af37'/%3E%3Ccircle cx='250' cy='280' r='20' fill='%23ff6b6b'/%3E%3Ccircle cx='350' cy='280' r='20' fill='%23ff6b6b'/%3E%3Ccircle cx='300' cy='400' r='15' fill='%23ffd700'/%3E%3Ctext x='300' y='650' text-anchor='middle' font-family='Playfair Display' font-size='24' fill='%23ffffff' font-weight='bold'%3EREBEL CORAL%3C/text%3E%3C/svg%3E",
-                description: "Bold coral beaded top with gold accents. A statement piece for those who dare."
+                name: "PINK MIRAGE",
+                price: 30000, // 30,000 NGN
+                image: "images/pink-mirage-top.jpg",
+                description: "Dreamy pink beaded top with shimmering accents. A ethereal piece that catches the light and turns heads."
             },
             {
                 id: 2,
                 name: "MIDNIGHT WAVE",
-                price: 199.99,
-                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='800' viewBox='0 0 600 800'%3E%3Crect width='600' height='800' fill='%23000000'/%3E%3Cpath d='M200 300 Q300 200 400 300 Q300 400 200 300' fill='%23000080' opacity='0.3'/%3E%3Ccircle cx='300' cy='350' r='150' fill='%23d4af37' opacity='0.1'/%3E%3Ccircle cx='250' cy='320' r='15' fill='%23ffffff'/%3E%3Ccircle cx='350' cy='320' r='15' fill='%23ffffff'/%3E%3Ctext x='300' y='650' text-anchor='middle' font-family='Playfair Display' font-size='24' fill='%23ffffff' font-weight='bold'%3EMIDNIGHT WAVE%3C/text%3E%3C/svg%3E",
+                price: 30000, // 30,000 NGN
+                image: "images/midnight-wave-top.jpg",
                 description: "Deep navy wave pattern with pearl beads. Elegance meets edge."
             },
             {
                 id: 3,
                 name: "GOLDEN HOUR",
-                price: 229.99,
-                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='800' viewBox='0 0 600 800'%3E%3Crect width='600' height='800' fill='%23000000'/%3E%3Ccircle cx='300' cy='400' r='200' fill='%23d4af37' opacity='0.2'/%3E%3Ccircle cx='250' cy='350' r='30' fill='%23ffd700'/%3E%3Ccircle cx='350' cy='350' r='30' fill='%23ffd700'/%3E%3Ccircle cx='300' cy='450' r='25' fill='%23ffd700'/%3E%3Ctext x='300' y='650' text-anchor='middle' font-family='Playfair Display' font-size='24' fill='%23ffffff' font-weight='bold'%3EGOLDEN HOUR%3C/text%3E%3C/svg%3E",
+                price: 30000, // 30,000 NGN
+                image: "images/golden-hour-top.jpg",
                 description: "Gold beaded masterpiece that captures the last light of day."
             }
         ];
@@ -1202,42 +1203,42 @@
             {
                 id: 4,
                 name: "SCARLET FURY",
-                price: 79.99,
-                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='800' viewBox='0 0 600 800'%3E%3Crect width='600' height='800' fill='%23000000'/%3E%3Cpath d='M150 400 L450 400' stroke='%238b0000' stroke-width='30'/%3E%3Ccircle cx='200' cy='400' r='20' fill='%23d4af37'/%3E%3Ccircle cx='300' cy='400' r='20' fill='%23d4af37'/%3E%3Ccircle cx='400' cy='400' r='20' fill='%23d4af37'/%3E%3Ctext x='300' y='650' text-anchor='middle' font-family='Playfair Display' font-size='24' fill='%23ffffff' font-weight='bold'%3ESCARLET FURY%3C/text%3E%3C/svg%3E",
+                price: 15000, // 15,000 NGN
+                image: "images/scarlet-fury-beads.jpg",
                 description: "Fiery red beaded waist beads with gold accents. Passion meets fashion."
             },
             {
                 id: 5,
                 name: "GOLDEN SERPENT",
-                price: 89.99,
-                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='800' viewBox='0 0 600 800'%3E%3Crect width='600' height='800' fill='%23000000'/%3E%3Cpath d='M150 400 Q300 350 450 400 Q300 450 150 400' fill='%23d4af37' opacity='0.3'/%3E%3Ccircle cx='200' cy='400' r='15' fill='%23ffd700'/%3E%3Ccircle cx='300' cy='400' r='18' fill='%23ffd700'/%3E%3Ccircle cx='400' cy='400' r='15' fill='%23ffd700'/%3E%3Ctext x='300' y='650' text-anchor='middle' font-family='Playfair Display' font-size='24' fill='%23ffffff' font-weight='bold'%3EGOLDEN SERPENT%3C/text%3E%3C/svg%3E",
+                price: 18000, // 18,000 NGN
+                image: "images/golden-serpent-beads.jpg",
                 description: "Intricate gold beaded waist beads that wrap like a serpent. Adds drama to any outfit."
             },
             {
                 id: 6,
                 name: "IVORY DREAM",
-                price: 69.99,
-                image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='800' viewBox='0 0 600 800'%3E%3Crect width='600' height='800' fill='%23000000'/%3E%3Cpath d='M150 400 L450 400' stroke='%23ffffff' stroke-width='25'/%3E%3Ccircle cx='220' cy='400' r='18' fill='%23d4af37'/%3E%3Ccircle cx='380' cy='400' r='18' fill='%23d4af37'/%3E%3Ctext x='300' y='650' text-anchor='middle' font-family='Playfair Display' font-size='24' fill='%23ffffff' font-weight='bold'%3EIVORY DREAM%3C/text%3E%3C/svg%3E",
+                price: 12000, // 12,000 NGN
+                image: "images/ivory-dream-beads.jpg",
                 description: "Cream and gold beadwork. Classic sophistication with an edge."
             }
         ];
 
-        // Exchange rates (as of 202 - approximate)
+        // Exchange rates (2026 projected estimates based on current trends)
         const exchangeRates = {
-            USD: 1,
-            EUR: 0.92, // 1 USD = 0.92 EUR
-            NGN: 1500   // 1 USD = 1500 NGN
+            NGN: 1,
+            USD: 0.00067, // 1 NGN = 0.00067 USD (approx 1500 NGN = 1 USD)
+            EUR: 0.00062   // 1 NGN = 0.00062 EUR
         };
 
         // Currency symbols
         const currencySymbols = {
+            NGN: '₦',
             USD: '$',
-            EUR: '€',
-            NGN: '₦'
+            EUR: '€'
         };
 
         // Global variables
-        let currentCurrency = 'USD';
+        let currentCurrency = 'NGN';
         const topsGrid = document.getElementById('tops-grid');
         const beadsGrid = document.getElementById('beads-grid');
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
@@ -1247,11 +1248,19 @@
         const orderForm = document.getElementById('orderForm');
         const currencyBtns = document.querySelectorAll('.currency-btn');
 
-        // Currency conversion function
-        function convertPrice(priceUSD, targetCurrency) {
-            if (targetCurrency === 'USD') return priceUSD;
+        // Currency conversion function (from NGN base)
+        function convertPrice(priceNGN, targetCurrency) {
+            if (targetCurrency === 'NGN') return priceNGN;
             const rate = exchangeRates[targetCurrency];
-            return (priceUSD * rate).toFixed(2);
+            return (priceNGN * rate).toFixed(2);
+        }
+
+        // Format price with commas for thousands
+        function formatPrice(price, currency) {
+            if (currency === 'NGN') {
+                return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            }
+            return price;
         }
 
         // Update all prices based on selected currency
@@ -1259,21 +1268,23 @@
             const priceElements = document.querySelectorAll('.card-price');
             
             priceElements.forEach(element => {
-                const usdPrice = parseFloat(element.getAttribute('data-usd-price'));
-                if (usdPrice) {
-                    const convertedPrice = convertPrice(usdPrice, currency);
-                    element.innerHTML = `${currencySymbols[currency]}${convertedPrice}`;
+                const ngnPrice = parseFloat(element.getAttribute('data-ngn-price'));
+                if (ngnPrice) {
+                    const convertedPrice = convertPrice(ngnPrice, currency);
+                    const formattedPrice = formatPrice(convertedPrice, currency);
+                    element.innerHTML = `${currencySymbols[currency]}${formattedPrice}`;
                 }
             });
 
             // Also update any price in the order form if it's showing
             const orderPriceDisplay = document.getElementById('order-price');
             if (orderPriceDisplay && orderPriceDisplay.value) {
-                const priceMatch = orderPriceDisplay.value.match(/[\d.]+/);
+                const priceMatch = orderPriceDisplay.value.match(/[\d,]+/);
                 if (priceMatch) {
-                    const usdPrice = parseFloat(priceMatch[0]);
-                    const convertedPrice = convertPrice(usdPrice, currency);
-                    orderPriceDisplay.value = `${currencySymbols[currency]}${convertedPrice}`;
+                    const ngnPrice = parseFloat(priceMatch[0].replace(/,/g, ''));
+                    const convertedPrice = convertPrice(ngnPrice, currency);
+                    const formattedPrice = formatPrice(convertedPrice, currency);
+                    orderPriceDisplay.value = `${currencySymbols[currency]}${formattedPrice}`;
                 }
             }
         }
@@ -1328,6 +1339,7 @@
             card.className = 'collection-card';
             
             const convertedPrice = convertPrice(product.price, currentCurrency);
+            const formattedPrice = formatPrice(convertedPrice, currentCurrency);
             
             card.innerHTML = `
                 <div class="card-badge">LIMITED</div>
@@ -1337,7 +1349,7 @@
                 <div class="card-info">
                     <h3 class="card-title">${product.name}</h3>
                     <p class="card-description">${product.description}</p>
-                    <div class="card-price" data-usd-price="${product.price}">${currencySymbols[currentCurrency]}${convertedPrice}</div>
+                    <div class="card-price" data-ngn-price="${product.price}">${currencySymbols[currentCurrency]}${formattedPrice}</div>
                     <button class="card-btn" data-name="${product.name}" data-price="${product.price}">ORDER NOW</button>
                 </div>
             `;
@@ -1374,7 +1386,8 @@
                 document.getElementById('order-product').value = productName;
                 
                 const convertedPrice = convertPrice(parseFloat(productPrice), currentCurrency);
-                document.getElementById('order-price').value = `${currencySymbols[currentCurrency]}${convertedPrice}`;
+                const formattedPrice = formatPrice(convertedPrice, currentCurrency);
+                document.getElementById('order-price').value = `${currencySymbols[currentCurrency]}${formattedPrice}`;
                 
                 // Clear sessionStorage
                 sessionStorage.removeItem('selectedProduct');
@@ -1482,9 +1495,9 @@
 
         // Event listeners
         document.addEventListener('DOMContentLoaded', () => {
-            // Load saved currency preference
+            // Load saved currency preference, default to NGN
             const savedCurrency = localStorage.getItem('preferredCurrency');
-            if (savedCurrency && ['USD', 'EUR', 'NGN'].includes(savedCurrency)) {
+            if (savedCurrency && ['NGN', 'USD', 'EUR'].includes(savedCurrency)) {
                 currentCurrency = savedCurrency;
             }
             
